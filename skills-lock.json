@@ -1,0 +1,257 @@
+{
+  "version": 1,
+  "skills": {
+    "geo": {
+      "source": "zubair-trabzada/geo-seo-claude",
+      "sourceType": "github",
+      "skillPath": "geo/SKILL.md",
+      "computedHash": "bdbb6ae071f24e6880dd5642df35f2b94e53678755c86138577181147a85698d"
+    },
+    "geo-audit": {
+      "source": "zubair-trabzada/geo-seo-claude",
+      "sourceType": "github",
+      "skillPath": "skills/geo-audit/SKILL.md",
+      "computedHash": "0a9c2cd9b39514a0e9993a01c2b403bb1f567bdd5ed7f01d370c68b0d38c5491"
+    },
+    "geo-brand-mentions": {
+      "source": "zubair-trabzada/geo-seo-claude",
+      "sourceType": "github",
+      "skillPath": "skills/geo-brand-mentions/SKILL.md",
+      "computedHash": "76dc1b3f5261ed08dc699b83e3a897096964cdfc447146cc76873adf3916ce5c"
+    },
+    "geo-citability": {
+      "source": "zubair-trabzada/geo-seo-claude",
+      "sourceType": "github",
+      "skillPath": "skills/geo-citability/SKILL.md",
+      "computedHash": "bf9a8b1fc92909a2525ee5d4322c05f9f8a3ccf0ca04a0f37dc8e95faecef2c6"
+    },
+    "geo-compare": {
+      "source": "zubair-trabzada/geo-seo-claude",
+      "sourceType": "github",
+      "skillPath": "skills/geo-compare/SKILL.md",
+      "computedHash": "49cb5d24cb5230140a63da265513822f4425347e1e451d5e9d99e882d78fceaa"
+    },
+    "geo-content": {
+      "source": "zubair-trabzada/geo-seo-claude",
+      "sourceType": "github",
+      "skillPath": "skills/geo-content/SKILL.md",
+      "computedHash": "279fbf313b8f180e4bd2163d2bf7215235f7fae1012af3c04931e98c35d18e59"
+    },
+    "geo-crawlers": {
+      "source": "zubair-trabzada/geo-seo-claude",
+      "sourceType": "github",
+      "skillPath": "skills/geo-crawlers/SKILL.md",
+      "computedHash": "ca4eb8a511128636a7755fd41cfcbaa10220525d43710227558023c3f9fa2976"
+    },
+    "geo-llmstxt": {
+      "source": "zubair-trabzada/geo-seo-claude",
+      "sourceType": "github",
+      "skillPath": "skills/geo-llmstxt/SKILL.md",
+      "computedHash": "a8c7c70f5eaf791278f4ec5568ccd79cd1f9cb3b7c28b329ef482e06122d4565"
+    },
+    "geo-platform-optimizer": {
+      "source": "zubair-trabzada/geo-seo-claude",
+      "sourceType": "github",
+      "skillPath": "skills/geo-platform-optimizer/SKILL.md",
+      "computedHash": "4f76f38359ea2d7014216fda309beb237d331ee454ade912d507532cfe10c959"
+    },
+    "geo-proposal": {
+      "source": "zubair-trabzada/geo-seo-claude",
+      "sourceType": "github",
+      "skillPath": "skills/geo-proposal/SKILL.md",
+      "computedHash": "7bea4320c86c251f58aba6514db1bd54104985a760104f7f9541d1bcae65d833"
+    },
+    "geo-prospect": {
+      "source": "zubair-trabzada/geo-seo-claude",
+      "sourceType": "github",
+      "skillPath": "skills/geo-prospect/SKILL.md",
+      "computedHash": "87241854905a18850c0bd2f154779fb14ed4ee4b5bfc05ae52143c3681a8d464"
+    },
+    "geo-report": {
+      "source": "zubair-trabzada/geo-seo-claude",
+      "sourceType": "github",
+      "skillPath": "skills/geo-report/SKILL.md",
+      "computedHash": "1808b57cc2a98019af71124839fab2a3b5c055ff5e4b0779dab7bef77eeab536"
+    },
+    "geo-report-pdf": {
+      "source": "zubair-trabzada/geo-seo-claude",
+      "sourceType": "github",
+      "skillPath": "skills/geo-report-pdf/SKILL.md",
+      "computedHash": "bb42d9977348d15d0a6796587789108ffc79c606623809df7f72101d93d8d424"
+    },
+    "geo-schema": {
+      "source": "zubair-trabzada/geo-seo-claude",
+      "sourceType": "github",
+      "skillPath": "skills/geo-schema/SKILL.md",
+      "computedHash": "39c87d99a198ed420aae804960188da1802c6d0cf9d48b3f4cad6fccde613fa8"
+    },
+    "geo-technical": {
+      "source": "zubair-trabzada/geo-seo-claude",
+      "sourceType": "github",
+      "skillPath": "skills/geo-technical/SKILL.md",
+      "computedHash": "a9e4e8f1004b95736d6183da3fbed3b823c2025b6fe63f9d658fbabe20ed1cdc"
+    },
+    "geo-update": {
+      "source": "zubair-trabzada/geo-seo-claude",
+      "sourceType": "github",
+      "skillPath": "skills/geo-update/SKILL.md",
+      "computedHash": "95cf315cc7196bc6abe4e5bb0c7140937f3ea3af646c2874543a475f72f7f33b"
+    },
+    "seo": {
+      "source": "AgriciDaniel/claude-seo",
+      "sourceType": "github",
+      "skillPath": "skills/seo/SKILL.md",
+      "computedHash": "d46a7f061833e59087f66a83af135ec18241320ed3bb01deb96b74b8ec4106c1"
+    },
+    "seo-agentic": {
+      "source": "AgriciDaniel/claude-seo",
+      "sourceType": "github",
+      "skillPath": "skills/seo-agentic/SKILL.md",
+      "computedHash": "5409fd0a6fc577ec04ad2e11a46a4468a7b1408a1e56341aac9e7acdb363ef86"
+    },
+    "seo-audit": {
+      "source": "AgriciDaniel/claude-seo",
+      "sourceType": "github",
+      "skillPath": "skills/seo-audit/SKILL.md",
+      "computedHash": "3f4b3bc1b8ae2b55beece95f813eb6fda37fe09bd819a990af9316ab8ace7a20"
+    },
+    "seo-backlinks": {
+      "source": "AgriciDaniel/claude-seo",
+      "sourceType": "github",
+      "skillPath": "skills/seo-backlinks/SKILL.md",
+      "computedHash": "9ba7defd1856502a117aaa1bc1dcaa88a5a19315a475c39b2f5202eb8ba10f61"
+    },
+    "seo-cluster": {
+      "source": "AgriciDaniel/claude-seo",
+      "sourceType": "github",
+      "skillPath": "skills/seo-cluster/SKILL.md",
+      "computedHash": "6902bcac793e5885ddccd015a21591933ed1adfbd733aeb4fadad9a7302cbfe7"
+    },
+    "seo-competitor-pages": {
+      "source": "AgriciDaniel/claude-seo",
+      "sourceType": "github",
+      "skillPath": "skills/seo-competitor-pages/SKILL.md",
+      "computedHash": "168268b3faeba0d0aa46ef85ebd8ca453a711d18d0a8017bc9ca9e5bd1f3f34c"
+    },
+    "seo-content": {
+      "source": "AgriciDaniel/claude-seo",
+      "sourceType": "github",
+      "skillPath": "skills/seo-content/SKILL.md",
+      "computedHash": "963aedce5e47cc74f1dece9ce2e9a0c23366a90ad480e8f465afb4c0410c490f"
+    },
+    "seo-content-brief": {
+      "source": "AgriciDaniel/claude-seo",
+      "sourceType": "github",
+      "skillPath": "skills/seo-content-brief/SKILL.md",
+      "computedHash": "52a2b0e7688a62c8f09994b216d71819e467a32e6e472ca06da2887d02b26a9d"
+    },
+    "seo-dataforseo": {
+      "source": "AgriciDaniel/claude-seo",
+      "sourceType": "github",
+      "skillPath": "skills/seo-dataforseo/SKILL.md",
+      "computedHash": "06de99bfc22f51dd01f5c2077bde22d4a2914330c1bf269f85b1f5d9fc04ce3a"
+    },
+    "seo-drift": {
+      "source": "AgriciDaniel/claude-seo",
+      "sourceType": "github",
+      "skillPath": "skills/seo-drift/SKILL.md",
+      "computedHash": "a5b6098b66f51d07cb0f9fd72b024d1aaa88dbfb7ec0db73f668db14ef76dfb0"
+    },
+    "seo-ecommerce": {
+      "source": "AgriciDaniel/claude-seo",
+      "sourceType": "github",
+      "skillPath": "skills/seo-ecommerce/SKILL.md",
+      "computedHash": "ab97fa0d0599eb1ef0f0d33daa575e10dbb60741d99b75195e75f5b5963f4489"
+    },
+    "seo-flow": {
+      "source": "AgriciDaniel/claude-seo",
+      "sourceType": "github",
+      "skillPath": "skills/seo-flow/SKILL.md",
+      "computedHash": "69e8883e639652f3d91b305768a0998e26f2318a8f622d1984f8613db9f88a62"
+    },
+    "seo-geo": {
+      "source": "AgriciDaniel/claude-seo",
+      "sourceType": "github",
+      "skillPath": "skills/seo-geo/SKILL.md",
+      "computedHash": "a06855d7ffff1089112910756814aaf4b7ca0206ea19bc3cadb1f8831441482f"
+    },
+    "seo-google": {
+      "source": "AgriciDaniel/claude-seo",
+      "sourceType": "github",
+      "skillPath": "skills/seo-google/SKILL.md",
+      "computedHash": "1dda4aaa6fe2310e9e7d09b3a104587384953286dc8eb91766604774b6fafead"
+    },
+    "seo-hreflang": {
+      "source": "AgriciDaniel/claude-seo",
+      "sourceType": "github",
+      "skillPath": "skills/seo-hreflang/SKILL.md",
+      "computedHash": "1d097daa1d12b7e446d9d5c372204b7049ca8f95f966a9f0e63cb0f7f40a6db3"
+    },
+    "seo-image-gen": {
+      "source": "AgriciDaniel/claude-seo",
+      "sourceType": "github",
+      "skillPath": "skills/seo-image-gen/SKILL.md",
+      "computedHash": "0f3599a008f5e2d3c80935f91057b10875c7ca39780aa4d4d98b7a7e766ec689"
+    },
+    "seo-images": {
+      "source": "AgriciDaniel/claude-seo",
+      "sourceType": "github",
+      "skillPath": "skills/seo-images/SKILL.md",
+      "computedHash": "32422c310c925b9d7a7c4972deeb96b76901cf620dc35480886b3cf7cb5c4aac"
+    },
+    "seo-local": {
+      "source": "AgriciDaniel/claude-seo",
+      "sourceType": "github",
+      "skillPath": "skills/seo-local/SKILL.md",
+      "computedHash": "f6eed4c6512ed1ba1f82aa932b246d5f3d836690f9292a7fc162b37ba5250979"
+    },
+    "seo-maps": {
+      "source": "AgriciDaniel/claude-seo",
+      "sourceType": "github",
+      "skillPath": "skills/seo-maps/SKILL.md",
+      "computedHash": "d28e8e8edddbff7e2edb683e23e8cf1c0581fe438bc5efeb68a3e2e2eeea16ad"
+    },
+    "seo-page": {
+      "source": "AgriciDaniel/claude-seo",
+      "sourceType": "github",
+      "skillPath": "skills/seo-page/SKILL.md",
+      "computedHash": "45087654327cad7ee05a95e8d392ee915410500b7c2c40bffe06c0972c4f1758"
+    },
+    "seo-plan": {
+      "source": "AgriciDaniel/claude-seo",
+      "sourceType": "github",
+      "skillPath": "skills/seo-plan/SKILL.md",
+      "computedHash": "3e7e2250748ce524bc87cd0f5e6f465716a6e914e7786d35ab7d0ae6776c27c9"
+    },
+    "seo-programmatic": {
+      "source": "AgriciDaniel/claude-seo",
+      "sourceType": "github",
+      "skillPath": "skills/seo-programmatic/SKILL.md",
+      "computedHash": "6edd7ddef62e3bf6bf07bc0adee153fd2d67b693723fb1280961e46bfbb75f68"
+    },
+    "seo-schema": {
+      "source": "AgriciDaniel/claude-seo",
+      "sourceType": "github",
+      "skillPath": "skills/seo-schema/SKILL.md",
+      "computedHash": "73e80636bf1acddd15f16dacbbdf000c150894ad0e323171306f9359efb379d6"
+    },
+    "seo-sitemap": {
+      "source": "AgriciDaniel/claude-seo",
+      "sourceType": "github",
+      "skillPath": "skills/seo-sitemap/SKILL.md",
+      "computedHash": "3aa575cf0b14e1f6df9614954ae225fec406d156eeb6cb31342fe73ef9fe3421"
+    },
+    "seo-sxo": {
+      "source": "AgriciDaniel/claude-seo",
+      "sourceType": "github",
+      "skillPath": "skills/seo-sxo/SKILL.md",
+      "computedHash": "c404d666d5536970224010b9ae8e305f5a30b0b90ae85f4ee350dc726e0971e1"
+    },
+    "seo-technical": {
+      "source": "AgriciDaniel/claude-seo",
+      "sourceType": "github",
+      "skillPath": "skills/seo-technical/SKILL.md",
+      "computedHash": "475824303c22a8ad7008672db53fe40431a48984b61949f8994d3e6a985678a8"
+    }
+  }
+}

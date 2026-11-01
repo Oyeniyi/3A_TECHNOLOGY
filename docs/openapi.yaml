@@ -1,0 +1,270 @@
+openapi: 3.1.0
+info:
+  title: 3A Technology Solutions Corporate Platform API
+  version: 1.0.0
+  description: Public intake endpoints and health probes for 3A Technology Solutions and 3A Techvolution Academy.
+  contact:
+    name: 3A Technology Solutions Engineering
+    email: contact@3atechnology.com.ng
+servers:
+  - url: https://3atechnology.com.ng
+    description: Production Edge Environment
+  - url: http://localhost:3000
+    description: Local Development Environment
+
+paths:
+  /api/health:
+    get:
+      operationId: getSystemHealth
+      summary: Liveness and edge health probe
+      description: Returns service uptime status and current execution runtime metadata.
+      responses:
+        '200':
+          description: System operational
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - status
+                  - timestamp
+                  - runtime
+                  - version
+                properties:
+                  status:
+                    type: string
+                    example: "UP"
+                  timestamp:
+                    type: string
+                    format: date-time
+                    example: "2026-10-27T08:15:30.123Z"
+                  runtime:
+                    type: string
+                    example: "Node.js v20.x (Vercel Edge)"
+                  version:
+                    type: string
+                    example: "1.0.0"
+
+  /api/contact:
+    post:
+      operationId: submitContactEnquiry
+      summary: Submit general contact inquiry
+      description: Validates inbound general contact messages and queues lead notification email.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactEnquiryRequest'
+      responses:
+        '200':
+          description: Enquiry accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded (Max 5 submissions per hour)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Downstream email dispatch failure
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /api/quote:
+    post:
+      operationId: submitQuoteRequest
+      summary: Submit commercial project quote request
+      description: Captures detailed commercial scoping brief, service category, budget range, and timeline.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QuoteRequest'
+      responses:
+        '200':
+          description: Quote brief received
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '503':
+          description: Downstream email dispatch failure
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+components:
+  schemas:
+    ContactEnquiryRequest:
+      type: object
+      required:
+        - fullName
+        - email
+        - message
+      properties:
+        fullName:
+          type: string
+          minLength: 2
+          maxLength: 100
+          example: "Ibrahim Adeyemi"
+        email:
+          type: string
+          format: email
+          maxLength: 100
+          example: "ibrahim@enterprise.ng"
+        phone:
+          type: string
+          maxLength: 20
+          example: "+2348012345678"
+        subject:
+          type: string
+          maxLength: 100
+          example: "Web Application Consultation"
+        message:
+          type: string
+          minLength: 15
+          maxLength: 2000
+          example: "We require an enterprise web portal with automated workflow management."
+        hp_field:
+          type: string
+          maxLength: 0
+          description: "Anti-spam honeypot. Must remain empty."
+
+    QuoteRequest:
+      type: object
+      required:
+        - fullName
+        - email
+        - phone
+        - service
+        - budgetRange
+        - timeline
+        - projectDescription
+      properties:
+        fullName:
+          type: string
+          minLength: 2
+          maxLength: 100
+          example: "Ngozi Okafor"
+        company:
+          type: string
+          maxLength: 100
+          example: "Okafor Logistics Ltd"
+        email:
+          type: string
+          format: email
+          maxLength: 100
+          example: "ngozi@okaforlogistics.com"
+        phone:
+          type: string
+          minLength: 7
+          maxLength: 25
+          example: "+2348098765432"
+        service:
+          type: string
+          enum:
+            - web-development
+            - custom-software
+            - ai-automation
+            - data-science-analytics
+            - brand-digital-media
+          example: "ai-automation"
+        budgetRange:
+          type: string
+          enum:
+            - "Under ₦1,000,000"
+            - "₦1,000,000 – ₦3,000,000"
+            - "₦3,000,000 – ₦7,500,000"
+            - "₦7,500,000+"
+            - "Advisory Required"
+          example: "₦3,000,000 – ₦7,500,000"
+        timeline:
+          type: string
+          enum:
+            - "< 1 month"
+            - "1 – 3 months"
+            - "3 – 6 months"
+            - "Flexible"
+          example: "1 – 3 months"
+        projectDescription:
+          type: string
+          minLength: 20
+          maxLength: 3000
+          example: "We need an automated document intake pipeline utilizing computer vision and LLMs."
+        hp_field:
+          type: string
+          maxLength: 0
+          description: "Anti-spam honeypot. Must remain empty."
+
+    SuccessResponse:
+      type: object
+      required:
+        - success
+        - message
+      properties:
+        success:
+          type: boolean
+          example: true
+        message:
+          type: string
+          example: "Enquiry submitted successfully."
+
+    ErrorResponse:
+      type: object
+      required:
+        - success
+        - error
+      properties:
+        success:
+          type: boolean
+          example: false
+        error:
+          type: object
+          required:
+            - code
+            - message
+          properties:
+            code:
+              type: string
+              example: "VALIDATION_ERROR"
+            message:
+              type: string
+              example: "One or more submission fields failed validation."
+            fields:
+              type: object
+              additionalProperties:
+                type: array
+                items:
+                  type: string
+              example:
+                email: ["Please provide a valid business email address."]
+            timestamp:
+              type: string
+              format: date-time
+              example: "2026-10-27T08:15:30.123Z"

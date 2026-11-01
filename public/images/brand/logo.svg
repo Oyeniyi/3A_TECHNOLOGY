@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" width="240" height="60" fill="none">
+  <!-- 3A Technology Solutions Vector Placeholder Logo -->
+  <rect width="240" height="60" rx="8" fill="#0B2B6B"/>
+  <path d="M20 42L32 18L44 42H37L34.5 36.5H27.5L25 42H20ZM29 32H33L31 26.5L29 32Z" fill="#F7C800"/>
+  <text x="56" y="32" fill="#FFFFFF" font-family="system-ui, sans-serif" font-weight="800" font-size="16" letter-spacing="1">3A TECHNOLOGY</text>
+  <text x="56" y="44" fill="#F7C800" font-family="system-ui, sans-serif" font-weight="600" font-size="9" letter-spacing="1.5">SOLUTIONS &amp; ACADEMY</text>
+</svg>
