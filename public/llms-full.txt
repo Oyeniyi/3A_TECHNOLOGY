@@ -1,0 +1,82 @@
+# 3A Technology Solutions — Complete Reference Guide
+
+> Nigerian software studio and training academy building web applications, custom business software, AI tools, data systems, and brand identities, while teaching practical tech skills through 3A Techvolution Academy.
+
+---
+
+## 1. Company Identity & Official Registration
+
+- **Brand Name:** 3A Technology Solutions
+- **Training Arm:** 3A Techvolution Academy
+- **Tagline:** Ideas • Technology • Impact
+- **Brand Essence:** "Technology that works for people and business."
+- **Core Principle:** "We do not sell technology for technology’s sake. We show how technology can improve business, productivity, communication, visibility, decision-making and growth."
+- **Registered Legal Business Name:** 3A TECHNOLOGY SOLUTION CONCEPTS
+- **Corporate Affairs Commission (CAC) Registration Number:** BN 9931488 (Registered under the Companies and Allied Matters Act 2020, Federal Republic of Nigeria)
+- **Date of Registration:** 12th October 2026
+- **Tax Identification Number (TIN):** 2622397219188
+- **General Nature of Business:** Information Service Activities
+- **Principal Place of Business:** 0, Ita Aisa, Kwara, Kwara State, Nigeria
+- **Delivery Hubs:** Kwara State (HQ), Abuja (FCT), and Lagos, Nigeria
+- **Official Email:** contact@3atechnology.com.ng
+- **Direct Phone / WhatsApp:** +2348000003A00
+
+---
+
+## 2. Five Brand Personality Pillars
+
+1. **Smart:** We communicate with intelligence and substance, without unnecessary complexity.
+2. **Simple:** We reduce complexity and present technology in a way people can understand and use.
+3. **Professional:** Every touchpoint should feel intentional, reliable, polished and credible.
+4. **Human:** We speak to people, not machines. We are approachable, respectful and practical.
+5. **Future-Ready:** We embrace modern technology while staying focused on real-world outcomes.
+
+---
+
+## 3. Commercial Services (`/services`)
+
+### 3.1 Web & Digital Product Development (`/services/web-development`)
+- **Summary:** Fast, accessible company websites, customer portals, and web applications built with React and Next.js.
+- **Deliverables:** Company Websites & Web Applications, Landing Pages & Lead Intake Forms, Mobile-First Responsive Layouts, Technical SEO & Page Speed Tuning, Customer & Partner Web Portals.
+
+### 3.2 Custom Software Engineering (`/services/custom-software`)
+- **Summary:** Internal business tools, record-keeping systems, database backends, and APIs built around how your team actually works.
+- **Deliverables:** Internal Operations & Inventory Tools, Digital Record & Logbook Portals, REST APIs & Backend Services, Spreadsheet-to-Database Migrations, System Handover Documentation.
+
+### 3.3 Artificial Intelligence & Automation (`/services/ai-automation`)
+- **Summary:** Practical AI assistants, document extraction tools, and automated workflows that cut down repetitive manual work.
+- **Deliverables:** Automated Document & Invoice Readers, Internal Knowledge Search Assistants, Multi-Step Workflow Automations, WhatsApp & Email Triage Routing, AI Readiness & Workflow Reviews.
+
+### 3.4 Data Science & Analytics (`/services/data-science-analytics`)
+- **Summary:** Clear business dashboards, forecasting models, data cleaning pipelines, and computer vision tools.
+- **Deliverables:** Automated Data Cleaning Pipelines, Forecasting & Classification Models, Computer Vision & Image Analysis Tools, Interactive Reporting Dashboards, Data Audits & Summary Reports.
+
+### 3.5 Branding & Digital Media (`/services/brand-digital-media`)
+- **Summary:** Logo systems, brand style guides, pitch decks, and digital media templates that give your business a clear, consistent look.
+- **Deliverables:** Brand Identity Standards Guides, Vector Logos & Icon Sets, Pitch Decks & Presentation Templates, Social Media & Banner Templates, Print & Digital Marketing Assets.
+
+---
+
+## 4. 3A Techvolution Academy (`/academy` & `/academy/programmes`)
+
+3A Techvolution Academy is our training wing where university students, NYSC members, graduates, and career switchers learn software development by writing code and building real projects.
+
+### How Students Learn:
+- **Real Working Projects:** Build and deploy complete web apps, data pipelines, and AI tools from week one.
+- **Direct Code Reviews:** Working software engineers review student code weekly and help debug real issues.
+- **A Portfolio You Can Show:** Students finish with a clean GitHub profile and live projects to show employers.
+
+### Active Courses:
+1. **Practical Software Engineering & Web Development (12 Weeks, Hybrid, Beginner):** JavaScript, TypeScript, React, Next.js, Zod form validation, REST APIs, Git, and deployment.
+2. **Applied Artificial Intelligence & Workflow Automation (8 Weeks, Weekend Cohort, Intermediate):** Prompt engineering, vector databases, RAG pipelines, webhook automations, and AI cost/privacy controls.
+3. **Practical Data Science & Machine Learning (10 Weeks, In-Person, Intermediate):** Python, Pandas, statistical analysis, supervised/unsupervised ML, OpenCV computer vision, and model API deployment.
+
+---
+
+## 5. Projects & Case Studies (`/projects`)
+
+1. **MarketMind AI** (`ai-automation`, *Live Production*): Automated market research tool that gathers industry news, tracks competitors, and summarizes key findings into short briefs.
+2. **Deforestation Analysis Platform** (`data-science-analytics`, *Research & Development*): Satellite image analysis pipeline using Python, OpenCV, and PyTorch to track tree cover loss over time.
+3. **Medicinal Plant Recognition System** (`data-science-analytics`, *Deployed Prototype*): Mobile image classifier built with TensorFlow Lite and React Native that identifies local Nigerian medicinal plants from leaf photos.
+4. **High-Performance Image Compression Tool** (`web-development`, *Live Production*): Browser-based WebAssembly image compressor that converts large photos into WebP and AVIF files on-device without server uploads.
+5. **Enterprise Electronic Logbook** (`custom-software`, *Deployed Prototype*): Offline-ready digital shift and activity logbook replacing paper journals with searchable records and signed handovers.

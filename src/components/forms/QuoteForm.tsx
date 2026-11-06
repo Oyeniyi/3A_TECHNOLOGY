@@ -74,7 +74,7 @@ function QuoteFormInner() {
       } else {
         setFeedback({ type: 'error', message: response.message });
       }
-    } catch (_error) {
+    } catch {
       setFeedback({
         type: 'error',
         message: 'A network error occurred. Your inputs have been preserved. Please try again.',
@@ -174,7 +174,14 @@ function QuoteFormInner() {
         {...register('projectDescription')}
       />
 
-      <Button type="submit" variant="accent" size="lg" fullWidth disabled={isSubmitting}>
+      <Button
+        type="submit"
+        variant="accent"
+        size="lg"
+        fullWidth
+        disabled={isSubmitting}
+        data-analytics-event="submit_quote_form"
+      >
         {isSubmitting ? 'Submitting Scope Brief...' : 'Request Formal Project Quote'}
       </Button>
     </form>

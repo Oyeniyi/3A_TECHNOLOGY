@@ -3,21 +3,33 @@ import { siteConfig } from '@/config/site';
 import { getAllServices, getAllProjects, getAllProgrammes } from '@/lib/content';
 
 describe('Scaffold Smoke & Integrity Tests', () => {
-  it('loads site configuration correctly', () => {
+  it('loads site configuration and official CAC registration metadata correctly', () => {
     expect(siteConfig.name).toBe('3A Technology Solutions');
+    expect(siteConfig.tagline).toBe('Ideas • Technology • Impact');
     expect(siteConfig.url).toContain('https://');
-    expect(siteConfig.contact.email).toBe('info@3atechnology.com');
+    expect(siteConfig.contact.email).toBe('contact@3atechnology.com.ng');
+    expect(siteConfig.legal.registeredName).toBe('3A TECHNOLOGY SOLUTION CONCEPTS');
+    expect(siteConfig.legal.rcNumber).toBe('BN 9931488');
+    expect(siteConfig.legal.tin).toBe('2622397219188');
+    expect(siteConfig.brand.pillars).toHaveLength(5);
+    expect(siteConfig.brand.pillars.map((p) => p.title)).toEqual([
+      'Smart',
+      'Simple',
+      'Professional',
+      'Human',
+      'Future-Ready',
+    ]);
   });
 
   it('loads static services datastore with exactly 5 categories', () => {
     const services = getAllServices();
     expect(services).toHaveLength(5);
-    expect(services.map((s) => s.id)).toEqual([
+    expect(services.map((s) => s.slug)).toEqual([
+      'web-development',
       'custom-software',
-      'cloud-solutions',
-      'it-infrastructure',
-      'cybersecurity',
-      'it-consulting',
+      'ai-automation',
+      'data-science-analytics',
+      'brand-digital-media',
     ]);
   });
 
@@ -27,9 +39,9 @@ describe('Scaffold Smoke & Integrity Tests', () => {
     projects.forEach((p) => {
       expect(p.title).toBeTruthy();
       expect(p.slug).toBeTruthy();
-      expect(p.challenge).toBeTruthy();
-      expect(p.solution).toBeTruthy();
-      expect(p.results.length).toBeGreaterThan(0);
+      expect(p.theChallenge).toBeTruthy();
+      expect(p.theSolution).toBeTruthy();
+      expect(p.technologiesUsed.length).toBeGreaterThan(0);
     });
   });
 
@@ -37,8 +49,8 @@ describe('Scaffold Smoke & Integrity Tests', () => {
     const programmes = getAllProgrammes();
     expect(programmes).toHaveLength(3);
     programmes.forEach((prog) => {
-      expect(prog.modules.length).toBeGreaterThan(0);
-      expect(prog.targetAudience).toBeTruthy();
+      expect(prog.curriculumModules.length).toBeGreaterThan(0);
+      expect(prog.targetAudience.length).toBeGreaterThan(0);
     });
   });
 });

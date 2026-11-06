@@ -3,9 +3,9 @@ import type { Metadata } from 'next';
 import { QuoteForm } from '@/components/forms/QuoteForm';
 
 export const metadata: Metadata = {
-  title: 'Request an Architecture & Project Quote | 3A Technology Solutions',
+  title: 'Request a Project Quote | 3A Technology Solutions',
   description:
-    'Submit project requirements, technical constraints, and timeline for an enterprise architecture review and formal proposal.',
+    'Share your project scope, timeline, and budget range to get a clear technical proposal from 3A Technology Solutions.',
 };
 
 export default function RequestQuotePage() {
@@ -14,13 +14,13 @@ export default function RequestQuotePage() {
       <div className="container-custom max-w-4xl">
         <div className="text-center mb-10">
           <p className="text-xs uppercase tracking-wider font-semibold text-brand-navy mb-2">
-            Enterprise Engagement
+            Start a Project
           </p>
           <h1 className="text-3xl md:text-5xl font-extrabold text-brand-navy mb-4">
-            Request an Engineering & Architecture Quote
+            Request a Project Quote
           </h1>
           <p className="text-base text-brand-dark-gray/80 max-w-2xl mx-auto">
-            Provide details about your target project scope, infrastructure requirements, and budget expectations. Our senior engineering leads will review and respond within 24 business hours.
+            Tell us what you want to build, your timeline, and your budget range. Our engineers will review your brief and reply within one business day.
           </p>
         </div>
 

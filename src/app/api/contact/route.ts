@@ -10,24 +10,29 @@ import { submitContactEnquiry } from '@/actions/enquiry';
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const result = await submitContactEnquiry(body);
+    const clientIp =
+      request.headers.get('x-forwarded-for')?.split(',')[0].trim() ||
+      request.headers.get('x-real-ip') ||
+      'unknown-ip';
+    const result = await submitContactEnquiry(body, clientIp);
 
     if (!result.success) {
+      const isRateLimited = result.message.toLowerCase().includes('too many');
       return NextResponse.json(
         {
           success: false,
           error: {
-            code: 'VALIDATION_FAILED',
+            code: isRateLimited ? 'RATE_LIMIT_EXCEEDED' : 'VALIDATION_FAILED',
             message: result.message,
             fieldErrors: result.errors,
           },
         },
-        { status: 400 }
+        { status: isRateLimited ? 429 : 400 }
       );
     }
 
     return NextResponse.json(result, { status: 200 });
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       {
         success: false,

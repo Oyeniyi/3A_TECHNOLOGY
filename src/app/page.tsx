@@ -17,9 +17,9 @@ import { AcademyBanner } from '@/components/home/AcademyBanner';
 import { ConversionBanner } from '@/components/home/ConversionBanner';
 
 export const metadata: Metadata = {
-  title: 'Enterprise IT Solutions & Engineering Academy | Abuja, Nigeria',
+  title: '3A Technology Solutions | Software, AI & Techvolution Academy',
   description:
-    '3A Technology Solutions delivers mission-critical software engineering, cloud architecture, and cybersecurity solutions alongside the premier 3A Academy.',
+    'We build custom software, web applications, AI automations, and data tools for businesses in Nigeria, and train new developers through 3A Techvolution Academy.',
 };
 
 export default function HomePage() {

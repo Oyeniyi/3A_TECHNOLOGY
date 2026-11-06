@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import * as Dialog from '@radix-ui/react-dialog';
 import { siteConfig } from '@/config/site';
 import { Button } from '@/components/ui/Button';
+import { BrandLogo } from '@/components/ui/BrandLogo';
 import { cn } from '@/lib/utils';
 
 export function MobileDrawer() {
@@ -36,7 +37,7 @@ export function MobileDrawer() {
         <Dialog.Overlay className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm transition-opacity" />
         <Dialog.Content className="fixed inset-y-0 right-0 z-50 flex w-full max-w-xs flex-col bg-brand-white p-6 shadow-2xl transition-transform focus:outline-none">
           <div className="flex items-center justify-between border-b border-brand-border pb-4">
-            <div className="text-base font-bold text-brand-navy">3A Technology</div>
+            <BrandLogo variant="light" subtitle="" />
             <Dialog.Close asChild>
               <button
                 type="button"

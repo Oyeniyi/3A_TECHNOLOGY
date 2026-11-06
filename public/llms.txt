@@ -1,0 +1,38 @@
+# 3A Technology Solutions
+
+> Nigerian software studio and training academy building web applications, custom business software, AI tools, data systems, and brand identities, while teaching practical tech skills through 3A Techvolution Academy.
+
+## Commercial Services
+- [Commercial Services Overview](https://3atechnology.com.ng/services): Overview of our five commercial services for SMEs, startups, and institutions in Nigeria.
+- [Web & Digital Products](https://3atechnology.com.ng/services/web-development): Fast, mobile-friendly company websites, customer portals, and web applications built with React and Next.js.
+- [Custom Software Engineering](https://3atechnology.com.ng/services/custom-software): Internal business tools, digital logbooks, REST APIs, and database systems built around how your team works.
+- [AI & Automation](https://3atechnology.com.ng/services/ai-automation): Practical AI assistants, document readers, and automated workflows that cut down repetitive manual tasks.
+- [Data Science & Analytics](https://3atechnology.com.ng/services/data-science-analytics): Reporting dashboards, forecasting models, data cleaning pipelines, and computer vision systems.
+- [Branding & Digital Media](https://3atechnology.com.ng/services/brand-digital-media): Logo systems, brand style guides, pitch decks, and digital templates for a consistent visual identity.
+
+## 3A Techvolution Academy
+- [Academy Overview](https://3atechnology.com.ng/academy): Hands-on technology courses where students, NYSC members, and career switchers learn by building real software projects.
+- [Academy Programmes & Tracks](https://3atechnology.com.ng/academy/programmes): Course breakdowns for Practical Software Engineering (12 weeks), Applied AI & Automation (8 weeks), and Data Science & Machine Learning (10 weeks).
+
+## Projects & Company Info
+- [Projects & Case Studies](https://3atechnology.com.ng/projects): Filterable catalog of live software, working prototypes, and research projects across web, custom software, AI, and computer vision.
+- [About 3A Technology Solutions](https://3atechnology.com.ng/about): Our brand foundation ("Technology that works for people and business"), five brand pillars, and CAC registration details.
+- [Request a Project Quote](https://3atechnology.com.ng/request-quote): Project intake form to scope web, software, AI, or data work and get a response within one business day.
+- [Contact Us](https://3atechnology.com.ng/contact): Direct email, WhatsApp contact links, and office locations for clients and prospective students.
+
+## Key Facts
+- Brand Name: 3A Technology Solutions
+- Tagline: Ideas • Technology • Impact
+- Brand Essence: Technology that works for people and business.
+- Registered Legal Entity: 3A TECHNOLOGY SOLUTION CONCEPTS
+- Corporate Affairs Commission (CAC) Registration: BN 9931488 (Registered under CAMA 2020 on 12th October 2026)
+- Tax Identification Number (TIN): 2622397219188
+- Nature of Business: Information Service Activities
+- Principal Place of Business: 0, Ita Aisa, Kwara, Kwara State, Nigeria (with delivery hubs in Abuja and Lagos)
+- Brand Personality Pillars: Smart, Simple, Professional, Human, Future-Ready
+
+## Contact
+- Website: https://3atechnology.com.ng
+- Official Email: contact@3atechnology.com.ng
+- Phone / WhatsApp: +2348000003A00
+- Full Reference Guide: https://3atechnology.com.ng/llms-full.txt

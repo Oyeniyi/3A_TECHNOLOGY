@@ -3,9 +3,9 @@ import type { Metadata } from 'next';
 import { siteConfig } from '@/config/site';
 
 export const metadata: Metadata = {
-  title: 'Terms of Engagement & Service',
+  title: 'Terms of Service',
   description:
-    'Terms and conditions governing the use of the 3A Technology Solutions web platform, consultation requests, and Academy admissions.',
+    'Terms governing the use of the 3A Technology Solutions website, project quote enquiries, and 3A Techvolution Academy courses.',
 };
 
 export default function TermsPage() {
@@ -16,42 +16,42 @@ export default function TermsPage() {
           Terms of Service
         </h1>
         <p className="text-xs text-brand-dark-gray/60 mb-8">
-          Last Updated: November 2026 | 3A Technology Solutions Limited
+          Last Updated: November 2026 | {siteConfig.legal.registeredName} (CAC {siteConfig.legal.rcNumber} &bull; TIN {siteConfig.legal.tin})
         </p>
 
         <div className="prose prose-slate max-w-none text-brand-dark-gray/90 space-y-6 text-sm leading-relaxed">
           <section>
-            <h2 className="text-lg font-bold text-brand-navy mb-2">1. Acceptance of Terms</h2>
+            <h2 className="text-lg font-bold text-brand-navy mb-2">1. Using This Website</h2>
             <p>
-              By accessing the 3A Technology Solutions website and digital communication channels, you agree to comply with and be bound by these terms. If you disagree with any part of these terms, please do not use our site.
+              This website is operated by <strong>{siteConfig.legal.registeredName}</strong> ({siteConfig.legal.rcNumber}), trading as <strong>{siteConfig.name}</strong>. By using our site or sending us an enquiry, you agree to these terms.
             </p>
           </section>
 
           <section>
-            <h2 className="text-lg font-bold text-brand-navy mb-2">2. Scope of Online Information</h2>
+            <h2 className="text-lg font-bold text-brand-navy mb-2">2. Information on This Site</h2>
             <p>
-              Content provided on this website—including service descriptions, case study outlines, and Academy curriculum summaries—is provided for informational and engagement purposes. Formal commercial contracts, Service Level Agreements (SLAs), and Academy enrolment terms are governed by separate, signed legal instruments.
+              The service pages, case studies, and 3A Techvolution Academy course outlines on this website are meant to give you a clear picture of how we work. Actual client projects, software delivery schedules, and Academy enrollments are covered by separate written agreements signed by both sides.
             </p>
           </section>
 
           <section>
             <h2 className="text-lg font-bold text-brand-navy mb-2">3. Intellectual Property</h2>
             <p>
-              All trademarks, logos, case study documentation, brand assets, and website architecture are the exclusive intellectual property of 3A Technology Solutions Limited. Unauthorized reproduction, scraping, or redistribution is strictly prohibited.
+              The 3A Technology Solutions name, logo, written content, case studies, and site code belong to {siteConfig.legal.registeredName}. Please do not copy, republish, or pass off our brand assets or work as your own.
             </p>
           </section>
 
           <section>
-            <h2 className="text-lg font-bold text-brand-navy mb-2">4. Quotations & Consultations</h2>
+            <h2 className="text-lg font-bold text-brand-navy mb-2">4. Project Quotes &amp; Estimates</h2>
             <p>
-              Submitting an enquiry or quote request does not constitute a binding contract. Quotations issued are valid for 30 calendar days from the date of issuance unless explicitly stated otherwise in the formal technical proposal.
+              Sending a quote request through our form does not lock either side into a contract. Once we review your brief and send a written quote, that price and timeline estimate remains valid for 30 days unless stated otherwise on the proposal.
             </p>
           </section>
 
           <section>
             <h2 className="text-lg font-bold text-brand-navy mb-2">5. Governing Law</h2>
             <p>
-              These terms are governed by and construed in accordance with the laws of the Federal Republic of Nigeria. Any disputes arising shall be subject to the exclusive jurisdiction of the courts of Abuja (FCT), Nigeria.
+              These terms are governed by the laws of the Federal Republic of Nigeria, including the Companies and Allied Matters Act (CAMA) 2020. Any legal disputes will be handled in the courts of Kwara State or Abuja (FCT), Nigeria.
             </p>
           </section>
         </div>

@@ -66,3 +66,4 @@ export const QuoteRequestSchema = z.object({
 });
 
 export type QuoteRequestFormData = z.infer<typeof QuoteRequestSchema>;
+export const quoteRequestSchema = QuoteRequestSchema;

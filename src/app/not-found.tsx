@@ -1,7 +1,6 @@
 /**
  * @file not-found.tsx
  * @description Branded 404 page for unmatched routes.
- * Provides intuitive recovery paths back to commercial services or academy.
  */
 
 import React from 'react';
@@ -15,7 +14,7 @@ export default function NotFound() {
         <span className="text-6xl font-extrabold text-brand-navy block mb-4">404</span>
         <h1 className="text-2xl font-bold text-brand-navy mb-2">Page Not Found</h1>
         <p className="text-brand-dark-gray/80 text-sm mb-8">
-          The page or resource you requested could not be located. You can navigate back to our main services or contact our team directly.
+          We couldn&rsquo;t find the page you were looking for. It may have moved, or the link might be mistyped.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Button variant="primary" asChild>

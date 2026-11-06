@@ -13,7 +13,7 @@ export const programmes: AcademyProgramme[] = [
     format: 'Hybrid',
     duration: '12 Weeks',
     overview:
-      'A hands-on, intensive training track designed to transition beginners and students into production-ready software developers with modern TypeScript and React skills.',
+      'A 12-week course where beginners and students learn how to build, test, and deploy real web applications using TypeScript, React, and Next.js.',
     curriculumModules: [
       'Modern JavaScript & TypeScript Fundamentals',
       'Component Architecture with React & Next.js',
@@ -21,8 +21,8 @@ export const programmes: AcademyProgramme[] = [
       'REST API Design & Backend Integrations',
       'Git Collaboration, Testing & Production Deployment'
     ],
-    targetAudience: ['University Undergraduates', 'Recent Graduates & NYSC Members', 'Career Transitioners'],
-    prerequisites: ['Basic computer literacy', 'Personal laptop', 'Dedication to complete practical assignments'],
+    targetAudience: ['University Undergraduates', 'Recent Graduates & NYSC Members', 'Career Switchers'],
+    prerequisites: ['Basic computer literacy', 'A working laptop', 'Time for weekly coding assignments'],
     feeDisplay: 'Inquire for Schedule & Pricing',
   },
   {
@@ -32,16 +32,16 @@ export const programmes: AcademyProgramme[] = [
     format: 'Weekend Cohort',
     duration: '8 Weeks',
     overview:
-      'Learn how to integrate large language models, build retrieval-augmented generation (RAG) pipelines, and automate enterprise workflows with pragmatic engineering.',
+      'Learn how to connect language models to real software, build retrieval-augmented generation (RAG) tools, and automate repetitive business tasks.',
     curriculumModules: [
       'Prompt Engineering & Structured Output Generation',
       'Vector Databases, Embeddings & Semantic Search',
       'Building Retrieval-Augmented Generation (RAG) Systems',
       'Workflow Automation with Webhooks & Serverless Pipelines',
-      'AI Privacy, Security & Cost Management'
+      'AI Privacy, Security & Cost Control'
     ],
-    targetAudience: ['Software Engineers', 'Technical Product Managers', 'Automation Specialists'],
-    prerequisites: ['Foundational programming skills (Python or JavaScript)', 'Familiarity with APIs'],
+    targetAudience: ['Software Developers', 'Technical Product Managers', 'Operations & Automation Specialists'],
+    prerequisites: ['Basic programming experience (Python or JavaScript)', 'Familiarity with web APIs'],
     feeDisplay: 'Inquire for Schedule & Pricing',
   },
   {
@@ -51,16 +51,16 @@ export const programmes: AcademyProgramme[] = [
     format: 'In-Person',
     duration: '10 Weeks',
     overview:
-      'Master the tools and techniques needed to extract commercial insights from real-world data, build predictive machine learning models, and present interactive dashboards.',
+      'Learn how to clean messy datasets, run statistical analysis in Python, train predictive models, and build clear dashboards.',
     curriculumModules: [
-      'Data Manipulation & Cleaning with Python & Pandas',
-      'Exploratory Data Analysis & Statistical Modeling',
-      'Supervised & Unsupervised Machine Learning Algorithms',
-      'Computer Vision Basics with OpenCV',
-      'Deploying Machine Learning Models as APIs'
+      'Data Cleaning & Analysis with Python & Pandas',
+      'Exploratory Data Analysis & Statistics',
+      'Supervised & Unsupervised Machine Learning',
+      'Computer Vision Fundamentals with OpenCV',
+      'Packaging & Deploying Models as APIs'
     ],
-    targetAudience: ['Aspiring Data Analysts', 'Researchers & Academics', 'Engineering Professionals'],
-    prerequisites: ['Basic high school mathematics', 'Basic programming familiarity in Python'],
+    targetAudience: ['Aspiring Data Analysts', 'Researchers & Postgraduate Students', 'Engineers & Analysts'],
+    prerequisites: ['Secondary school mathematics', 'Basic familiarity with Python'],
     feeDisplay: 'Inquire for Schedule & Pricing',
   },
 ];

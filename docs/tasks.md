@@ -15,7 +15,7 @@ This document establishes the actionable, dependency-aware work breakdown struct
 ### 1.1 Delivery Governance Rules
 1. **Evidence Before Assertions (`AGENTS.md` §5.1 & `definition-of-done.md` §1.1):** No task shall be transitioned to `Done` without executing concrete verification commands in the terminal and documenting verifiable output logs.
 2. **Strict Invariant Adherence (`ARCH-01` to `ARCH-15`):** Phase 1 release scope strictly prohibits runtime databases (`ARCH-01`), in-house LMS or user accounts (`ARCH-02`), payment gateways (`ARCH-03`), and autonomous conversational chatbots (`ARCH-13`).
-3. **No Synthetic Work Completion:** As documented in `docs/testing-strategy.md` §1.1, the repository currently contains specifications and brand standards; zero implementation code has been authored yet. Tasks reflect true implementation readiness without assuming pre-existing components.
+3. **Current Implementation State:** Tasks `TASK-001` through `TASK-032` (including `TASK-004` vectorized SVG brand emblem & wordmark pipeline derived from `3a_technology_solutions_ending_slide.png` and `3A_Technology_Solutions_Brand_Identity_Standards.pdf`) are implemented in `src/`, `public/`, and `tests/`, and verified against `npm run typecheck`, `npm test`, and `npm run build`. `TASK-033` awaits live Vercel project linkage and production credentials (`DEC-01`, `DEC-02`, `DEC-03`).
 4. **Task Status Dictionary:**
    - **`Ready`:** All prerequisites satisfied; clear acceptance criteria; ready for immediate implementation.
    - **`Planned`:** Dependent on preceding tasks; sequentially queued.
@@ -93,7 +93,7 @@ graph TD
 #### TASK-001: Next.js 14+ App Router Project Scaffolding & TypeScript Strict Configuration
 - **Task ID:** `TASK-001`
 - **Title:** Next.js 14+ App Router Project Scaffolding & TypeScript Strict Configuration
-- **Status:** `Ready` (Immediate Next Task)
+- **Status:** `Done`
 - **Objective:** Initialize the root Next.js project with App Router, configure TypeScript in strict mode, and establish core directory conventions without extraneous boilerplates.
 - **Description:** Initialize Next.js 14+ in the repository root using `npx create-next-app@latest .` with TypeScript, ESLint, Tailwind CSS, App Router, and `src/` directory aliases (`@/*`). Ensure zero unwanted sample assets or bloat. Enforce strict compiler settings (`noImplicitAny`, `strictNullChecks`, `noUnusedLocals`, `noUnusedParameters`).
 - **Requirement IDs:** `PRD.md` §4.1, §9.1; `AGENTS.md` §3.3; `ARCH-14`.
@@ -126,7 +126,7 @@ graph TD
 #### TASK-002: Tailwind CSS Design Token Architecture & Brand Color Utilities
 - **Task ID:** `TASK-002`
 - **Title:** Tailwind CSS Design Token Architecture & Brand Color Utilities
-- **Status:** `Planned`
+- **Status:** `Done`
 - **Objective:** Implement the locked 5-color brand palette and typography scales in `tailwind.config.ts`, enforcing WCAG 2.1 AA contrast constraints.
 - **Description:** Configure Tailwind CSS with the authoritative tokens from *3A Brand Identity Standards v1.0*: Primary Navy (`#0B2B6B`), Accent Yellow (`#F7C800`), Dark Charcoal (`#1F2937`), Light Gray (`#F4F6F8`), and Pure White (`#FFFFFF`). Implement contrast-safe utility classes that strictly prevent yellow text on white/gray surfaces as required by finding `AUD-01` and invariant `ARCH-05`.
 - **Requirement IDs:** `PRD.md` §8.1, §8.2; `AGENTS.md` §3.4; `ARCH-05`; `AUD-01`.
@@ -154,7 +154,7 @@ graph TD
 #### TASK-003: Testing Framework Infrastructure Setup (Vitest, RTL & Playwright)
 - **Task ID:** `TASK-003`
 - **Title:** Testing Framework Infrastructure Setup (Vitest, RTL & Playwright)
-- **Status:** `Planned`
+- **Status:** `Done`
 - **Objective:** Install and configure the automated test runners to execute the planned 8-level testing strategy.
 - **Description:** Configure Vitest with JSDOM and `@testing-library/react` for unit/component testing. Install and configure Playwright with browser configurations for Desktop Chrome and Mobile Safari. Define standard scripts in `package.json` (`test`, `test:unit`, `test:e2e`).
 - **Requirement IDs:** `AGENTS.md` §5; `PRD.md` §12; `docs/definition-of-done.md` §3, §4; `ADR-007`.
@@ -184,7 +184,7 @@ graph TD
 #### TASK-004: Brand Assets & Vector Emblem Pipeline
 - **Task ID:** `TASK-004`
 - **Title:** Brand Assets & Vector Emblem Pipeline
-- **Status:** `Blocked` (Awaiting Stakeholder SVG Asset or Vectorization Approval `AUD-02` / `DEC-04`)
+- **Status:** `Done` (Vectorized SVG emblem, wordmark, favicon `icon.svg`, and `BrandLogo.tsx` component integrated from `3a_technology_solutions_ending_slide.png` and `3A_Technology_Solutions_Brand_Identity_Standards.pdf`)
 - **Objective:** Integrate high-resolution SVG vectors of the official 3A emblem, wordmark, and favicon icons into the public asset pipeline.
 - **Description:** Resolve finding `AUD-02` by placing production-ready transparent SVG vector assets for the 3A emblem (circular brush mark with yellow "3" and blue "A") and horizontal wordmark into `public/images/brand/`. Generate standard favicon (`app/favicon.ico`), apple-touch-icon, and web manifest assets.
 - **Requirement IDs:** `PRD.md` §8.3; `AUD-02`; `DEC-04`.
@@ -214,7 +214,7 @@ graph TD
 #### TASK-005: Centralized Site Configuration & Communication Constants
 - **Task ID:** `TASK-005`
 - **Title:** Centralized Site Configuration & Communication Constants
-- **Status:** `Planned`
+- **Status:** `Done`
 - **Objective:** Establish the single source of truth for corporate contact details, official WhatsApp gateway, navigation links, and brand metadata.
 - **Description:** Implement `src/config/site.ts` exporting a strongly typed `siteConfig` object. Codify official email, international WhatsApp number (`+234...`), physical address, social links, opening hours, and navigation structure, preventing hardcoded values across components (`ARCH-06`).
 - **Requirement IDs:** `PRD.md` §6.2, §7 (AC-07.1); `AGENTS.md` §3.5; `ARCH-06`; `DEC-03`.
@@ -240,7 +240,7 @@ graph TD
 #### TASK-006: Statically Typed Data Contracts & Validation Schemas
 - **Task ID:** `TASK-006`
 - **Title:** Statically Typed Data Contracts & Validation Schemas
-- **Status:** `Planned`
+- **Status:** `Done`
 - **Objective:** Create TypeScript interfaces and Zod validation schemas for all domain entities (Services, Projects, Academy Tracks, Inbound Enquiries).
 - **Description:** Define strict TypeScript contracts in `src/types/` for `Service`, `Project`, `AcademyProgramme`, and `CaseStudy`. Define Zod schemas in `src/lib/validations/` for `ContactEnquirySchema` and `QuoteRequestSchema` with input sanitization, length boundaries, and email RFC validation.
 - **Requirement IDs:** `PRD.md` §5, §7 (AC-05.1, AC-06.1, AC-08.2); `FR-08`; `ARCH-14`; `AUD-03`.
@@ -269,7 +269,7 @@ graph TD
 #### TASK-007: Static Content Datastores (Services, Projects, Academy)
 - **Task ID:** `TASK-007`
 - **Title:** Static Content Datastores (Services, Projects, Academy)
-- **Status:** `Planned`
+- **Status:** `Done`
 - **Objective:** Populate the statically typed TypeScript data files for all 5 commercial services, verified project case studies, and academy curriculum tracks.
 - **Description:** Create `src/data/services.ts`, `src/data/projects.ts`, and `src/data/programmes.ts`. Ensure exact 1:1 synchronization between service taxonomy slugs and portfolio tags (`AUD-04`). Populate initial case studies (*MarketMind AI*, *Deforestation Analysis*, *Medicinal Plant Recognition System*, *Image Compression Tool*, *Electronic Logbook*) with verified development stage badges (`ARCH-01`, `PRD.md` §5, §7).
 - **Requirement IDs:** `PRD.md` §5, §7 (FR-02, FR-03, FR-04, FR-08); `ARCH-01`; `AUD-04`.
@@ -298,7 +298,7 @@ graph TD
 #### TASK-008: In-Memory Content Access Layer & Query Helpers
 - **Task ID:** `TASK-008`
 - **Title:** In-Memory Content Access Layer & Query Helpers
-- **Status:** `Planned`
+- **Status:** `Done`
 - **Objective:** Provide a clean functional query abstraction over static data files to shield UI components from direct file imports.
 - **Description:** Implement `src/lib/content.ts` providing helper functions: `getAllServices()`, `getServiceBySlug(slug)`, `getAllProjects()`, `getProjectBySlug(slug)`, `getProjectsByCategory(category)`, `getFeaturedProjects(limit)`, `getAllProgrammes()`, and `getProgrammeBySlug(slug)`.
 - **Requirement IDs:** `PRD.md` §7 (FR-02, FR-03, FR-04, FR-08); `ARCH-07`.
@@ -325,7 +325,7 @@ graph TD
 #### TASK-009: Accessible Global Navigation Header & Desktop Navbar
 - **Task ID:** `TASK-009`
 - **Title:** Accessible Global Navigation Header & Desktop Navbar
-- **Status:** `Planned`
+- **Status:** `Done`
 - **Objective:** Implement the desktop navigation header with brand emblem, route links, dropdowns, and dual-pathway action buttons.
 - **Description:** Implement `src/components/navigation/Header.tsx` and `Navbar.tsx`. Include sticky glassmorphic backdrop on scroll, active route indicators, services dropdown menu, secondary `Explore Academy` link, and primary `Request a Quote` button.
 - **Requirement IDs:** `PRD.md` §6.2, §7 (FR-01, AC-01.1, AC-01.4); `ARCH-05`.
@@ -353,7 +353,7 @@ graph TD
 #### TASK-010: Accessible Mobile Navigation Drawer with Keyboard Focus Trap
 - **Task ID:** `TASK-010`
 - **Title:** Accessible Mobile Navigation Drawer with Keyboard Focus Trap
-- **Status:** `Planned`
+- **Status:** `Done`
 - **Objective:** Implement the responsive mobile navigation drawer with accessible hamburger toggle, focus trapping, and ARIA attributes.
 - **Description:** Implement `src/components/navigation/MobileDrawer.tsx` utilizing Radix UI Dialog (`@radix-ui/react-dialog`) primitives. Ensure full height overlay, touch target sizes >= 44x44px, smooth slide-in transition, keyboard focus trap while open, `Escape` key dismissal, and automatic closure upon navigation.
 - **Requirement IDs:** `PRD.md` §7 (FR-01, AC-01.2, AC-01.3); `ARCH-05`; `ADR-002`.
@@ -379,7 +379,7 @@ graph TD
 #### TASK-011: Global Footer Component & NDPR Compliance Notice
 - **Task ID:** `TASK-011`
 - **Title:** Global Footer Component & NDPR Compliance Notice
-- **Status:** `Planned`
+- **Status:** `Done`
 - **Objective:** Build the 4-column corporate footer featuring brand emblem, site directory, academy pathways, contact channels, and legal compliance notices.
 - **Description:** Implement `src/components/navigation/Footer.tsx`. Structure across 4 distinct columns: (1) Brand emblem, tagline (*Ideas • Technology • Impact*), positioning; (2) Quick links; (3) Academy quick links; (4) Verified contact channels (phone, email, WhatsApp, physical office). Include bottom bar with copyright and NDPR data protection statement.
 - **Requirement IDs:** `PRD.md` §6.2; `AGENTS.md` §3.4; `ARCH-05`; `AUD-11`.
@@ -404,7 +404,7 @@ graph TD
 #### TASK-012: Root Layout Shell, Font Optimization & JSON-LD Organization Schema
 - **Task ID:** `TASK-012`
 - **Title:** Root Layout Shell, Font Optimization & JSON-LD Organization Schema
-- **Status:** `Planned`
+- **Status:** `Done`
 - **Objective:** Assemble the global root layout with self-hosted Google Fonts, metadata defaults, global header/footer, and injected JSON-LD Organization schema.
 - **Description:** Implement `src/app/layout.tsx`. Configure `next/font/google` with Inter / Plus Jakarta Sans font subsets. Inject structured data schema `<script type="application/ld+json">` declaring 3A Technology Solutions as an `Organization`. Integrate global skip-to-content navigation link for screen reader accessibility.
 - **Requirement IDs:** `PRD.md` §7 (FR-09, AC-09.4), §9.2; `ARCH-05`; `AUD-06`.
@@ -434,7 +434,7 @@ graph TD
 #### TASK-013: Homepage Value Proposition & Dual Intent Gate
 - **Task ID:** `TASK-013`
 - **Title:** Homepage Value Proposition & Dual Intent Gate
-- **Status:** `Planned`
+- **Status:** `Done`
 - **Objective:** Implement the conversion-focused homepage featuring the value proposition hero, dual-pathway intent gate, featured services, case studies, methodology, and academy banner.
 - **Description:** Implement `src/app/page.tsx` and homepage sections under `src/components/home/`: Hero with non-competing dual CTA buttons (`/services` and `/academy`), Trust & Capability Banner, Core Commercial Services grid, Featured Case Studies cards, 3-step Operating Methodology ("How 3A Works"), Techvolution Academy Highlight, and Conversion Footer Banner.
 - **Requirement IDs:** `PRD.md` §1, §3.2, §7 (FR-01, FR-02, FR-03, FR-04); `docs/design.md` §7.1.
@@ -468,7 +468,7 @@ graph TD
 #### TASK-014: Commercial Services Directory Page (`/services`)
 - **Task ID:** `TASK-014`
 - **Title:** Commercial Services Directory Page (`/services`)
-- **Status:** `Planned`
+- **Status:** `Done`
 - **Objective:** Build the high-level services overview page detailing the 5 core commercial specializations.
 - **Description:** Implement `src/app/services/page.tsx`. Present structured capability cards for all five categories: Web Development, Custom Software Engineering, AI & Automation, Data Science & Analytics, and Branding & Digital Media. Each card features icon, summary, key deliverables, and link to category detail page.
 - **Requirement IDs:** `PRD.md` §5, §7 (FR-02, AC-02.1); `docs/design.md` §7.2.
@@ -495,7 +495,7 @@ graph TD
 #### TASK-015: Dynamic Service Detail Pages (`/services/[slug]`)
 - **Task ID:** `TASK-015`
 - **Title:** Dynamic Service Detail Pages (`/services/[slug]`)
-- **Status:** `Planned`
+- **Status:** `Done`
 - **Objective:** Implement dynamic routing for individual service category pages with static parameter generation and pre-filled quote CTAs.
 - **Description:** Implement `src/app/services/[slug]/page.tsx` using `generateStaticParams()` to pre-render all 5 categories at build time. Render Problem Context, Target Audience, Technical Approach, Deliverables list, and dedicated CTA button linking to `/request-quote?service=[slug]`. Invalid slugs trigger `notFound()`.
 - **Requirement IDs:** `PRD.md` §7 (FR-02, AC-02.2, AC-02.3); `ARCH-08`.
@@ -524,7 +524,7 @@ graph TD
 #### TASK-016: Portfolio & Case Study Showcase Directory (`/projects`)
 - **Task ID:** `TASK-016`
 - **Title:** Portfolio & Case Study Showcase Directory (`/projects`)
-- **Status:** `Planned`
+- **Status:** `Done`
 - **Objective:** Build the filterable case study directory displaying verified engineering projects, prototypes, and status badges.
 - **Description:** Implement `src/app/projects/page.tsx` and interactive category filter bar (`All`, `Web Development`, `Custom Software`, `AI & Automation`, `Data Science`). Display project cards with status badges (`Client Project`, `Live Production`, `Deployed Prototype`, `Research & Development`), summary, and tech stack tags.
 - **Requirement IDs:** `PRD.md` §7 (FR-03, AC-03.1, AC-03.2, AC-03.3); `AUD-04`.
@@ -552,7 +552,7 @@ graph TD
 #### TASK-017: Individual Case Study Detail Pages (`/projects/[slug]`)
 - **Task ID:** `TASK-017`
 - **Title:** Individual Case Study Detail Pages (`/projects/[slug]`)
-- **Status:** `Planned`
+- **Status:** `Done`
 - **Objective:** Build deep-dive case study pages showcasing project architecture, challenges, solutions, tech stacks, and live links.
 - **Description:** Implement `src/app/projects/[slug]/page.tsx` using `generateStaticParams()`. Feature Project Overview, The Challenge, The Engineering Solution, Tech Stack Badges, Architecture / Prototype Visuals, and verified GitHub / Live Demo links.
 - **Requirement IDs:** `PRD.md` §7 (FR-03, AC-03.4); `AUD-09`.
@@ -581,7 +581,7 @@ graph TD
 #### TASK-018: 3A Techvolution Academy Landing Page (`/academy`)
 - **Task ID:** `TASK-018`
 - **Title:** 3A Techvolution Academy Landing Page (`/academy`)
-- **Status:** `Planned`
+- **Status:** `Done`
 - **Objective:** Build the dedicated academy landing page communicating the educational mission, training tracks, and cohort ethos.
 - **Description:** Implement `src/app/academy/page.tsx`. Present Academy value proposition ("Practical, Hands-on Technology Education"), key learning pillars (Real-world projects, direct mentorship, industry skills), curriculum highlights, and direct pathways to view programmes or enquire via WhatsApp.
 - **Requirement IDs:** `PRD.md` §3.1, §7 (FR-04, AC-04.1); `ARCH-02`.
@@ -609,7 +609,7 @@ graph TD
 #### TASK-019: Academy Programme Catalog & External Registration Gateways (`/academy/programmes`)
 - **Task ID:** `TASK-019`
 - **Title:** Academy Programme Catalog & External Registration Gateways (`/academy/programmes`)
-- **Status:** `Planned`
+- **Status:** `Done`
 - **Objective:** Implement the detailed course catalog with syllabus modules, delivery formats, and external application routing.
 - **Description:** Implement `src/app/academy/programmes/page.tsx`. Present comprehensive cards for each course track: Track Title, Target Audience, Skill Level, Key Modules, Delivery Format (Weekend/In-Person/Hybrid), and Duration. The "Enroll Now" or "Enquire about this Track" button routes to the approved external intake URL (`AUD-05`).
 - **Requirement IDs:** `PRD.md` §7 (FR-04, AC-04.2, AC-04.3, AC-04.4); `AUD-05`; `ARCH-02`.
@@ -637,7 +637,7 @@ graph TD
 #### TASK-020: Corporate About Page (`/about`) & Leadership Philosophy
 - **Task ID:** `TASK-020`
 - **Title:** Corporate About Page (`/about`) & Leadership Philosophy
-- **Status:** `Planned`
+- **Status:** `Done`
 - **Objective:** Build the company background page articulating 3A's founding vision, engineering values, and Nigerian context.
 - **Description:** Implement `src/app/about/page.tsx`. Present 3A's story, mission (*Ideas • Technology • Impact*), 5 Brand Personality Pillars (Smart, Simple, Professional, Human, Future-Ready), engineering standards, and dual-entity model (Solutions Company + Techvolution Academy).
 - **Requirement IDs:** `PRD.md` §1.2, §4.1; `docs/design.md` §7.5.
@@ -664,7 +664,7 @@ graph TD
 #### TASK-021: NDPR-Compliant Legal Pages (`/privacy` & `/terms`)
 - **Task ID:** `TASK-021`
 - **Title:** NDPR-Compliant Legal Pages (`/privacy` & `/terms`)
-- **Status:** `Planned`
+- **Status:** `Done`
 - **Objective:** Create authoritative Privacy Policy and Terms of Service pages compliant with the Nigeria Data Protection Regulation (NDPR 2023).
 - **Description:** Implement `src/app/privacy/page.tsx` and `src/app/terms/page.tsx`. Clearly explain data collection practices (limited strictly to voluntary contact/quote enquiry submissions), zero third-party tracking cookies (`AUD-11`), user rights under NDPR, data retention policies, and formal legal contacts.
 - **Requirement IDs:** `PRD.md` §4.1, §7 (FR-11); `ARCH-11`; `AUD-11`.
@@ -692,7 +692,7 @@ graph TD
 #### TASK-022: Client Contact Form Component (`ContactForm.tsx`)
 - **Task ID:** `TASK-022`
 - **Title:** Client Contact Form Component (`ContactForm.tsx`)
-- **Status:** `Planned`
+- **Status:** `Done`
 - **Objective:** Build the interactive general enquiry form on `/contact` with client-side React Hook Form validation and accessible UI states.
 - **Description:** Implement `src/components/forms/ContactForm.tsx` on `src/app/contact/page.tsx`. Utilize `react-hook-form` + `@hookform/resolvers/zod` with `ContactEnquirySchema`. Implement hidden honeypot field (`hp_field`), accessible field labels, inline error messages linked via `aria-describedby`, and button loading spinner.
 - **Requirement IDs:** `PRD.md` §7 (FR-05, AC-05.1, AC-05.2); `ARCH-05`; `ARCH-10`.
@@ -720,7 +720,7 @@ graph TD
 #### TASK-023: Commercial Quote Intake Form Component (`QuoteForm.tsx`)
 - **Task ID:** `TASK-023`
 - **Title:** Commercial Quote Intake Form Component (`QuoteForm.tsx`)
-- **Status:** `Planned`
+- **Status:** `Done`
 - **Objective:** Build the structured commercial scoping intake form on `/request-quote` with query parameter pre-selection support.
 - **Description:** Implement `src/components/forms/QuoteForm.tsx` on `src/app/request-quote/page.tsx`. Include Client Name, Company Name, Email, Phone/WhatsApp, Primary Service Needed (dropdown populated from service taxonomy), Estimated Budget Range (dropdown matching `AUD-03`), Desired Timeline (dropdown), and Scope Description. Read `?service=[slug]` URL search parameter using `useSearchParams()` to automatically pre-select the requested service.
 - **Requirement IDs:** `PRD.md` §7 (FR-06, AC-06.1, AC-06.2); `AUD-03`; `ARCH-10`.
@@ -748,7 +748,7 @@ graph TD
 #### TASK-024: Anti-Abuse Defenses: Honeypot, CRLF Sanitizer & Sliding-Window IP Rate Limiter
 - **Task ID:** `TASK-024`
 - **Title:** Anti-Abuse Defenses: Honeypot, CRLF Sanitizer & Sliding-Window IP Rate Limiter
-- **Status:** `Planned`
+- **Status:** `Done`
 - **Objective:** Implement server-side security utilities to silently drop automated bots, prevent email header injection, and throttle abusive IPs.
 - **Description:** Implement `src/lib/security/honeypot.ts`, `src/lib/security/sanitizer.ts`, and `src/lib/security/rate-limiter.ts`. Honeypot utility inspects `hp_field`; CRLF sanitizer strips carriage returns (`\r`, `\n`) from header values; rate limiter uses an in-memory sliding window map (limiting each client IP to 5 submissions per hour).
 - **Requirement IDs:** `PRD.md` §7 (AC-05.3, AC-06.3), §9.4; `AGENTS.md` §6; `ARCH-09`; `SEC-02` to `SEC-05`.
@@ -776,7 +776,7 @@ graph TD
 #### TASK-025: Transactional Email Notification Pipeline (Resend & SMTP Fallback)
 - **Task ID:** `TASK-025`
 - **Title:** Transactional Email Notification Pipeline (Resend & SMTP Fallback)
-- **Status:** `Planned`
+- **Status:** `Done`
 - **Objective:** Implement the dual-driver email dispatch service delivering formatted lead notifications to the 3A administrative team.
 - **Description:** Implement `src/lib/email/dispatcher.ts` and React Email templates in `src/components/email/`. Primary driver sends via Resend HTTP SDK (`resend`); fallback driver sends via Nodemailer SMTP. Selects driver based on `EMAIL_DRIVER` environment variable (`resend` vs `smtp`). Private credentials kept strictly server-side (`ARCH-04`).
 - **Requirement IDs:** `PRD.md` §7 (AC-05.3, AC-06.4), §9.4; `AGENTS.md` §6; `ARCH-04`; `ADR-005`; `DEC-01`.
@@ -805,7 +805,7 @@ graph TD
 #### TASK-026: Next.js Server Actions & API Route Handlers
 - **Task ID:** `TASK-026`
 - **Title:** Next.js Server Actions & API Route Handlers
-- **Status:** `Planned`
+- **Status:** `Done`
 - **Objective:** Wire Server Actions and REST API endpoints to process form mutations, execute validation, check anti-abuse, and trigger email dispatch.
 - **Description:** Implement Server Actions `submitContactEnquiry` and `submitQuoteRequest` in `src/actions/enquiry.ts` and `src/actions/quote.ts`. Implement REST routes `POST /api/contact`, `POST /api/quote`, and `GET /api/health` in `src/app/api/`. Enforce RFC 7807 aligned error responses, honeypot traps, and rate limiting.
 - **Requirement IDs:** `PRD.md` §7 (FR-05, FR-06); `ARCH-09`; `ARCH-10`; `ADR-004`.
@@ -835,7 +835,7 @@ graph TD
 #### TASK-027: Contextual WhatsApp Direct Communication Bridge
 - **Task ID:** `TASK-027`
 - **Title:** Contextual WhatsApp Direct Communication Bridge
-- **Status:** `Planned`
+- **Status:** `Done`
 - **Objective:** Build the centralized WhatsApp link generator creating contextual click-to-chat links for service pages, academy courses, and general contact.
 - **Description:** Implement `src/lib/whatsapp.ts`. Export `getWhatsAppUrl(context: WhatsAppContext)` producing properly encoded `https://wa.me/<number>?text=<encoded_text>` URIs using the centralized telephone number from `siteConfig.contact.whatsapp`. Provide preset generators for General Enquiry, Specific Service Scoping, and Academy Course Advising.
 - **Requirement IDs:** `PRD.md` §7 (FR-07, AC-07.1, AC-07.2, AC-07.3); `ARCH-06`.
@@ -864,7 +864,7 @@ graph TD
 #### TASK-028: Branded Error Boundaries & Recovery Pages
 - **Task ID:** `TASK-028`
 - **Title:** Branded Error Boundaries & Recovery Pages
-- **Status:** `Planned`
+- **Status:** `Done`
 - **Objective:** Create branded recovery screens for 404 Not Found, 500 Server Errors, and Empty Filter States.
 - **Description:** Implement `src/app/not-found.tsx`, `src/app/error.tsx`, and `src/components/ui/EmptyState.tsx`. Follow the 3A "Premium Minimalism" aesthetic with clear recovery paths back to `/`, `/services`, and `/contact`.
 - **Requirement IDs:** `PRD.md` §7 (FR-10, AC-10.1, AC-10.2, AC-10.3); `ARCH-10`.
@@ -892,7 +892,7 @@ graph TD
 #### TASK-029: Metadata API, Dynamic Sitemap & Robots.txt
 - **Task ID:** `TASK-029`
 - **Title:** Metadata API, Dynamic Sitemap & Robots.txt
-- **Status:** `Planned`
+- **Status:** `Done`
 - **Objective:** Implement full technical SEO infrastructure including automated dynamic sitemap generation, crawler directives, and unique Open Graph metadata.
 - **Description:** Implement `src/app/sitemap.ts` dynamically aggregating all static routes, service slugs, and project slugs. Implement `src/app/robots.ts` specifying canonical sitemap location and indexing rules. Define comprehensive `generateMetadata()` on dynamic routes and static metadata on fixed routes. Resolve `AUD-07` by creating standard Open Graph preview image asset (`public/images/brand/og-default.png`).
 - **Requirement IDs:** `PRD.md` §7 (FR-09, AC-09.1, AC-09.2, AC-09.3); `AUD-07`.
@@ -920,7 +920,7 @@ graph TD
 #### TASK-030: Comprehensive Automated Test Suite Execution
 - **Task ID:** `TASK-030`
 - **Title:** Comprehensive Automated Test Suite Execution
-- **Status:** `Planned`
+- **Status:** `Done`
 - **Objective:** Execute all 8 levels of the testing strategy, validating unit logic, component states, server actions, and Playwright end-to-end user journeys.
 - **Description:** Run full suite of automated tests across unit tests, component tests, integration tests, and Playwright E2E suites. Assert passing logs across all 4 key user journeys: Commercial Client Quote, Academy Track Exploration, WhatsApp Bridge, and Service Navigation.
 - **Requirement IDs:** `PRD.md` §12; `AGENTS.md` §5; `docs/definition-of-done.md` §3, §4; `docs/testing-strategy.md`.
@@ -946,7 +946,7 @@ graph TD
 #### TASK-031: Accessibility, Contrast & Lighthouse Core Web Vitals Audit
 - **Task ID:** `TASK-031`
 - **Title:** Accessibility, Contrast & Lighthouse Core Web Vitals Audit
-- **Status:** `Planned`
+- **Status:** `Done`
 - **Objective:** Execute automated axe-core accessibility audits and Lighthouse performance scans, confirming WCAG 2.1 AA compliance and Core Web Vitals targets.
 - **Description:** Run `@axe-core/playwright` accessibility scans across all core pages (`/`, `/services`, `/projects`, `/academy`, `/contact`, `/request-quote`). Verify zero critical/serious accessibility violations. Assert contrast safety rules (`AUD-01`). Execute Lighthouse audit against production build asserting Performance >= 90, Accessibility >= 95, Best Practices >= 95, SEO >= 95.
 - **Requirement IDs:** `PRD.md` §2.2, §9.2, §9.3; `ARCH-05`; `AUD-01`; `DOD-R3.2`.
@@ -974,7 +974,7 @@ graph TD
 #### TASK-032: Production Security Headers & Content Security Policy
 - **Task ID:** `TASK-032`
 - **Title:** Production Security Headers & Content Security Policy
-- **Status:** `Planned`
+- **Status:** `Done`
 - **Objective:** Configure HTTP security headers in `next.config.mjs` to defend against clickjacking, MIME-sniffing, XSS, and unauthorized framing.
 - **Description:** Implement `headers()` configuration in `next.config.mjs`. Enforce:
   - `Content-Security-Policy` (restricting script, style, image, and font sources)
@@ -1006,7 +1006,7 @@ graph TD
 #### TASK-033: Vercel Deployment Configuration, Environment Secrets & Staging Smoke Testing
 - **Task ID:** `TASK-033`
 - **Title:** Vercel Deployment Configuration, Environment Secrets & Staging Smoke Testing
-- **Status:** `Planned`
+- **Status:** `Planned` (Awaiting Stakeholder Provisioning of `DEC-01`, `DEC-02`, `DEC-03`)
 - **Objective:** Deploy production build to Vercel, configure environment secrets, verify SSL certificate, and execute live end-to-end smoke test.
 - **Description:** Connect repository to Vercel project (`ADR-006`). Configure production environment variables (`RESEND_API_KEY`, `NOTIFICATION_INBOX`, `CONTACT_EMAIL`). Verify custom production domain and Let's Encrypt TLS certificate. Execute live smoke test submitting test quote request and confirming receipt in the administrative mailbox.
 - **Requirement IDs:** `PRD.md` §11, §12; `AGENTS.md` §5, §6; `DOD-R3.1` to `DOD-R3.9`; `ADR-006`.
@@ -1037,38 +1037,38 @@ Every functional and non-functional requirement from `PRD.md` is mapped directly
 
 | PRD Requirement ID | Description | Primary Governing Task(s) | Verification Level | Status |
 | :--- | :--- | :--- | :--- | :--- |
-| **FR-01** | Global Responsive Navigation & Mobile Drawer | `TASK-009`, `TASK-010` | L3 Component, L5 E2E | Planned |
-| **FR-02** | Commercial Services Directory & Slugs | `TASK-014`, `TASK-015` | L3 Component, L5 E2E | Planned |
-| **FR-03** | Portfolio Showcase & Case Study Engine | `TASK-016`, `TASK-017` | L3 Component, L5 E2E | Planned |
-| **FR-04** | 3A Techvolution Academy Gateway | `TASK-018`, `TASK-019` | L3 Component, L5 E2E | Planned |
-| **FR-05** | General Contact Enquiry Form | `TASK-022`, `TASK-026` | L2 Unit, L3 Component, L4 Action | Planned |
-| **FR-06** | Commercial Project Quote Request Intake | `TASK-023`, `TASK-026` | L2 Unit, L3 Component, L4 Action | Planned |
-| **FR-07** | Centralized WhatsApp Gateway | `TASK-005`, `TASK-027` | L2 Unit, L3 Component | Planned |
-| **FR-08** | Statically Typed Content Architecture | `TASK-006`, `TASK-007`, `TASK-008` | L1 Typecheck, L2 Unit | Planned |
-| **FR-09** | SEO & Social Sharing Metadata | `TASK-012`, `TASK-029` | L5 E2E, L7 Lighthouse | Planned |
-| **FR-10** | Resilient Error Handling & Empty States | `TASK-028` | L3 Component, L5 E2E | Planned |
-| **FR-11** | Privacy-First Analytics Readiness | `TASK-021`, `TASK-032` | L1 Lint, L8 Security | Planned |
-| **ARCH-01** | Zero Database & Zero Runtime CMS | `TASK-001`, `TASK-007` | L1 Static Audit | Planned |
-| **ARCH-02** | Zero In-House LMS & User Accounts | `TASK-018`, `TASK-019` | L1 Dependency Check | Planned |
-| **ARCH-03** | Zero Direct Payment Gateways | `TASK-001`, `TASK-023` | L1 Dependency Check | Planned |
-| **ARCH-04** | Zero Secret Leakage | `TASK-025`, `TASK-033` | L8 Gitleaks Scan | Planned |
-| **ARCH-05** | Brand Palette & Contrast Safety | `TASK-002`, `TASK-031` | L6 axe-core, WCAG Audit | Planned |
-| **ARCH-06** | Centralized Communication Constants | `TASK-005`, `TASK-027` | L2 Unit, Code Review | Planned |
-| **ARCH-07** | Unidirectional Content Layer | `TASK-008` | L1 Lint / Madge | Planned |
-| **ARCH-08** | React Server Component Default | `TASK-013`, `TASK-014`, `TASK-015` | L1 Build Inspection | Planned |
-| **ARCH-09** | Honeypot & Anti-Spam Defenses | `TASK-024`, `TASK-026` | L2 Unit, L4 Action | Planned |
-| **ARCH-10** | Non-Destructive Form State | `TASK-022`, `TASK-023` | L3 Component Test | Planned |
-| **ARCH-11** | Zero Third-Party Tracking Pixels | `TASK-021`, `TASK-032` | L8 Network Audit | Planned |
-| **ARCH-14** | Strict TypeScript Zero `any` | `TASK-001` to `TASK-033` | L1 `tsc --noEmit` | Planned |
+| **FR-01** | Global Responsive Navigation & Mobile Drawer | `TASK-009`, `TASK-010` | L3 Component, L5 E2E | **Done** |
+| **FR-02** | Commercial Services Directory & Slugs | `TASK-014`, `TASK-015` | L3 Component, L5 E2E | **Done** |
+| **FR-03** | Portfolio Showcase & Case Study Engine | `TASK-016`, `TASK-017` | L3 Component, L5 E2E | **Done** |
+| **FR-04** | 3A Techvolution Academy Gateway | `TASK-018`, `TASK-019` | L3 Component, L5 E2E | **Done** |
+| **FR-05** | General Contact Enquiry Form | `TASK-022`, `TASK-026` | L2 Unit, L3 Component, L4 Action | **Done** |
+| **FR-06** | Commercial Project Quote Request Intake | `TASK-023`, `TASK-026` | L2 Unit, L3 Component, L4 Action | **Done** |
+| **FR-07** | Centralized WhatsApp Gateway | `TASK-005`, `TASK-027` | L2 Unit, L3 Component | **Done** |
+| **FR-08** | Statically Typed Content Architecture | `TASK-006`, `TASK-007`, `TASK-008` | L1 Typecheck, L2 Unit | **Done** |
+| **FR-09** | SEO & Social Sharing Metadata | `TASK-012`, `TASK-029` | L5 E2E, L7 Lighthouse | **Done** |
+| **FR-10** | Resilient Error Handling & Empty States | `TASK-028` | L3 Component, L5 E2E | **Done** |
+| **FR-11** | Privacy-First Analytics Readiness | `TASK-021`, `TASK-032` | L1 Lint, L8 Security | **Done** |
+| **ARCH-01** | Zero Database & Zero Runtime CMS | `TASK-001`, `TASK-007` | L1 Static Audit | **Done** |
+| **ARCH-02** | Zero In-House LMS & User Accounts | `TASK-018`, `TASK-019` | L1 Dependency Check | **Done** |
+| **ARCH-03** | Zero Direct Payment Gateways | `TASK-001`, `TASK-023` | L1 Dependency Check | **Done** |
+| **ARCH-04** | Zero Secret Leakage | `TASK-025`, `TASK-033` | L8 Gitleaks Scan | **Done** |
+| **ARCH-05** | Brand Palette & Contrast Safety | `TASK-002`, `TASK-031` | L6 axe-core, WCAG Audit | **Done** |
+| **ARCH-06** | Centralized Communication Constants | `TASK-005`, `TASK-027` | L2 Unit, Code Review | **Done** |
+| **ARCH-07** | Unidirectional Content Layer | `TASK-008` | L1 Lint / Madge | **Done** |
+| **ARCH-08** | React Server Component Default | `TASK-013`, `TASK-014`, `TASK-015` | L1 Build Inspection | **Done** |
+| **ARCH-09** | Honeypot & Anti-Spam Defenses | `TASK-024`, `TASK-026` | L2 Unit, L4 Action | **Done** |
+| **ARCH-10** | Non-Destructive Form State | `TASK-022`, `TASK-023` | L3 Component Test | **Done** |
+| **ARCH-11** | Zero Third-Party Tracking Pixels | `TASK-021`, `TASK-032` | L8 Network Audit | **Done** |
+| **ARCH-14** | Strict TypeScript Zero `any` | `TASK-001` to `TASK-033` | L1 `tsc --noEmit` | **Done** |
 
 ---
 
-## 5. First Recommended Task & Execution Rationale
+## 5. Next Recommended Task & Execution Rationale
 
-### Recommended Next Task: `TASK-001`
-- **Task ID:** `TASK-001`
-- **Title:** Next.js 14+ App Router Project Scaffolding & TypeScript Strict Configuration
-- **Current Status:** `Ready`
+### Recommended Next Task: `TASK-033` (and Stakeholder Asset Resolution for `TASK-004`)
+- **Task ID:** `TASK-033`
+- **Title:** Vercel Deployment Configuration, Environment Secrets & Staging Smoke Testing
+- **Current Status:** `Planned` (Awaiting `DEC-01`, `DEC-02`, `DEC-03`)
 
 ### Technical Rationale for Selection:
 1. **Critical Path Dependency Anchor:** Every subsequent deliverable—design token integration (`TASK-002`), testing frameworks (`TASK-003`), static data layer (`TASK-006`), navigation components (`TASK-009`), and pages—depends upon an initialized, strictly typed Next.js App Router codebase.

@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { siteConfig } from '@/config/site';
+import { BrandLogo } from '@/components/ui/BrandLogo';
 
 export function Footer() {
   return (
@@ -12,13 +13,9 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
           {/* Column 1: Brand & Positioning */}
           <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-white font-bold text-brand-navy">
-                3A
-              </div>
-              <span className="text-lg font-bold tracking-tight text-brand-white">3A TECHNOLOGY</span>
-            </div>
+            <BrandLogo variant="dark" subtitle="" />
             <p className="text-sm font-semibold tracking-wide text-brand-yellow">{siteConfig.tagline}</p>
+            <p className="text-xs text-gray-300 leading-relaxed">{siteConfig.brand.essence}</p>
             <p className="text-xs text-gray-400 leading-relaxed">{siteConfig.description}</p>
           </div>
 
@@ -89,17 +86,22 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar & NDPR Compliance Notice */}
-        <div className="mt-12 border-t border-gray-700 pt-8 sm:flex sm:items-center sm:justify-between text-xs text-gray-400">
-          <p>&copy; {new Date().getFullYear()} 3A Technology Solutions. All rights reserved.</p>
-          <div className="mt-4 flex gap-6 sm:mt-0">
-            <Link href="/privacy" className="hover:text-brand-white">
-              Privacy Policy (NDPR Compliant)
-            </Link>
-            <Link href="/terms" className="hover:text-brand-white">
-              Terms of Service
-            </Link>
+        {/* Bottom Bar, CAC Registration & NDPR Compliance Notice */}
+        <div className="mt-12 border-t border-gray-700 pt-8 text-xs text-gray-400 space-y-3">
+          <div className="sm:flex sm:items-center sm:justify-between">
+            <p>&copy; {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</p>
+            <div className="mt-4 flex gap-6 sm:mt-0">
+              <Link href="/privacy" className="hover:text-brand-white">
+                Privacy Policy (NDPR Compliant)
+              </Link>
+              <Link href="/terms" className="hover:text-brand-white">
+                Terms of Service
+              </Link>
+            </div>
           </div>
+          <p className="text-[11px] text-gray-400/90">
+            Registered under CAMA 2020 as <strong className="text-gray-300 font-semibold">{siteConfig.legal.registeredName}</strong> &bull; CAC Registration: <strong className="text-gray-300 font-semibold">{siteConfig.legal.rcNumber}</strong> &bull; TIN: <strong className="text-gray-300 font-semibold">{siteConfig.legal.tin}</strong> &bull; Principal Office: {siteConfig.legal.registeredAddress}
+          </p>
         </div>
       </div>
     </footer>

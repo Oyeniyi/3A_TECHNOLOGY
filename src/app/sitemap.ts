@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next';
 import { siteConfig } from '@/config/site';
-import { getAllServices, getAllProjects, getAllProgrammes } from '@/lib/content';
+import { getAllServices, getAllProjects } from '@/lib/content';
 
 /**
  * @file sitemap.ts

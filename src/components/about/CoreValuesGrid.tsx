@@ -1,29 +1,13 @@
 /**
  * @file CoreValuesGrid.tsx
- * @description Structural component displaying 3A Technology's four core organizational values.
+ * @description Displays 3A Technology Solutions' 5 Official Brand Personality Pillars
+ * from 3A_Technology_Solutions_Brand_Identity_Standards.pdf (Section 1: Brand Foundation).
+ * Strictly enforces ARCH-05 contrast invariants (#0B2B6B navy badge with #F7C800 yellow text).
  */
 
 import React from 'react';
 import { Card } from '@/components/ui/Card';
-
-const values = [
-  {
-    title: 'Architectural Rigour',
-    description: 'We build systems designed to withstand high concurrency, enterprise audits, and sovereign regulatory standards.',
-  },
-  {
-    title: 'Engineering Integrity',
-    description: 'Clear commercial agreements, transparent scoping, and zero compromise on code quality, testing, or security.',
-  },
-  {
-    title: 'Capacity Building',
-    description: 'We do not just deploy systems; we develop local Nigerian and West African engineers into senior software practitioners.',
-  },
-  {
-    title: 'Mission Alignment',
-    description: 'Every line of code and training module aligns directly with real economic growth and operational resilience.',
-  },
-];
+import { siteConfig } from '@/config/site';
 
 export const CoreValuesGrid: React.FC = () => {
   return (
@@ -31,20 +15,23 @@ export const CoreValuesGrid: React.FC = () => {
       <div className="container-custom">
         <div className="text-center max-w-2xl mx-auto mb-12">
           <p className="text-xs uppercase tracking-wider font-semibold text-brand-navy">
-            Our Guiding Principles
+            Brand Foundation &amp; Personality
           </p>
           <h2 className="text-2xl md:text-3xl font-bold text-brand-navy mt-1">
-            Core Values & Operating Standard
+            Core Values &amp; Operating Standard
           </h2>
+          <p className="mt-3 text-sm text-brand-dark-gray/80">
+            Five practical principles guide how we build software, speak with clients, and teach our students.
+          </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {values.map((v, i) => (
-            <Card key={i} className="bg-brand-white border border-brand-light-gray/80">
-              <span className="inline-block text-brand-yellow font-extrabold text-2xl mb-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+          {siteConfig.brand.pillars.map((pillar, i) => (
+            <Card key={pillar.title} hoverEffect className="bg-brand-white border border-brand-light-gray/80">
+              <span className="inline-flex h-9 w-9 items-center justify-center rounded-md bg-brand-navy text-brand-yellow font-extrabold text-sm mb-3">
                 0{i + 1}
               </span>
-              <h3 className="text-lg font-bold text-brand-navy mb-2">{v.title}</h3>
-              <p className="text-sm text-brand-dark-gray/80">{v.description}</p>
+              <h3 className="text-lg font-bold text-brand-navy mb-2">{pillar.title}</h3>
+              <p className="text-sm text-brand-dark-gray/80 leading-relaxed">{pillar.description}</p>
             </Card>
           ))}
         </div>

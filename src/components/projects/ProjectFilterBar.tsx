@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { cn } from '@/lib/utils';
-import { ServiceSlug } from '@/types/content';
 
 export interface ProjectFilterBarProps {
   activeCategory: string;

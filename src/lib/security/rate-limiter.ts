@@ -1,7 +1,9 @@
 /**
  * Sliding-Window In-Memory IP Rate Limiter
- * In accordance with docs/security-specification.md Section 4 (SEC-04) & ARCH-09
+ * In accordance with docs/security-specification.md Section 4 (SEC-05) & ARCH-09
  */
+
+import { createHash } from 'crypto';
 
 interface RateLimitRecord {
   timestamps: number[];
@@ -11,6 +13,18 @@ const rateLimitStore = new Map<string, RateLimitRecord>();
 
 const WINDOW_MS = 60 * 60 * 1000; // 1 hour rolling window
 const MAX_REQUESTS = 5; // Max 5 submissions per hour per IP
+const RATE_LIMIT_SALT = process.env.RATE_LIMIT_SALT || '3a-ephemeral-rate-limit-salt-v1';
+
+/**
+ * Generates an anonymized SHA-256 hash of a client IP address so raw IPs
+ * are never stored in memory or logs (SEC-05, SEC-08 NDPR data minimization).
+ */
+export function hashClientIp(ipAddress: string): string {
+  return createHash('sha256')
+    .update(`${ipAddress}:${RATE_LIMIT_SALT}`)
+    .digest('hex')
+    .slice(0, 32);
+}
 
 export interface RateLimitResult {
   allowed: boolean;
@@ -20,7 +34,8 @@ export interface RateLimitResult {
 
 export function checkRateLimit(ipAddress = 'unknown-client'): RateLimitResult {
   const now = Date.now();
-  const record = rateLimitStore.get(ipAddress) || { timestamps: [] };
+  const key = hashClientIp(ipAddress);
+  const record = rateLimitStore.get(key) || { timestamps: [] };
 
   // Filter timestamps within the active sliding window
   const activeTimestamps = record.timestamps.filter((ts) => now - ts < WINDOW_MS);
@@ -37,7 +52,7 @@ export function checkRateLimit(ipAddress = 'unknown-client'): RateLimitResult {
   }
 
   activeTimestamps.push(now);
-  rateLimitStore.set(ipAddress, { timestamps: activeTimestamps });
+  rateLimitStore.set(key, { timestamps: activeTimestamps });
 
   return {
     allowed: true,

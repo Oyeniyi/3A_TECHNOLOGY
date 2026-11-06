@@ -16,6 +16,12 @@ export function WhatsAppButton({
   ...props
 }: WhatsAppButtonProps) {
   const url = generateWhatsAppUrl(context);
+  const analyticsEvent =
+    context.type === 'service'
+      ? 'click_whatsapp_service'
+      : context.type === 'academy'
+      ? 'click_whatsapp_academy'
+      : 'click_whatsapp_general';
 
   if (variant === 'floating') {
     return (
@@ -24,6 +30,7 @@ export function WhatsAppButton({
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat with 3A Technology on WhatsApp"
+        data-analytics-event={analyticsEvent}
         className={cn(
           'fixed bottom-6 right-6 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-emerald-600 text-brand-white shadow-lg transition-transform hover:scale-105 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2',
           className
@@ -43,6 +50,7 @@ export function WhatsAppButton({
       href={url}
       target="_blank"
       rel="noopener noreferrer"
+      data-analytics-event={analyticsEvent}
       className={cn(
         'inline-flex items-center justify-center gap-2 rounded border border-emerald-600 bg-white px-4 py-2 text-sm font-semibold text-emerald-700 transition-colors hover:bg-emerald-50 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2',
         className

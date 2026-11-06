@@ -22,12 +22,34 @@ export interface AcademyConfig {
   advisoryWhatsAppUrl: string;
 }
 
+export interface LegalConfig {
+  registeredName: string;
+  rcNumber: string;
+  tin: string;
+  incorporationDate: string;
+  natureOfBusiness: string;
+  registeredAddress: string;
+}
+
+export interface BrandPillar {
+  title: string;
+  description: string;
+}
+
+export interface BrandConfig {
+  essence: string;
+  principle: string;
+  pillars: BrandPillar[];
+}
+
 export interface SiteConfig {
   name: string;
   tagline: string;
   description: string;
   url: string;
   contact: ContactConfig;
+  legal: LegalConfig;
+  brand: BrandConfig;
   academy: AcademyConfig;
   nav: {
     main: NavItem[];

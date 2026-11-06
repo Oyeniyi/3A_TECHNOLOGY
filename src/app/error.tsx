@@ -16,7 +16,6 @@ export default function ErrorBoundary({
   reset: () => void;
 }) {
   useEffect(() => {
-    // Structural error logging placeholder
     console.error('Unhandled runtime error in client boundary:', error);
   }, [error]);
 
@@ -24,9 +23,9 @@ export default function ErrorBoundary({
     <div className="min-h-[60vh] flex items-center justify-center py-20 px-4 bg-brand-light-gray/30">
       <div className="max-w-md w-full text-center">
         <span className="text-5xl font-extrabold text-red-600 block mb-4">500</span>
-        <h1 className="text-2xl font-bold text-brand-navy mb-2">Unexpected Error Encountered</h1>
+        <h1 className="text-2xl font-bold text-brand-navy mb-2">Something Went Wrong</h1>
         <p className="text-brand-dark-gray/80 text-sm mb-6">
-          An unexpected error occurred while loading this section. Our engineering operations team has been notified.
+          This page ran into an error while loading. Please try again, or head back to the homepage.
         </p>
         <div className="flex justify-center gap-4">
           <Button variant="primary" onClick={() => reset()}>

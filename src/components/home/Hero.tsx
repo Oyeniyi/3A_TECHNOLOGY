@@ -9,7 +9,7 @@ export function Hero() {
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 rounded-full border border-brand-border bg-brand-gray px-3.5 py-1 text-xs font-semibold text-brand-navy">
             <span className="h-1.5 w-1.5 rounded-full bg-brand-yellow" aria-hidden="true" />
-            Practical Engineering • Verified Outcomes
+            Ideas • Technology • Impact
           </div>
 
           <h1 id="hero-heading" className="mt-6 text-4xl font-extrabold tracking-tight text-brand-navy sm:text-5xl lg:text-6xl">
@@ -17,7 +17,7 @@ export function Hero() {
           </h1>
 
           <p className="mt-6 text-lg text-brand-charcoal sm:text-xl leading-relaxed">
-            We engineer robust software, intelligent AI integrations, and practical workflow automation for enterprises and SMEs—while training the next generation of engineers through 3A Techvolution Academy.
+            We build custom software, web platforms, AI tools, and data systems for growing businesses, and train upcoming developers through 3A Techvolution Academy.
           </p>
 
           {/* Dual-Pathway Intent Routing */}

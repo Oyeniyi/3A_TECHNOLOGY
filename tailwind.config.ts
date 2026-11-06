@@ -9,11 +9,18 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        'brand-navy': '#0B2B6B',
+        'brand-yellow': '#F7C800',
+        'brand-dark-gray': '#1F2937',
+        'brand-light-gray': '#F4F6F8',
+        'brand-white': '#FFFFFF',
         brand: {
           navy: '#0B2B6B',     // Primary brand anchor
           yellow: '#F7C800',   // Accent focal points
           charcoal: '#1F2937', // Text, dark cards, footer
+          'dark-gray': '#1F2937',
           gray: '#F4F6F8',     // Section & input backgrounds
+          'light-gray': '#F4F6F8',
           white: '#FFFFFF',    // Primary canvas
           border: '#E5E7EB'    // Standard 1px structural outline
         }

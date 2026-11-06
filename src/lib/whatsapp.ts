@@ -20,12 +20,17 @@ export function generateWhatsAppUrl(context: WhatsAppContext = { type: 'general'
     messageText = `Hello 3A, I am interested in discussing a project regarding ${context.serviceTitle}.`;
   } else if (context.type === 'academy') {
     if (context.courseTitle) {
-      messageText = `Hello 3A Techvolution Academy, I would like to inquire about the ${context.courseTitle} programme.`;
+      messageText = `Hello 3A Techvolution Academy, I would like to enquire about the ${context.courseTitle} programme.`;
     } else {
-      messageText = 'Hello 3A Techvolution Academy, I would like to inquire about training tracks and upcoming cohorts.';
+      messageText = 'Hello 3A Techvolution Academy, I would like to enquire about training tracks and upcoming cohorts.';
     }
   }
 
   const encodedMessage = encodeURIComponent(messageText);
   return `https://wa.me/${cleanPhone}?text=${encodedMessage}`;
 }
+
+/**
+ * Alias for generateWhatsAppUrl matching TASK-027 specification.
+ */
+export const getWhatsAppUrl = generateWhatsAppUrl;

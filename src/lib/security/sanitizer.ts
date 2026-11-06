@@ -8,16 +8,23 @@
  */
 export function sanitizeHeader(input?: string): string {
   if (!input) return '';
-  return input.replace(/[\r\n]/g, ' ').trim();
+  return input
+    .replace(/[\r\n]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
 /**
- * Strips common dangerous HTML/script injection tags from user text inputs.
+ * Strips common dangerous HTML/script injection tags and null bytes from user text inputs.
  */
 export function sanitizeBodyText(input?: string): string {
   if (!input) return '';
   return input
+    .replace(/\0/g, '')
+    .replace(/\r\n/g, '\n')
     .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
     .replace(/[<>]/g, '')
     .trim();
 }
+
+export const sanitizeInput = sanitizeBodyText;

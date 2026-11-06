@@ -17,7 +17,7 @@ export function DualPathwayGate() {
               <span className="text-xs font-bold uppercase tracking-wider text-brand-navy">Pathway A: For Businesses</span>
               <h3 className="mt-2 text-2xl font-bold text-brand-charcoal">&ldquo;I need a technology solution&rdquo;</h3>
               <p className="mt-3 text-sm text-gray-600 leading-relaxed">
-                Custom software development, enterprise web platforms, workflow automation, and predictive machine learning models tailored to solve business bottlenecks.
+                Websites, custom internal tools, AI workflow automation, data dashboards, and brand identity systems built to solve everyday business problems.
               </p>
             </div>
             <div className="mt-6 flex flex-wrap gap-4">
@@ -26,7 +26,7 @@ export function DualPathwayGate() {
                   View Services
                 </Button>
               </Link>
-              <Link href="/request-quote">
+              <Link href="/request-quote" data-analytics-event="click_request_quote">
                 <Button variant="accent" size="sm">
                   Request a Quote
                 </Button>
@@ -40,11 +40,11 @@ export function DualPathwayGate() {
               <span className="text-xs font-bold uppercase tracking-wider text-amber-700">Pathway B: For Learners</span>
               <h3 className="mt-2 text-2xl font-bold text-brand-charcoal">&ldquo;I want to learn technology&rdquo;</h3>
               <p className="mt-3 text-sm text-gray-600 leading-relaxed">
-                Practical, project-anchored curriculum in programming, artificial intelligence, and data science designed for university students, graduates, and professionals.
+                Hands-on courses in software development, applied AI, and data science for university students, NYSC members, graduates, and working professionals.
               </p>
             </div>
             <div className="mt-6">
-              <Link href="/academy">
+              <Link href="/academy" data-analytics-event="click_explore_academy">
                 <Button variant="outline" size="sm">
                   Explore Academy Programmes &rarr;
                 </Button>

@@ -132,17 +132,17 @@ All API endpoints and Server Actions conform to a uniform response envelope.
       'brand-digital-media',
     ]),
     budgetRange: z.enum([
-      'Under ₦1,000,000',
-      '₦1,000,000 – ₦3,000,000',
-      '₦3,000,000 – ₦7,500,000',
-      '₦7,500,000+',
-      'Advisory Required',
+      'under-1m',      // Under ₦1,000,000
+      '1m-3m',         // ₦1,000,000 – ₦3,000,000
+      '3m-7.5m',       // ₦3,000,000 – ₦7,500,000
+      '7.5m-plus',     // ₦7,500,000+
+      'advisory',      // Undetermined / Advisory Required
     ]),
     timeline: z.enum([
-      '< 1 month',
-      '1 – 3 months',
-      '3 – 6 months',
-      'Flexible',
+      'urgent',        // Urgent (< 1 Month)
+      '1-3-months',    // 1 – 3 Months
+      '3-plus-months', // 3+ Months
+      'flexible',      // Flexible / Exploratory
     ]),
     projectDescription: z.string().trim().min(20, "Project description must be at least 20 characters").max(3000),
     hp_field: z.string().max(0, "Spam detected"), // Honeypot trap must be empty

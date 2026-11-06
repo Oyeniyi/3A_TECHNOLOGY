@@ -4,7 +4,7 @@ import { ProjectStatus } from '@/types/content';
 
 export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
   status?: ProjectStatus;
-  variant?: 'navy' | 'yellow' | 'neutral';
+  variant?: 'navy' | 'yellow' | 'neutral' | 'outline' | 'warning';
 }
 
 export function Badge({ className, status, variant = 'neutral', children, ...props }: BadgeProps) {
@@ -18,7 +18,9 @@ export function Badge({ className, status, variant = 'neutral', children, ...pro
   const variantStyles = {
     navy: 'bg-blue-50 text-brand-navy border border-blue-200',
     yellow: 'bg-yellow-50 text-amber-900 border border-yellow-200 font-semibold',
+    warning: 'bg-yellow-50 text-amber-900 border border-yellow-200 font-semibold',
     neutral: 'bg-brand-gray text-brand-charcoal border border-brand-border',
+    outline: 'bg-transparent text-brand-navy border border-brand-border',
   };
 
   return (

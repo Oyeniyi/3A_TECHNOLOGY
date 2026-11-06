@@ -12,11 +12,11 @@ export const projects: Project[] = [
     category: 'ai-automation',
     status: 'Live Production',
     shortSummary:
-      'Autonomous market intelligence engine delivering synthesized commercial trend analyses, competitor profiling, and actionable business briefs.',
+      'Automated market research tool that gathers industry news, tracks competitors, and summarizes key findings into short briefs.',
     theChallenge:
-      'Business analysts spent dozens of manual hours compiling fragmented industry reports, economic indicators, and news updates into executive summaries.',
+      'Analysts were spending hours each week reading scattered industry reports, economic updates, and news articles just to put together a single weekly summary.',
     theSolution:
-      'Architected a multi-step LLM extraction pipeline utilizing retrieval-augmented generation (RAG) and automated document parsers to synthesize structured market briefs.',
+      'We built a document pipeline using retrieval-augmented generation (RAG) and automated parsers that pulls from trusted sources and drafts structured market briefs in minutes.',
     technologiesUsed: ['TypeScript', 'Next.js', 'FastAPI', 'OpenAI API', 'Vector Embeddings', 'Tailwind CSS'],
     imagePlaceholder: '/images/projects/marketmind-ai.webp',
     liveUrl: 'https://marketmind.3atechnology.com.ng',
@@ -27,11 +27,11 @@ export const projects: Project[] = [
     category: 'data-science-analytics',
     status: 'Research & Development',
     shortSummary:
-      'Geospatial satellite imagery processing pipeline quantifying forest cover depletion patterns and historical land-use changes.',
+      'Satellite image analysis pipeline that tracks tree cover loss and land-use changes over time.',
     theChallenge:
-      'Environmental monitors lacked automated tools to accurately measure forest canopy loss over multi-year periods across regional conservation boundaries in Nigeria.',
+      'Environmental researchers needed a reliable way to measure forest canopy loss across multi-year satellite images without manually marking thousands of map tiles.',
     theSolution:
-      'Developed a computer vision analysis pipeline using multi-spectral satellite imagery and semantic segmentation algorithms to detect canopy density shifts.',
+      'We wrote a computer vision pipeline in Python using OpenCV and PyTorch image segmentation to compare satellite imagery across dates and highlight where tree cover had thinned.',
     technologiesUsed: ['Python', 'OpenCV', 'PyTorch', 'GeoTIFF Processing', 'Matplotlib', 'Streamlit'],
     imagePlaceholder: '/images/projects/deforestation-analysis.webp',
     githubUrl: 'https://github.com/3a-technology/deforestation-analysis',
@@ -42,11 +42,11 @@ export const projects: Project[] = [
     category: 'data-science-analytics',
     status: 'Deployed Prototype',
     shortSummary:
-      'Mobile computer vision classifier identifying indigenous Nigerian medicinal plants and cataloging their verified pharmacological properties.',
+      'Mobile image classifier that identifies local Nigerian medicinal plants from leaf photos and lists their documented uses.',
     theChallenge:
-      'Traditional botanical and pharmacological knowledge regarding indigenous Nigerian flora is widely undocumented digitally and prone to misidentification.',
+      'Knowledge about local Nigerian medicinal plants is rarely digitized in one place, and visually similar leaves are easy to mix up in the field.',
     theSolution:
-      'Trained a convolutional neural network (CNN) on a curated botanical leaf dataset to provide accurate species classification and medicinal taxonomy details.',
+      'We trained a convolutional neural network (CNN) on a labeled dataset of local plant leaves and packaged it with TensorFlow Lite so it can identify species directly on a phone.',
     technologiesUsed: ['Python', 'TensorFlow Lite', 'FastAPI', 'React Native', 'Docker'],
     imagePlaceholder: '/images/projects/medicinal-plant-recognition.webp',
   },
@@ -56,11 +56,11 @@ export const projects: Project[] = [
     category: 'web-development',
     status: 'Live Production',
     shortSummary:
-      'Browser-based zero-loss image optimization utility converting heavy media into modern WebP/AVIF formats client-side.',
+      'Browser-based image compressor that converts large photos into lightweight WebP and AVIF files without uploading them to a server.',
     theChallenge:
-      'Web developers and digital marketers struggled with slow upload speeds and payload limits when uploading high-resolution imagery to websites and portals.',
+      'Content teams and developers were dealing with slow page loads and failed uploads because raw camera images were too large for web publishing.',
     theSolution:
-      'Implemented WebAssembly-powered image encoding algorithms directly within the browser, optimizing media without transferring private images to third-party servers.',
+      'We used WebAssembly and Web Workers to run image compression right inside the user’s browser. Files shrink in seconds, and private photos never leave the device.',
     technologiesUsed: ['TypeScript', 'Next.js', 'WebAssembly', 'Web Workers', 'Tailwind CSS'],
     imagePlaceholder: '/images/projects/image-compression.webp',
     liveUrl: 'https://compress.3atechnology.com.ng',
@@ -71,11 +71,11 @@ export const projects: Project[] = [
     category: 'custom-software',
     status: 'Deployed Prototype',
     shortSummary:
-      'Digital operational activity recording system replacing manual paper logbooks with tamper-evident audit trails and reporting.',
+      'Digital shift and activity logbook that replaces paper journals with searchable records and signed handovers.',
     theChallenge:
-      'Industrial facilities and technical laboratories relied on paper journals that suffered from physical damage, unsearchable records, and zero accountability.',
+      'Technical labs and industrial sites were still using paper logbooks that got damaged, couldn’t be searched, and made it hard to track who signed off on a shift.',
     theSolution:
-      'Engineered an offline-capable digital logbook application with cryptographic timestamping, role-based signatures, and automated shift handover reports.',
+      'We built an offline-ready web app with timestamped entries, role-based sign-offs, and automatic shift summary exports.',
     technologiesUsed: ['TypeScript', 'React', 'Node.js', 'IndexedDB', 'Tailwind CSS'],
     imagePlaceholder: '/images/projects/electronic-logbook.webp',
   },

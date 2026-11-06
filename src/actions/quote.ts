@@ -5,6 +5,7 @@
  * In accordance with PRD.md Section 7 (FR-06) & ADR-004
  */
 
+import { headers } from 'next/headers';
 import { QuoteRequestSchema, QuoteRequestFormData } from '@/lib/validations/quote';
 import { isHoneypotTriggered } from '@/lib/security/honeypot';
 import { sanitizeHeader, sanitizeBodyText } from '@/lib/security/sanitizer';
@@ -12,12 +13,29 @@ import { checkRateLimit } from '@/lib/security/rate-limiter';
 import { dispatchLeadNotification } from '@/lib/email/dispatcher';
 import { FormResponse } from '@/types/forms';
 
+function resolveClientIp(explicitIp?: string): string {
+  if (explicitIp && explicitIp !== 'unknown-ip') {
+    return explicitIp;
+  }
+  try {
+    const reqHeaders = headers();
+    const forwardedFor = reqHeaders.get('x-forwarded-for');
+    if (forwardedFor) {
+      return forwardedFor.split(',')[0].trim();
+    }
+    return reqHeaders.get('x-real-ip') || 'unknown-ip';
+  } catch {
+    return explicitIp || 'unknown-ip';
+  }
+}
+
 export async function submitQuoteRequest(
   rawInput: QuoteRequestFormData,
-  clientIp = 'unknown-ip'
+  clientIp?: string
 ): Promise<FormResponse> {
   // 1. Sliding-Window IP Rate Limiter Guard
-  const rateLimit = checkRateLimit(clientIp);
+  const resolvedIp = resolveClientIp(clientIp);
+  const rateLimit = checkRateLimit(resolvedIp);
   if (!rateLimit.allowed) {
     return {
       success: false,

@@ -14,7 +14,7 @@ export function AcademyHero() {
             Practical, Hands-on Technology Education.
           </h1>
           <p className="mt-6 text-lg text-gray-200 leading-relaxed">
-            We bridge the gap between academic theory and production-grade engineering. Master software engineering, applied AI, and data science through intensive cohorts and portfolio-driven mentorship.
+            Most courses stop at theory. At 3A Techvolution Academy, you learn software engineering, applied AI, and data science by writing code, reviewing it with working developers, and shipping real projects.
           </p>
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
             <Link href="/academy/programmes">

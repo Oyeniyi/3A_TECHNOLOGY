@@ -5,7 +5,7 @@ import { siteConfig } from '@/config/site';
 export const metadata: Metadata = {
   title: 'Privacy Policy & Data Protection (NDPR Compliance)',
   description:
-    'Our commitment to privacy, data confidentiality, and compliance with the Nigeria Data Protection Regulation (NDPR).',
+    'How 3A Technology Solutions collects, uses, and protects your data under the Nigeria Data Protection Act (NDPA) and NDPR.',
 };
 
 export default function PrivacyPage() {
@@ -16,51 +16,55 @@ export default function PrivacyPage() {
           Privacy Policy
         </h1>
         <p className="text-xs text-brand-dark-gray/60 mb-8">
-          Last Updated: November 2026 | Compliant with Nigeria Data Protection Act (NDPA) and NDPR
+          Last Updated: November 2026 | Compliant with Nigeria Data Protection Act (NDPA) and NDPR | {siteConfig.legal.registeredName} ({siteConfig.legal.rcNumber})
         </p>
 
         <div className="prose prose-slate max-w-none text-brand-dark-gray/90 space-y-6 text-sm leading-relaxed">
           <section>
-            <h2 className="text-lg font-bold text-brand-navy mb-2">1. Overview</h2>
+            <h2 className="text-lg font-bold text-brand-navy mb-2">1. Who We Are</h2>
             <p>
-              3A Technology Solutions Limited (&quot;3A Technology&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) is committed to protecting your personal data and respecting your privacy. This privacy notice explains how we collect, process, and safeguard information provided through our website and digital services.
+              <strong>{siteConfig.name}</strong> is registered under the Companies and Allied Matters Act 2020 with the Corporate Affairs Commission as <strong>{siteConfig.legal.registeredName}</strong> (Registration No. <strong>{siteConfig.legal.rcNumber}</strong>, TIN: <strong>{siteConfig.legal.tin}</strong>), with our principal office at {siteConfig.legal.registeredAddress}. This policy explains what personal data we collect when you use our website, why we collect it, and how we keep it safe.
             </p>
           </section>
 
           <section>
-            <h2 className="text-lg font-bold text-brand-navy mb-2">2. Data We Collect</h2>
+            <h2 className="text-lg font-bold text-brand-navy mb-2">2. Information We Collect</h2>
             <p>
-              We collect information you explicitly submit through our contact forms and quote requests, including:
+              We only collect the details you choose to send us through our contact and project quote forms:
             </p>
             <ul className="list-disc pl-5 mt-2 space-y-1">
-              <li>Full Name and Email Address</li>
-              <li>Organization or Company Name</li>
-              <li>Phone or WhatsApp contact number</li>
-              <li>Project scope, budget bracket, and technical descriptions</li>
+              <li>Your name and email address</li>
+              <li>Your company or organization name (if provided)</li>
+              <li>Your phone or WhatsApp number</li>
+              <li>Your project description, timeline, and budget range</li>
             </ul>
-          </section>
-
-          <section>
-            <h2 className="text-lg font-bold text-brand-navy mb-2">3. How We Use Your Data</h2>
-            <p>
-              Your data is collected strictly to evaluate technical enquiries, generate architectural proposals, and respond to communications. We do not sell, rent, or monetize your contact information to third parties.
+            <p className="mt-2">
+              We do not use third-party advertising trackers or tracking cookies on this site.
             </p>
           </section>
 
           <section>
-            <h2 className="text-lg font-bold text-brand-navy mb-2">4. Data Retention & Security</h2>
+            <h2 className="text-lg font-bold text-brand-navy mb-2">3. How We Use Your Information</h2>
             <p>
-              We implement industry-standard TLS encryption, strict role-based access controls, and rate-limiting to prevent unauthorized interception. In compliance with NDPR, we retain inquiry data only as long as necessary to fulfill your business request.
+              We use your contact details and project notes solely to reply to your enquiry, prepare project quotes, or answer questions about 3A Techvolution Academy. We never sell, rent, or share your contact list with marketers or third parties.
             </p>
           </section>
 
           <section>
-            <h2 className="text-lg font-bold text-brand-navy mb-2">5. Your Legal Rights</h2>
+            <h2 className="text-lg font-bold text-brand-navy mb-2">4. Security &amp; Data Retention</h2>
             <p>
-              Under the Nigeria Data Protection Act, you have the right to request access to, rectification of, or deletion of your personal data held in our systems. To exercise these rights, please contact our Data Protection Officer at{' '}
-              <a href={`mailto:${siteConfig.email}`} className="text-brand-navy underline font-medium">
-                {siteConfig.email}
-              </a>.
+              All form submissions are sent over encrypted HTTPS connections and cleaned to block malicious scripts. To prevent spam without storing visitor IP addresses, our rate limiter hashes IP addresses one-way in memory using SHA-256. We keep enquiry emails only for as long as needed to handle your request or work together.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-lg font-bold text-brand-navy mb-2">5. Your Rights Under Nigerian Law</h2>
+            <p>
+              Under the Nigeria Data Protection Act (NDPA) and NDPR, you can ask to see, update, or delete any personal information you have sent us. Just email{' '}
+              <a href={`mailto:${siteConfig.contact.email}`} className="text-brand-navy underline font-medium">
+                {siteConfig.contact.email}
+              </a>{' '}
+              and we will handle your request promptly.
             </p>
           </section>
         </div>

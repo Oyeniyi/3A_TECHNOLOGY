@@ -35,3 +35,4 @@ export const ContactEnquirySchema = z.object({
 });
 
 export type ContactEnquiryFormData = z.infer<typeof ContactEnquirySchema>;
+export const contactEnquirySchema = ContactEnquirySchema;

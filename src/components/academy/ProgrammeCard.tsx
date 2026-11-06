@@ -5,8 +5,9 @@
  */
 
 import React from 'react';
-import Link from 'next/link';
 import type { AcademyProgramme } from '@/types/content';
+import { siteConfig } from '@/config/site';
+import { generateWhatsAppUrl } from '@/lib/whatsapp';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
@@ -16,20 +17,25 @@ interface ProgrammeCardProps {
 }
 
 export const ProgrammeCard: React.FC<ProgrammeCardProps> = ({ programme }) => {
+  const whatsappUrl = generateWhatsAppUrl({
+    type: 'academy',
+    courseTitle: programme.title,
+  });
+
   return (
     <Card className="flex flex-col justify-between h-full hover:shadow-md transition-shadow">
       <div>
         <div className="flex items-center justify-between mb-4">
           <Badge variant="warning">{programme.level}</Badge>
           <span className="text-xs text-brand-dark-gray/60 font-medium">
-            {programme.duration}
+            {programme.duration} • {programme.format}
           </span>
         </div>
         <h3 className="text-xl font-bold text-brand-navy mb-2">
           {programme.title}
         </h3>
         <p className="text-sm text-brand-dark-gray/80 mb-4 line-clamp-3">
-          {programme.description}
+          {programme.overview}
         </p>
 
         <div className="mb-4">
@@ -37,7 +43,7 @@ export const ProgrammeCard: React.FC<ProgrammeCardProps> = ({ programme }) => {
             Target Audience
           </h4>
           <p className="text-xs text-brand-dark-gray/90 bg-brand-light-gray/60 p-2 rounded">
-            {programme.targetAudience}
+            {programme.targetAudience.join(', ')}
           </p>
         </div>
 
@@ -46,7 +52,7 @@ export const ProgrammeCard: React.FC<ProgrammeCardProps> = ({ programme }) => {
             Key Modules
           </h4>
           <ul className="space-y-1">
-            {programme.modules.slice(0, 3).map((mod, idx) => (
+            {programme.curriculumModules.slice(0, 4).map((mod: string, idx: number) => (
               <li key={idx} className="text-xs text-brand-dark-gray flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-brand-yellow shrink-0" />
                 <span className="truncate">{mod}</span>
@@ -56,15 +62,33 @@ export const ProgrammeCard: React.FC<ProgrammeCardProps> = ({ programme }) => {
         </div>
       </div>
 
-      <div className="pt-6 mt-6 border-t border-brand-light-gray/60 flex items-center justify-between">
-        <span className="text-xs font-medium text-brand-dark-gray">
-          Mode: <strong className="text-brand-navy">{programme.deliveryMode}</strong>
-        </span>
-        <Button variant="secondary" size="sm" asChild>
-          <Link href={`/contact?subject=Academy+Enquiry:+${encodeURIComponent(programme.title)}`}>
-            Enquire Now
-          </Link>
-        </Button>
+      <div className="pt-6 mt-6 border-t border-brand-light-gray/60 space-y-3">
+        <div className="flex items-center justify-between text-xs">
+          <span className="font-semibold uppercase tracking-wider text-gray-500">Tuition & Schedule</span>
+          <span className="font-semibold text-brand-navy">{programme.feeDisplay}</span>
+        </div>
+        <div className="flex flex-wrap items-center gap-2">
+          <Button variant="primary" size="sm" className="flex-1" asChild>
+            <a
+              href={siteConfig.academy.enrollmentFormUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-analytics-event="click_academy_enroll"
+            >
+              Enroll Now ↗
+            </a>
+          </Button>
+          <Button variant="secondary" size="sm" asChild>
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-analytics-event="click_whatsapp_academy"
+            >
+              Enquire via WhatsApp
+            </a>
+          </Button>
+        </div>
       </div>
     </Card>
   );

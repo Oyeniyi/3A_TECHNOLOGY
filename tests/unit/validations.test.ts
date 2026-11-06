@@ -6,7 +6,7 @@ describe('Form Validation Schema Tests (Zod)', () => {
   describe('contactEnquirySchema', () => {
     it('accepts valid contact payload', () => {
       const valid = {
-        name: 'Chinedu Okafor',
+        fullName: 'Chinedu Okafor',
         email: 'c.okafor@example.com',
         phone: '+234 803 123 4567',
         subject: 'Cloud Migration Architecture',
@@ -18,7 +18,7 @@ describe('Form Validation Schema Tests (Zod)', () => {
 
     it('rejects payload with invalid email', () => {
       const invalid = {
-        name: 'Chinedu Okafor',
+        fullName: 'Chinedu Okafor',
         email: 'invalid-email-string',
         subject: 'General',
         message: 'Test message that meets minimum length requirements.',
@@ -27,9 +27,9 @@ describe('Form Validation Schema Tests (Zod)', () => {
       expect(result.success).toBe(false);
     });
 
-    it('rejects payload with message shorter than 10 characters', () => {
+    it('rejects payload with message shorter than 15 characters', () => {
       const invalid = {
-        name: 'Chinedu Okafor',
+        fullName: 'Chinedu Okafor',
         email: 'c.okafor@example.com',
         subject: 'General',
         message: 'Short',
@@ -43,13 +43,13 @@ describe('Form Validation Schema Tests (Zod)', () => {
     it('accepts valid quote payload with normalized wire enums (VAL-02)', () => {
       const valid = {
         fullName: 'Amina Bello',
-        workEmail: 'a.bello@telecoms.ng',
-        organization: 'National Telecoms Network',
+        email: 'a.bello@telecoms.ng',
+        company: 'National Telecoms Network',
         phone: '08023456789',
-        serviceCategory: 'cloud-solutions',
-        projectScope: 'Full cloud migration from on-prem datacenter to multi-region AWS setup.',
-        budgetBracket: '3m-7.5m',
-        targetTimeline: '3-6 months',
+        service: 'custom-software',
+        projectDescription: 'Full cloud migration from on-prem datacenter to multi-region AWS setup.',
+        budgetRange: '3m-7.5m',
+        timeline: '3-6-months',
       };
       const result = quoteRequestSchema.safeParse(valid);
       expect(result.success).toBe(true);
@@ -58,12 +58,13 @@ describe('Form Validation Schema Tests (Zod)', () => {
     it('rejects invalid budget bracket enum', () => {
       const invalid = {
         fullName: 'Amina Bello',
-        workEmail: 'a.bello@telecoms.ng',
-        organization: 'National Telecoms Network',
-        serviceCategory: 'cloud-solutions',
-        projectScope: 'Full cloud migration from on-prem datacenter to multi-region AWS setup.',
-        budgetBracket: 'unlimited-funds', // Invalid enum
-        targetTimeline: 'Immediate',
+        email: 'a.bello@telecoms.ng',
+        company: 'National Telecoms Network',
+        phone: '08023456789',
+        service: 'custom-software',
+        projectDescription: 'Full cloud migration from on-prem datacenter to multi-region AWS setup.',
+        budgetRange: 'unlimited-funds', // Invalid enum
+        timeline: '1-3-months',
       };
       const result = quoteRequestSchema.safeParse(invalid);
       expect(result.success).toBe(false);

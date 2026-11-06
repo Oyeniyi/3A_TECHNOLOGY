@@ -10,19 +10,19 @@ export const services: Service[] = [
     slug: 'web-development',
     title: 'Web & Digital Product Development',
     shortSummary:
-      'High-performance corporate websites, scalable digital platforms, and accessible web applications built with modern engineering standards.',
+      'Fast, accessible company websites, customer portals, and web applications built with React and Next.js.',
     iconName: 'Globe',
     problemContext:
-      'Businesses frequently lose credibility and qualified leads due to sluggish, unoptimized, or outdated web presences that fail on mobile devices and provide poor conversion flows.',
-    targetAudience: ['SMEs & Growing Enterprises', 'Corporate Organizations', 'Tech Startups', 'Educational Institutions'],
+      'Many businesses lose leads because their websites load slowly on mobile networks, look dated, or make it hard for visitors to take the next step.',
+    targetAudience: ['SMEs & Growing Businesses', 'Corporate Organizations', 'Startups', 'Schools & Institutions'],
     technicalApproach:
-      'We engineer web solutions using React, Next.js, and clean semantic HTML. We focus on sub-second load times, mobile-first responsiveness, search engine visibility, and intuitive UI/UX.',
+      'We build with React, Next.js, and semantic HTML. Pages load quickly on mobile connections, work cleanly across screen sizes, and are structured so search engines and customers can find what they need.',
     deliverables: [
-      'Bespoke Corporate Web Applications',
-      'High-Converting Landing Pages & Lead Funnels',
-      'Mobile-Optimized Responsive Frontends',
-      'Technical SEO & Core Web Vitals Optimization',
-      'Interactive Web Portals'
+      'Company Websites & Web Applications',
+      'Landing Pages & Lead Intake Forms',
+      'Mobile-First Responsive Layouts',
+      'Technical SEO & Page Speed Tuning',
+      'Customer & Partner Web Portals'
     ],
     featuredCaseStudySlug: 'image-compression-tool',
   },
@@ -30,19 +30,19 @@ export const services: Service[] = [
     slug: 'custom-software',
     title: 'Custom Software Engineering',
     shortSummary:
-      'Tailored internal tools, workflow digitization systems, robust database architectures, and RESTful API backends engineered for business operations.',
+      'Internal business tools, record-keeping systems, database backends, and APIs built around how your team actually works.',
     iconName: 'Code',
     problemContext:
-      'Off-the-shelf software often fails to address unique local operational bottlenecks, resulting in fragmented manual spreadsheets, data discrepancies, and workflow delays.',
-    targetAudience: ['Mid-Market Enterprises', 'Operational Teams', 'Logistics Companies', 'Administrative Bodies'],
+      'Off-the-shelf software rarely fits local operations cleanly. Teams end up juggling scattered spreadsheets, paper logs, and manual handoffs that slow down daily work.',
+    targetAudience: ['Operations Teams', 'Logistics & Retail Businesses', 'Mid-Sized Companies', 'Administrative Offices'],
     technicalApproach:
-      'We architect decoupled, maintainable software systems using TypeScript, Node.js, and resilient data models designed for data integrity, audit trails, and high reliability.',
+      'We design and build custom software using TypeScript, Node.js, and relational databases. Every system includes clear user permissions, reliable data validation, and an audit trail.',
     deliverables: [
-      'Custom Internal Business Systems',
-      'Record Management & Workflow Portals',
-      'Secure RESTful API Architecture',
-      'Data Migration & Systems Integration',
-      'Technical Architecture Documentation'
+      'Internal Operations & Inventory Tools',
+      'Digital Record & Logbook Portals',
+      'REST APIs & Backend Services',
+      'Spreadsheet-to-Database Migrations',
+      'System Handover Documentation'
     ],
     featuredCaseStudySlug: 'electronic-logbook',
   },
@@ -50,19 +50,19 @@ export const services: Service[] = [
     slug: 'ai-automation',
     title: 'Artificial Intelligence & Automation',
     shortSummary:
-      'Applied generative AI integration, intelligent document processing pipelines, automated data transformations, and operational workflows.',
+      'Practical AI assistants, document extraction tools, and automated workflows that cut down repetitive manual work.',
     iconName: 'Cpu',
     problemContext:
-      'Organizations expend hundreds of valuable staff hours on repetitive data entry, manual document parsing, and unstructured information triage.',
-    targetAudience: ['Businesses Seeking Operational Efficiency', 'Financial Services', 'Professional Firms', 'E-commerce Platforms'],
+      'Teams spend hours every week copying data between forms, reading through routine documents, and answering the same basic customer questions.',
+    targetAudience: ['Operations & Support Teams', 'Financial & Professional Firms', 'Online Retailers', 'Growing SMEs'],
     technicalApproach:
-      'We connect enterprise workflows with modern LLMs, embedding models, and serverless automation pipelines, prioritizing data privacy, deterministic guardrails, and auditability.',
+      'We connect your existing tools to language models and automated workflows with strict validation rules, keeping your company data private and your outputs predictable.',
     deliverables: [
-      'Document Parsing & Information Extraction Pipelines',
-      'Generative AI Business Assistants & Knowledge Retrieval',
-      'Automated Multi-Step Workflow Pipelines',
-      'Smart Notification & Triage Integrations',
-      'AI Feasibility & Integration Audits'
+      'Automated Document & Invoice Readers',
+      'Internal Knowledge Search Assistants',
+      'Multi-Step Workflow Automations',
+      'WhatsApp & Email Triage Routing',
+      'AI Readiness & Workflow Reviews'
     ],
     featuredCaseStudySlug: 'marketmind-ai',
   },
@@ -70,19 +70,19 @@ export const services: Service[] = [
     slug: 'data-science-analytics',
     title: 'Data Science & Analytics',
     shortSummary:
-      'Actionable business intelligence dashboards, predictive machine learning models, automated data cleaning pipelines, and applied computer vision.',
+      'Clear business dashboards, forecasting models, data cleaning pipelines, and computer vision tools.',
     iconName: 'BarChart3',
     problemContext:
-      'Companies amass vast operational datasets but lack the pipelines and analytics infrastructure to extract predictive insights or guide strategic decisions.',
-    targetAudience: ['Agricultural Enterprises', 'Environmental Research Groups', 'Healthcare Organizations', 'Commercial Retails'],
+      'Organizations collect plenty of sales, field, and operational data, but struggle to clean it or turn it into clear numbers they can act on.',
+    targetAudience: ['Agricultural & Environmental Teams', 'Healthcare & Research Groups', 'Retail & Supply Chain Businesses'],
     technicalApproach:
-      'We develop end-to-end data pipelines from exploratory data analysis to production predictive models utilizing Python, PyTorch, OpenCV, and modern analytics dashboards.',
+      'We use Python, SQL, PyTorch, and OpenCV to clean raw data, build reporting dashboards, and train models for forecasting and image recognition.',
     deliverables: [
-      'Automated Data Ingestion & Transformation Pipelines',
-      'Custom Predictive Machine Learning Models',
-      'Applied Computer Vision Image Recognition',
-      'Interactive Business Intelligence Dashboards',
-      'Exploratory Data Analysis & Strategic Reports'
+      'Automated Data Cleaning Pipelines',
+      'Forecasting & Classification Models',
+      'Computer Vision & Image Analysis Tools',
+      'Interactive Reporting Dashboards',
+      'Data Audits & Summary Reports'
     ],
     featuredCaseStudySlug: 'deforestation-analysis',
   },
@@ -90,19 +90,19 @@ export const services: Service[] = [
     slug: 'brand-digital-media',
     title: 'Branding & Digital Media',
     shortSummary:
-      'Corporate brand identity systems, vector asset design, technical presentations, and unified marketing collateral aligned with company positioning.',
+      'Logo systems, brand style guides, pitch decks, and digital media templates that give your business a clear, consistent look.',
     iconName: 'Palette',
     problemContext:
-      'Innovative technology offerings often suffer from inconsistent visual presentation, amateur graphics, and fragmented branding that diminishes commercial authority.',
-    targetAudience: ['New Product Launches', 'Established Companies Rebranding', 'Professional Services Firms'],
+      'Good products often get overlooked when their logos, pitch decks, and social graphics look inconsistent or thrown together.',
+    targetAudience: ['New Businesses & Startups', 'Companies Refreshing Their Look', 'Professional Services Firms'],
     technicalApproach:
-      'We develop disciplined visual identity standards, vector mark suites, and technical collateral founded on mathematical grid structures, typography hierarchy, and color harmony.',
+      'We create practical brand systems: scalable vector logos, readable typography, accessible color palettes, and ready-to-use templates your team can apply right away.',
     deliverables: [
-      'Corporate Visual Identity Guidelines',
-      'Vector Logo Marks & Brand Asset Suites',
-      'Technical Slide Decks & Executive Presentations',
-      'Digital Collateral & Social Asset Templates',
-      'Branded Marketing Materials'
+      'Brand Identity Standards Guides',
+      'Vector Logos & Icon Sets',
+      'Pitch Decks & Presentation Templates',
+      'Social Media & Banner Templates',
+      'Print & Digital Marketing Assets'
     ],
   },
 ];

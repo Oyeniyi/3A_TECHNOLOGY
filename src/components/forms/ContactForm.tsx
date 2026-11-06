@@ -42,7 +42,7 @@ export function ContactForm() {
       } else {
         setFeedback({ type: 'error', message: response.message });
       }
-    } catch (_error) {
+    } catch {
       setFeedback({
         type: 'error',
         message: 'A network error occurred. Your inputs have been preserved. Please try again.',
@@ -115,7 +115,14 @@ export function ContactForm() {
         {...register('message')}
       />
 
-      <Button type="submit" variant="primary" size="lg" fullWidth disabled={isSubmitting}>
+      <Button
+        type="submit"
+        variant="primary"
+        size="lg"
+        fullWidth
+        disabled={isSubmitting}
+        data-analytics-event="submit_contact_form"
+      >
         {isSubmitting ? 'Sending Enquiry...' : 'Send Message'}
       </Button>
     </form>

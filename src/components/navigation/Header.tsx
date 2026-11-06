@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Navbar } from './Navbar';
 import { MobileDrawer } from './MobileDrawer';
 import { Button } from '@/components/ui/Button';
+import { BrandLogo } from '@/components/ui/BrandLogo';
 import { cn } from '@/lib/utils';
 
 export function Header() {
@@ -29,14 +30,12 @@ export function Header() {
     >
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Brand Logo & Name */}
-        <Link href="/" className="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-brand-navy rounded">
-          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-navy font-bold text-brand-yellow shadow-sm">
-            3A
-          </div>
-          <div className="flex flex-col">
-            <span className="text-base font-bold tracking-tight text-brand-navy">3A TECHNOLOGY</span>
-            <span className="text-[10px] font-semibold tracking-wider uppercase text-gray-500">Solutions & Academy</span>
-          </div>
+        <Link
+          href="/"
+          aria-label="3A Technology Solutions — Home"
+          className="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-brand-navy rounded"
+        >
+          <BrandLogo variant="light" />
         </Link>
 
         {/* Desktop Navigation Links */}
@@ -44,12 +43,12 @@ export function Header() {
 
         {/* Dual CTA Actions & Mobile Toggle */}
         <div className="flex items-center gap-3">
-          <Link href="/academy" className="hidden sm:inline-flex">
+          <Link href="/academy" className="hidden sm:inline-flex" data-analytics-event="click_explore_academy">
             <Button variant="outline" size="sm">
               Explore Academy
             </Button>
           </Link>
-          <Link href="/request-quote">
+          <Link href="/request-quote" data-analytics-event="click_request_quote">
             <Button variant="accent" size="sm">
               Request a Quote
             </Button>

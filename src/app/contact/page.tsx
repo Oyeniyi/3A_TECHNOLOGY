@@ -4,9 +4,9 @@ import { ContactForm } from '@/components/forms/ContactForm';
 import { siteConfig } from '@/config/site';
 
 export const metadata: Metadata = {
-  title: 'Contact Engineering & Admissions | Abuja, Nigeria',
+  title: 'Contact Us | 3A Technology Solutions',
   description:
-    'Reach 3A Technology Solutions for enterprise consultations, partnerships, or 3A Academy admissions inquiries.',
+    'Get in touch with 3A Technology Solutions for software projects, business enquiries, or 3A Techvolution Academy admissions.',
 };
 
 export default function ContactPage() {
@@ -16,44 +16,44 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
             <p className="text-xs uppercase tracking-wider font-semibold text-brand-navy mb-2">
-              Direct Inquiries
+              Contact Us
             </p>
             <h1 className="text-3xl md:text-5xl font-extrabold text-brand-navy mb-4">
               Get in Touch with Our Team
             </h1>
             <p className="text-base text-brand-dark-gray/80 mb-8 leading-relaxed">
-              Whether you are an enterprise seeking an architectural audit, a business requiring managed cloud infrastructure, or a professional inquiring about Academy admissions, our team is ready to assist.
+              Have a question about a software project, need help choosing an Academy course, or want to discuss a partnership? Send us a message and we will reply within one business day.
             </p>
 
             <div className="space-y-6 bg-brand-light-gray/60 p-6 rounded-xl border border-brand-light-gray/80 mb-8">
               <div>
                 <h3 className="text-xs font-bold uppercase tracking-wider text-brand-navy mb-1">
-                  Headquarters & Innovation Hub
+                  Offices &amp; Delivery Hubs
                 </h3>
-                <p className="text-sm text-brand-dark-gray">{siteConfig.address}</p>
+                <p className="text-sm text-brand-dark-gray">{siteConfig.contact.address}</p>
               </div>
 
               <div>
                 <h3 className="text-xs font-bold uppercase tracking-wider text-brand-navy mb-1">
-                  Direct Communications
+                  Email &amp; Phone
                 </h3>
                 <p className="text-sm text-brand-dark-gray">
                   Email:{' '}
-                  <a href={`mailto:${siteConfig.email}`} className="text-brand-navy font-medium underline">
-                    {siteConfig.email}
+                  <a href={`mailto:${siteConfig.contact.email}`} className="text-brand-navy font-medium underline">
+                    {siteConfig.contact.email}
                   </a>
                 </p>
                 <p className="text-sm text-brand-dark-gray">
                   Phone:{' '}
-                  <a href={`tel:${siteConfig.phone}`} className="text-brand-navy font-medium">
-                    {siteConfig.phone}
+                  <a href={`tel:${siteConfig.contact.phone}`} className="text-brand-navy font-medium">
+                    {siteConfig.contact.phone}
                   </a>
                 </p>
               </div>
 
               <div>
                 <h3 className="text-xs font-bold uppercase tracking-wider text-brand-navy mb-1">
-                  Operating Hours
+                  Office Hours
                 </h3>
                 <p className="text-sm text-brand-dark-gray">Monday – Friday: 08:00 – 17:00 West Africa Time (WAT)</p>
               </div>
