@@ -4,13 +4,14 @@ import { quoteRequestSchema } from '@/lib/validations/quote';
 
 describe('Form Validation Schema Tests (Zod)', () => {
   describe('contactEnquirySchema', () => {
-    it('accepts valid contact payload', () => {
+    it('accepts valid contact payload with enquiryType', () => {
       const valid = {
         fullName: 'Chinedu Okafor',
         email: 'c.okafor@example.com',
         phone: '+234 803 123 4567',
-        subject: 'Cloud Migration Architecture',
-        message: 'We are seeking an architectural evaluation for our on-prem banking infrastructure.',
+        enquiryType: 'academy-programme',
+        subject: 'Vibe Coding Bootcamp Registration',
+        message: 'We are interested in enrolling three team members in the upcoming Vibe Coding cohort.',
       };
       const result = contactEnquirySchema.safeParse(valid);
       expect(result.success).toBe(true);
@@ -40,19 +41,44 @@ describe('Form Validation Schema Tests (Zod)', () => {
   });
 
   describe('quoteRequestSchema', () => {
-    it('accepts valid quote payload with normalized wire enums (VAL-02)', () => {
-      const valid = {
+    it('accepts valid quote payload for all 6 supported services including technology-consulting and academic-research-support', () => {
+      const services = [
+        'web-development',
+        'custom-software',
+        'ai-automation',
+        'data-science-analytics',
+        'technology-consulting',
+        'academic-research-support',
+      ] as const;
+
+      for (const service of services) {
+        const result = quoteRequestSchema.safeParse({
+          fullName: 'Amina Bello',
+          email: 'a.bello@telecoms.ng',
+          company: 'National Telecoms Network',
+          phone: '08023456789',
+          service,
+          projectDescription: 'Full technical implementation and research consultation scope.',
+          budgetRange: '3m-7.5m',
+          timeline: '3-6-months',
+        });
+        expect(result.success).toBe(true);
+      }
+    });
+
+    it('strictly rejects deprecated brand-digital-media service option', () => {
+      const invalidService = {
         fullName: 'Amina Bello',
         email: 'a.bello@telecoms.ng',
         company: 'National Telecoms Network',
         phone: '08023456789',
-        service: 'custom-software',
+        service: 'brand-digital-media',
         projectDescription: 'Full cloud migration from on-prem datacenter to multi-region AWS setup.',
         budgetRange: '3m-7.5m',
-        timeline: '3-6-months',
+        timeline: '1-3-months',
       };
-      const result = quoteRequestSchema.safeParse(valid);
-      expect(result.success).toBe(true);
+      const result = quoteRequestSchema.safeParse(invalidService);
+      expect(result.success).toBe(false);
     });
 
     it('rejects invalid budget bracket enum', () => {
@@ -63,7 +89,7 @@ describe('Form Validation Schema Tests (Zod)', () => {
         phone: '08023456789',
         service: 'custom-software',
         projectDescription: 'Full cloud migration from on-prem datacenter to multi-region AWS setup.',
-        budgetRange: 'unlimited-funds', // Invalid enum
+        budgetRange: 'unlimited-funds',
         timeline: '1-3-months',
       };
       const result = quoteRequestSchema.safeParse(invalid);

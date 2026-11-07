@@ -1,74 +1,78 @@
 # 3A Technology Solutions Web Platform & 3A Techvolution Academy
 
-Official digital flagship for **3A Technology Solutions** and its educational division, **3A TECHVOLUTION ACADEMY**.
+Official digital platform for **3A Technology Solutions** (`3A TECHNOLOGY SOLUTION CONCEPTS`, CAC `BN 9931488`) and its AI-focused educational division, **3A TECHVOLUTION ACADEMY**.
 
 - **Brand Essence:** *Technology that works for people and business.*
 - **Tagline:** *Ideas • Technology • Impact*
-- **Technology Stack:** Next.js 14+ (App Router), React 18/19, TypeScript (Strict Mode), Tailwind CSS, React Hook Form + Zod, Resend API.
-- **Architectural Scope:** Phase 1 zero-database, server-rendered static site architecture. External LMS routing, offline enterprise invoicing.
+- **Technology Stack:** Next.js 14+ (App Router), React 18, TypeScript (Strict Mode), Tailwind CSS, React Hook Form + Zod, Resend / SMTP.
+- **Architectural Scope:** Zero-database, server-rendered static and dynamic site architecture with typed content datastores, external course registration routing, and hardened Server Actions.
 
-## Project Structure Overview
+---
 
-```text
-/
-├── public/                 # Static assets, brand marks, and thumbnails
-├── src/
-│   ├── actions/            # Next.js Server Actions (enquiry, quote)
-│   ├── app/                # Next.js App Router (pages, layouts, API routes)
-│   ├── components/         # Reusable UI components, navigation, forms, layouts
-│   ├── config/             # Centralized site configuration (siteConfig)
-│   ├── data/               # Static typed content datastores (services, projects, programmes)
-│   ├── lib/                # Utilities, content queries, security, and email drivers
-│   └── types/              # TypeScript interfaces and contracts
-├── tests/
-│   ├── unit/               # Vitest pure unit tests
-│   ├── integration/        # Vitest server action integration tests
-│   └── e2e/                # Playwright end-to-end and accessibility tests
-└── docs/                   # Authoritative architecture, design, and governance specifications
-```
+## Business Divisions & Services
 
-## Getting Started
+### A. 3A Technology Solutions (`/services`)
+1. **Web & Digital Product Development (`/services/web-development`)**
+2. **Custom Software Engineering (`/services/custom-software`)**
+3. **Artificial Intelligence & Automation (`/services/ai-automation`)**
+4. **Data Science & Analytics (`/services/data-science-analytics`)**
+5. **Technology Consulting (`/services/technology-consulting`)**
+6. **Academic Research & Project Support (`/services/academic-research-support`)** — Ethical computing & mathematics research consultation, technical mentorship, implementation support, and documentation assistance.
 
-### Prerequisites
-- Node.js v20.x LTS or higher
-- npm v10.x or higher
+*(Note: Branding & Digital Media is not offered as a standalone commercial service.)*
 
-### Installation
+### B. 3A TECHVOLUTION ACADEMY (`/academy`)
+An AI-focused educational academy helping individuals, students, graduates, professionals, business owners, and organizations understand and practically use Artificial Intelligence:
+- **AI Course Catalogue (`/academy/programmes` & `/academy/programmes/[slug]`):** Cohort-based AI training with per-course registration links and lifecycle statuses.
+- **AI Seminars & Workshops (`/academy/events`):** Upcoming AI webinars, awareness seminars, and organizational workshops.
+- **Vibe Coding & AI-Assisted Development (`/academy/vibe-coding`):** Responsible software prototyping, code comprehension, and debugging with AI coding agents.
+- **Academy Resource Library (`/academy/resources`):** Searchable/filterable library of free downloadable PDF guides and paid AI workbooks/toolkits.
+
+---
+
+## Content & Course Update Workflow
+
+All courses, seminars, resources, services, and portfolio projects are managed in strongly typed static datastores under `src/data/` so updates never require rebuilding UI components:
+
+1. **Adding or Updating an Academy Course (`src/data/programmes.ts`):**
+   - Add or update an `AcademyProgramme` object in `programmesData`.
+   - Set `status` to one of: `'Open for Enrolment' | 'Upcoming' | 'Ongoing' | 'Completed' | 'Registration Closed'`.
+   - Provide the course-specific Google Form or registration URL in `enrollmentUrl` (e.g., `https://forms.gle/...`). Each course has its own `enrollmentUrl` and is validated via `isSafeActionUrl()`.
+   - When `status === 'Open for Enrolment'` and `enrollmentUrl` is present, the UI automatically renders an external **Enrol Now** button (`target="_blank" rel="noopener noreferrer"`). For all other statuses, it automatically routes learners to `/contact` with the course title prefilled (`Notify Me` / `Register Interest`).
+   - A dedicated detail route `/academy/programmes/[slug]` and sitemap entry are generated automatically at build time.
+
+2. **Adding or Updating Seminars & Workshops (`src/data/events.ts`):**
+   - Add or update an `AcademyEvent` entry with `status` (`'Open for Registration' | 'Upcoming' | 'Completed' | 'Registration Closed'`) and optional `registrationUrl`.
+
+3. **Adding Free or Paid Learning Resources (`src/data/resources.ts`):**
+   - For **Free** resources (`accessType: 'Free'`), place the PDF in `public/resources/` and set `downloadUrl: '/resources/<filename>.pdf'`.
+   - For **Paid** resources (`accessType: 'Paid'`), set `price` (e.g., `'₦15,000'`) and `purchaseUrl` (enquiry or external payment link). Never set a public `downloadUrl` on a paid resource.
+
+4. **Adding Portfolio Projects (`src/data/projects.ts`):**
+   - Set `classification` accurately to `'3A Prototype'` (currently `MarketMind AI` only), `'Student Project'`, `'Research Project'`, or `'Client Work'`.
+
+---
+
+## Getting Started & Quality Verification Suite
+
 ```powershell
+# 1. Install dependencies
 npm install
-```
 
-### Development Server
-```powershell
-npm run dev
-```
-Open [http://localhost:3000](http://localhost:3000) with your browser.
-
-### Quality Verification Suite
-```powershell
-# 1. Typecheck (zero errors required)
+# 2. Typecheck (zero errors required)
 npm run typecheck
 
-# 2. Linting
+# 3. Linting
 npm run lint
 
-# 3. Unit & Integration Tests
+# 4. Unit & Integration Tests
 npm run test:unit
 npm run test:integration
 
-# 4. End-to-End & Accessibility Tests
+# 5. End-to-End & Accessibility Tests
 npm run test:e2e
 npm run test:a11y
 
-# 5. Production Build Validation
+# 6. Production Build Validation
 npm run build
 ```
-
-## Governance & Architecture Invariants
-This repository strictly enforces the architectural invariants defined in [`docs/architecture-essential.md`](file:///c:/Users/DELL/Desktop/3A%20TECHNOLOGY/docs/architecture-essential.md):
-- **ARCH-01:** Zero runtime databases (PostgreSQL, MySQL, MongoDB, SQLite). Content resides in typed files.
-- **ARCH-02:** Zero in-house LMS or student login accounts. Enrollment is handled via external channels.
-- **ARCH-03:** Zero direct payment gateway SDKs (Paystack, Stripe). Commercial billing is invoiced off-platform.
-- **ARCH-04:** Zero secret leakage (`RESEND_API_KEY` restricted to server-side).
-- **ARCH-05:** WCAG 2.1 AA brand color contrast rules (Accent Yellow strictly paired with Dark Charcoal text).
-- **ARCH-13:** Zero autonomous conversational frontend chatbots.

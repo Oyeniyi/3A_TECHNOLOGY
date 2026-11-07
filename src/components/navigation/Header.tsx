@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Navbar } from './Navbar';
 import { MobileDrawer } from './MobileDrawer';
 import { Button } from '@/components/ui/Button';
@@ -10,6 +11,8 @@ import { cn } from '@/lib/utils';
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const isAcademyRoute = pathname?.startsWith('/academy');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,13 +32,17 @@ export function Header() {
       )}
     >
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        {/* Brand Logo & Name */}
+        {/* Brand Logo & Name (switches to Academy sub-brand identity on /academy routes) */}
         <Link
-          href="/"
-          aria-label="3A Technology Solutions — Home"
+          href={isAcademyRoute ? '/academy' : '/'}
+          aria-label={
+            isAcademyRoute
+              ? '3A Techvolution Academy — AI Education Home'
+              : '3A Technology Solutions — Home'
+          }
           className="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-brand-navy rounded"
         >
-          <BrandLogo variant="light" />
+          <BrandLogo variant="light" division={isAcademyRoute ? 'academy' : 'parent'} />
         </Link>
 
         {/* Desktop Navigation Links */}
@@ -43,9 +50,13 @@ export function Header() {
 
         {/* Dual CTA Actions & Mobile Toggle */}
         <div className="flex items-center gap-3">
-          <Link href="/academy" className="hidden sm:inline-flex" data-analytics-event="click_explore_academy">
+          <Link
+            href="/academy/programmes"
+            className="hidden sm:inline-flex"
+            data-analytics-event="click_explore_academy"
+          >
             <Button variant="outline" size="sm">
-              Explore Academy
+              Explore AI Courses
             </Button>
           </Link>
           <Link href="/request-quote" data-analytics-event="click_request_quote">

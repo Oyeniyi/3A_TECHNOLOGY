@@ -18,12 +18,13 @@ import { Honeypot } from './Honeypot';
 import { Button } from '@/components/ui/Button';
 import { ServiceSlug } from '@/types/content';
 
-const serviceOptions = [
-  { value: 'web-development', label: 'Web & Digital Products' },
+const serviceOptions: { value: ServiceSlug; label: string }[] = [
+  { value: 'web-development', label: 'Web & Digital Product Development' },
   { value: 'custom-software', label: 'Custom Software Engineering' },
   { value: 'ai-automation', label: 'Artificial Intelligence & Automation' },
   { value: 'data-science-analytics', label: 'Data Science & Analytics' },
-  { value: 'brand-digital-media', label: 'Branding & Digital Media' },
+  { value: 'technology-consulting', label: 'Technology Consulting' },
+  { value: 'academic-research-support', label: 'Academic Research & Project Support' },
 ];
 
 function QuoteFormInner() {
@@ -111,8 +112,8 @@ function QuoteFormInner() {
         />
 
         <FormField
-          label="Company / Organization"
-          placeholder="e.g. Okafor Logistics Ltd (Optional)"
+          label="Company / Institution"
+          placeholder="e.g. Okafor Logistics Ltd or University Dept (Optional)"
           error={errors.company?.message}
           {...register('company')}
         />
@@ -169,7 +170,7 @@ function QuoteFormInner() {
         textarea
         rows={6}
         required
-        placeholder="Please describe your key business requirements, existing systems, target users, and desired outcomes."
+        placeholder="Describe your business or research requirements, existing systems, target users, and desired outcomes."
         error={errors.projectDescription?.message}
         {...register('projectDescription')}
       />

@@ -1,0 +1,58 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /Resources << /Font << /F1 4 0 R >> >> /MediaBox [0 0 612 792] /Contents 5 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+5 0 obj
+<< /Length 876 >>
+stream
+BT
+/F1 16 Tf
+50 760 Td
+(3A Techvolution Academy - Practical AI Fluency Starter Guide) Tj
+/F1 11 Tf
+0 -22 Td
+(3A Technology Solutions (CAC BN: 9931488) | Ideas - Technology - Impact) Tj
+0 -28 Td
+(1. Understand What AI Assistants Do Well:) Tj
+0 -18 Td
+(   - Summarizing documents, brainstorming structures, drafting initial copy, and explaining code.) Tj
+0 -18 Td
+(2. Always Provide Clear Context:) Tj
+0 -18 Td
+(   - State your goal, audience, constraints, and desired output format clearly.) Tj
+0 -18 Td
+(3. Verify Every Factual Claim:) Tj
+0 -18 Td
+(   - Never treat AI output as unverified truth. Check numbers, citations, and code execution.) Tj
+0 -18 Td
+(4. Protect Sensitive Data:) Tj
+0 -18 Td
+(   - Do not paste private customer records, credentials, or confidential keys into public prompts.) Tj
+0 -18 Td
+(Learn more at https://3atechnology.com.ng/academy) Tj
+0 -18 Td
+ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000229 00000 n 
+0000000297 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+1226
+%%EOF

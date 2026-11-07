@@ -5,10 +5,15 @@ const coreRoutes = [
   '/',
   '/services',
   '/services/ai-automation',
+  '/services/technology-consulting',
+  '/services/academic-research-support',
   '/projects',
   '/projects/marketmind-ai',
   '/academy',
   '/academy/programmes',
+  '/academy/events',
+  '/academy/resources',
+  '/academy/vibe-coding',
   '/about',
   '/contact',
   '/request-quote',
@@ -33,4 +38,3 @@ test.describe('Automated WCAG 2.1 AA Accessibility Audit (TASK-031 / ARCH-05)', 
     });
   }
 });
-

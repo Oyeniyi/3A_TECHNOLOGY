@@ -7,13 +7,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint src tests --ext .ts,.tsx",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:unit": "vitest run tests/unit",
     "test:integration": "vitest run tests/integration",
     "test:e2e": "playwright test",
-    "test:a11y": "playwright test tests/e2e/accessibility.spec.ts"
+    "test:a11y": "playwright test tests/e2e/a11y.spec.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",

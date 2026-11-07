@@ -6,7 +6,16 @@
 import { services } from '@/data/services';
 import { projects } from '@/data/projects';
 import { programmes } from '@/data/programmes';
-import { Service, Project, AcademyProgramme, ServiceSlug } from '@/types/content';
+import { academyEvents } from '@/data/events';
+import { academyResources } from '@/data/resources';
+import {
+  Service,
+  Project,
+  AcademyProgramme,
+  AcademyEvent,
+  AcademyResource,
+  ServiceSlug,
+} from '@/types/content';
 
 export function getAllServices(): Service[] {
   return services;
@@ -36,6 +45,18 @@ export function getAllProgrammes(): AcademyProgramme[] {
   return programmes;
 }
 
+export function getFeaturedProgrammes(limit = 3): AcademyProgramme[] {
+  return programmes.filter((p) => p.featured).slice(0, limit);
+}
+
 export function getProgrammeBySlug(slug: string): AcademyProgramme | undefined {
   return programmes.find((programme) => programme.slug === slug);
+}
+
+export function getAllAcademyEvents(): AcademyEvent[] {
+  return academyEvents;
+}
+
+export function getAllAcademyResources(): AcademyResource[] {
+  return academyResources;
 }

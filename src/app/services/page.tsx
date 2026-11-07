@@ -6,9 +6,9 @@ import { Button } from '@/components/ui/Button';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Commercial Software, AI & Digital Services',
+  title: 'Commercial Technology, AI, Data & Academic Research Services',
   description:
-    'Explore our five commercial services: Web Development, Custom Software, AI & Automation, Data Science & Analytics, and Branding & Digital Media.',
+    'Explore our six services: Web & Digital Product Development, Custom Software Engineering, AI & Automation, Data Science & Analytics, Technology Consulting, and Academic Research & Project Support.',
 };
 
 export default function ServicesPage() {
@@ -19,13 +19,13 @@ export default function ServicesPage() {
       <div className="container-custom">
         <div className="max-w-3xl mb-12">
           <p className="text-xs uppercase tracking-wider font-semibold text-brand-navy mb-2">
-            What We Build
+            3A Technology Solutions
           </p>
           <h1 className="text-3xl md:text-5xl font-extrabold text-brand-navy mb-4">
-            Commercial Engineering Disciplines
+            Practical Technology Services &amp; Implementation
           </h1>
-          <p className="text-base md:text-lg text-brand-dark-gray/80">
-            Practical software, web platforms, AI tools, data pipelines, and brand systems built for businesses across Nigeria.
+          <p className="text-base md:text-lg text-brand-dark-gray/80 leading-relaxed">
+            We help businesses, organizations, educational institutions, and researchers use software engineering, artificial intelligence, data science, and technical consultation to solve practical problems.
           </p>
         </div>
 
@@ -37,12 +37,21 @@ export default function ServicesPage() {
 
         <div className="bg-brand-light-gray p-8 rounded-xl border border-brand-light-gray/80 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
-            <h3 className="text-xl font-bold text-brand-navy mb-1">Need a quote for a project?</h3>
-            <p className="text-sm text-brand-dark-gray/80">Share your requirements and our team will get back to you within one business day.</p>
+            <h2 className="text-xl font-bold text-brand-navy mb-1">
+              Need a consultation or project quote?
+            </h2>
+            <p className="text-sm text-brand-dark-gray/80">
+              Share your requirements—whether for a business system, AI workflow, or computing/mathematics research project—and our team will respond within one business day.
+            </p>
           </div>
-          <Button variant="primary" asChild>
-            <Link href="/request-quote">Request an Architecture Quote</Link>
-          </Button>
+          <div className="flex flex-wrap gap-3 shrink-0">
+            <Button variant="primary" asChild>
+              <Link href="/request-quote">Request a Project Quote</Link>
+            </Button>
+            <Button variant="outline" asChild>
+              <Link href="/contact">Request a Consultation</Link>
+            </Button>
+          </div>
         </div>
       </div>
     </div>

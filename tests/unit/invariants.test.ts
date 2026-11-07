@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { isHoneypotTriggered } from '@/lib/security/honeypot';
 import { sanitizeInput } from '@/lib/security/sanitizer';
+import packageJson from '../../package.json';
 
 describe('Architectural Invariants & Security Guardrails', () => {
   it('detects and flags bot honeypot traps (ARCH-07)', () => {
@@ -17,9 +18,7 @@ describe('Architectural Invariants & Security Guardrails', () => {
   });
 
   it('strictly validates Phase 1 zero-runtime-database invariant (ARCH-01)', () => {
-    // Verified: No Prisma, Drizzle, Mongoose, or TypeORM runtime connections exist in package.json
-    const packageJson = require('../../package.json');
-    const allDeps = {
+    const allDeps: Record<string, string | undefined> = {
       ...packageJson.dependencies,
       ...packageJson.devDependencies,
     };

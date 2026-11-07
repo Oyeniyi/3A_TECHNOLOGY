@@ -1,13 +1,13 @@
-# 3A Technology Solutions — Complete Reference Guide
+# 3A Technology Solutions & 3A TECHVOLUTION ACADEMY — Complete Reference Guide
 
-> Nigerian software studio and training academy building web applications, custom business software, AI tools, data systems, and brand identities, while teaching practical tech skills through 3A Techvolution Academy.
+> 3A Technology Solutions provides practical digital solutions, custom software engineering, AI automation, data science, technology consulting, and computing/mathematics academic research support. 3A TECHVOLUTION ACADEMY is our AI-focused educational academy.
 
 ---
 
 ## 1. Company Identity & Official Registration
 
-- **Brand Name:** 3A Technology Solutions
-- **Training Arm:** 3A Techvolution Academy
+- **Parent Brand:** 3A Technology Solutions
+- **AI Education Division:** 3A TECHVOLUTION ACADEMY
 - **Tagline:** Ideas • Technology • Impact
 - **Brand Essence:** "Technology that works for people and business."
 - **Core Principle:** "We do not sell technology for technology’s sake. We show how technology can improve business, productivity, communication, visibility, decision-making and growth."
@@ -15,68 +15,43 @@
 - **Corporate Affairs Commission (CAC) Registration Number:** BN 9931488 (Registered under the Companies and Allied Matters Act 2020, Federal Republic of Nigeria)
 - **Date of Registration:** 12th October 2026
 - **Tax Identification Number (TIN):** 2622397219188
-- **General Nature of Business:** Information Service Activities
 - **Principal Place of Business:** 0, Ita Aisa, Kwara, Kwara State, Nigeria
 - **Delivery Hubs:** Kwara State (HQ), Abuja (FCT), and Lagos, Nigeria
 - **Official Email:** contact@3atechnology.com.ng
-- **Direct Phone / WhatsApp:** +2348000003A00
+- **Direct Phone / WhatsApp:** +2349166491048
+- **GitHub:** https://github.com/Oyeniyi/3A_TECHNOLOGY
 
 ---
 
-## 2. Five Brand Personality Pillars
+## 2. Commercial Services (`/services`)
 
-1. **Smart:** We communicate with intelligence and substance, without unnecessary complexity.
-2. **Simple:** We reduce complexity and present technology in a way people can understand and use.
-3. **Professional:** Every touchpoint should feel intentional, reliable, polished and credible.
-4. **Human:** We speak to people, not machines. We are approachable, respectful and practical.
-5. **Future-Ready:** We embrace modern technology while staying focused on real-world outcomes.
+Note: 3A Technology Solutions does not offer Branding & Digital Media as a standalone commercial service. Our six commercial services are:
 
----
-
-## 3. Commercial Services (`/services`)
-
-### 3.1 Web & Digital Product Development (`/services/web-development`)
-- **Summary:** Fast, accessible company websites, customer portals, and web applications built with React and Next.js.
-- **Deliverables:** Company Websites & Web Applications, Landing Pages & Lead Intake Forms, Mobile-First Responsive Layouts, Technical SEO & Page Speed Tuning, Customer & Partner Web Portals.
-
-### 3.2 Custom Software Engineering (`/services/custom-software`)
-- **Summary:** Internal business tools, record-keeping systems, database backends, and APIs built around how your team actually works.
-- **Deliverables:** Internal Operations & Inventory Tools, Digital Record & Logbook Portals, REST APIs & Backend Services, Spreadsheet-to-Database Migrations, System Handover Documentation.
-
-### 3.3 Artificial Intelligence & Automation (`/services/ai-automation`)
-- **Summary:** Practical AI assistants, document extraction tools, and automated workflows that cut down repetitive manual work.
-- **Deliverables:** Automated Document & Invoice Readers, Internal Knowledge Search Assistants, Multi-Step Workflow Automations, WhatsApp & Email Triage Routing, AI Readiness & Workflow Reviews.
-
-### 3.4 Data Science & Analytics (`/services/data-science-analytics`)
-- **Summary:** Clear business dashboards, forecasting models, data cleaning pipelines, and computer vision tools.
-- **Deliverables:** Automated Data Cleaning Pipelines, Forecasting & Classification Models, Computer Vision & Image Analysis Tools, Interactive Reporting Dashboards, Data Audits & Summary Reports.
-
-### 3.5 Branding & Digital Media (`/services/brand-digital-media`)
-- **Summary:** Logo systems, brand style guides, pitch decks, and digital media templates that give your business a clear, consistent look.
-- **Deliverables:** Brand Identity Standards Guides, Vector Logos & Icon Sets, Pitch Decks & Presentation Templates, Social Media & Banner Templates, Print & Digital Marketing Assets.
+1. **Web & Digital Product Development (`/services/web-development`):** Corporate and business websites, school and institutional websites, landing pages, customer portals, web applications, online platforms, and website redesign/optimization.
+2. **Custom Software Engineering (`/services/custom-software`):** Custom business applications, administrative and management systems, school management portals, payment and result management systems, digital record management systems, workflow software, and API/backend development.
+3. **Artificial Intelligence & Automation (`/services/ai-automation`):** AI integration into existing business processes, AI-powered applications, AI assistants and knowledge systems, business workflow automation, document processing and extraction, AI consultation, and AI readiness assessments.
+4. **Data Science & Analytics (`/services/data-science-analytics`):** Data extraction and processing, data cleaning and transformation, data visualization, statistical analysis, machine learning implementation, predictive modelling, computer vision and image analysis, and data-driven research support.
+5. **Technology Consulting (`/services/technology-consulting`):** Technology strategy and digital transformation planning, systems architecture and software design review, technology stack selection, business process auditing, legacy system modernization roadmaps, and technical feasibility advisory.
+6. **Academic Research & Project Support (`/services/academic-research-support`):** Ethical research consultation, technical mentorship, data collection/analysis, Python/ML/data science implementation, mathematical and computational modelling, project documentation/report preparation, and defence preparation for computing and mathematics-related academic projects.
 
 ---
 
-## 4. 3A Techvolution Academy (`/academy` & `/academy/programmes`)
+## 3. 3A TECHVOLUTION ACADEMY (`/academy`)
 
-3A Techvolution Academy is our training wing where university students, NYSC members, graduates, and career switchers learn software development by writing code and building real projects.
+3A TECHVOLUTION ACADEMY is an AI-focused educational academy helping individuals, students, graduates, professionals, business owners, and organizations understand and practically use Artificial Intelligence.
 
-### How Students Learn:
-- **Real Working Projects:** Build and deploy complete web apps, data pipelines, and AI tools from week one.
-- **Direct Code Reviews:** Working software engineers review student code weekly and help debug real issues.
-- **A Portfolio You Can Show:** Students finish with a clean GitHub profile and live projects to show employers.
-
-### Active Courses:
-1. **Practical Software Engineering & Web Development (12 Weeks, Hybrid, Beginner):** JavaScript, TypeScript, React, Next.js, Zod form validation, REST APIs, Git, and deployment.
-2. **Applied Artificial Intelligence & Workflow Automation (8 Weeks, Weekend Cohort, Intermediate):** Prompt engineering, vector databases, RAG pipelines, webhook automations, and AI cost/privacy controls.
-3. **Practical Data Science & Machine Learning (10 Weeks, In-Person, Intermediate):** Python, Pandas, statistical analysis, supervised/unsupervised ML, OpenCV computer vision, and model API deployment.
+### Four Core Educational Offerings:
+- **A. AI Training (`/academy/programmes`):** Functional course catalogue with course-specific enrolment URLs and statuses (`Open for Enrolment`, `Upcoming`, `Ongoing`, `Completed`, `Registration Closed`).
+- **B. AI Seminars & Workshops (`/academy/events`):** AI awareness seminars, fluency webinars, practical workshops, and corporate AI training.
+- **C. Vibe Coding & AI-Assisted Development (`/academy/vibe-coding`):** Responsible software prototyping, code comprehension, debugging, and application building with AI coding tools and agents.
+- **D. Academy Resource Library (`/academy/resources`):** Searchable library of free downloadable PDF guides/checklists/templates and paid AI workbooks/toolkits.
 
 ---
 
-## 5. Projects & Case Studies (`/projects`)
+## 4. Portfolio & Project Classifications (`/projects`)
 
-1. **MarketMind AI** (`ai-automation`, *Live Production*): Automated market research tool that gathers industry news, tracks competitors, and summarizes key findings into short briefs.
-2. **Deforestation Analysis Platform** (`data-science-analytics`, *Research & Development*): Satellite image analysis pipeline using Python, OpenCV, and PyTorch to track tree cover loss over time.
-3. **Medicinal Plant Recognition System** (`data-science-analytics`, *Deployed Prototype*): Mobile image classifier built with TensorFlow Lite and React Native that identifies local Nigerian medicinal plants from leaf photos.
-4. **High-Performance Image Compression Tool** (`web-development`, *Live Production*): Browser-based WebAssembly image compressor that converts large photos into WebP and AVIF files on-device without server uploads.
-5. **Enterprise Electronic Logbook** (`custom-software`, *Deployed Prototype*): Offline-ready digital shift and activity logbook replacing paper journals with searchable records and signed handovers.
+- **MarketMind AI (`ai-automation`):** Classified as **3A Prototype** (internal 3A prototype demonstrating automated market intelligence).
+- **Deforestation Analysis Platform (`data-science-analytics`):** Classified as **Student Project** (satellite image analysis and environmental research implementation).
+- **Medicinal Plant Recognition System (`data-science-analytics`):** Classified as **Student Project** (computer vision leaf classification research project).
+- **Browser-Based Image Compression Utility (`web-development`):** Classified as **Student Project** (client-side WebAssembly image optimization project).
+- **Digital Activity & Shift Logbook (`custom-software`):** Classified as **Student Project** (operational logbook software engineering project).

@@ -10,16 +10,18 @@ export interface ProjectFilterBarProps {
 
 const filterOptions: { label: string; value: string }[] = [
   { label: 'All Projects', value: 'all' },
+  { label: '3A Prototypes', value: '3A Prototype' },
+  { label: 'Student Projects', value: 'Student Project' },
   { label: 'Web & Digital', value: 'web-development' },
   { label: 'Custom Software', value: 'custom-software' },
   { label: 'AI & Automation', value: 'ai-automation' },
   { label: 'Data Science', value: 'data-science-analytics' },
-  { label: 'Branding', value: 'brand-digital-media' },
+  { label: 'Academic Research', value: 'academic-research-support' },
 ];
 
 export function ProjectFilterBar({ activeCategory, onSelectCategory }: ProjectFilterBarProps) {
   return (
-    <div className="flex flex-wrap gap-2" role="tablist" aria-label="Filter projects by category">
+    <div className="flex flex-wrap gap-2" role="tablist" aria-label="Filter projects by category or classification">
       {filterOptions.map((opt) => {
         const isActive = activeCategory === opt.value;
         return (

@@ -16,7 +16,10 @@ export function ProjectsClientCatalog({ projects }: ProjectsClientCatalogProps) 
   const filteredProjects =
     activeCategory === 'all'
       ? projects
-      : projects.filter((project) => project.category === activeCategory);
+      : projects.filter(
+          (project) =>
+            project.category === activeCategory || project.classification === activeCategory
+        );
 
   return (
     <div className="space-y-10">
@@ -27,8 +30,8 @@ export function ProjectsClientCatalog({ projects }: ProjectsClientCatalogProps) 
 
       {filteredProjects.length === 0 ? (
         <EmptyState
-          title="No Case Studies in This Category Yet"
-          description="We currently have no published case studies matching this filter. Reset the filter to browse all delivered systems and prototypes."
+          title="No Projects in This Category Yet"
+          description="We currently have no published projects matching this filter. Reset the filter to browse all prototypes and student projects."
           actionLabel="Reset Filters"
           onAction={() => setActiveCategory('all')}
         />
@@ -42,4 +45,3 @@ export function ProjectsClientCatalog({ projects }: ProjectsClientCatalogProps) 
     </div>
   );
 }
-

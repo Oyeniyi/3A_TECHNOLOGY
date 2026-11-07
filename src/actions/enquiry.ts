@@ -2,32 +2,32 @@
 
 /**
  * Server Action: Submit General Contact Enquiry
- * In accordance with PRD.md Section 7 (FR-05) & ADR-004
+ * Distinguishes Technology Solutions enquiries from 3A Techvolution Academy enquiries.
  */
 
 import { headers } from 'next/headers';
 import { ContactEnquirySchema, ContactEnquiryFormData } from '@/lib/validations/enquiry';
 import { isHoneypotTriggered } from '@/lib/security/honeypot';
 import { sanitizeHeader, sanitizeBodyText } from '@/lib/security/sanitizer';
-import { checkRateLimit } from '@/lib/security/rate-limiter';
+import { checkRateLimit, extractClientIp } from '@/lib/security/rate-limiter';
 import { dispatchLeadNotification } from '@/lib/email/dispatcher';
 import { FormResponse } from '@/types/forms';
 
 function resolveClientIp(explicitIp?: string): string {
-  if (explicitIp && explicitIp !== 'unknown-ip') {
-    return explicitIp;
-  }
   try {
     const reqHeaders = headers();
-    const forwardedFor = reqHeaders.get('x-forwarded-for');
-    if (forwardedFor) {
-      return forwardedFor.split(',')[0].trim();
-    }
-    return reqHeaders.get('x-real-ip') || 'unknown-ip';
+    return extractClientIp((name) => reqHeaders.get(name), explicitIp);
   } catch {
-    return explicitIp || 'unknown-ip';
+    return extractClientIp(() => null, explicitIp);
   }
 }
+
+const ENQUIRY_TYPE_LABELS: Record<string, string> = {
+  'technology-service': '3A Technology Solutions — Business / Service Consultation',
+  'academy-programme': '3A Techvolution Academy — Course / Seminar / Resource Enquiry',
+  'academic-research': 'Academic Research & Project Support Consultation',
+  'general-inquiry': 'General Website Enquiry',
+};
 
 export async function submitContactEnquiry(
   rawInput: ContactEnquiryFormData,
@@ -67,13 +67,14 @@ export async function submitContactEnquiry(
     };
   }
 
-  const { fullName, email, phone, subject, message } = parsed.data;
+  const { fullName, email, phone, enquiryType, subject, message } = parsed.data;
 
   // 4. Header Injection & String Sanitization
   const cleanName = sanitizeHeader(fullName);
   const cleanEmail = sanitizeHeader(email);
   const cleanPhone = sanitizeHeader(phone);
-  const cleanSubject = sanitizeHeader(subject || 'General Enquiry');
+  const categoryLabel = ENQUIRY_TYPE_LABELS[enquiryType || 'general-inquiry'] || 'General Website Enquiry';
+  const cleanSubject = sanitizeHeader(subject || categoryLabel);
   const cleanMessage = sanitizeBodyText(message);
 
   // 5. Outbound Transactional Email Notification Dispatch
@@ -84,7 +85,7 @@ export async function submitContactEnquiry(
     senderPhone: cleanPhone,
     subject: cleanSubject,
     metadata: {
-      'Enquiry Type': 'General Website Contact',
+      'Enquiry Division': categoryLabel,
       Subject: cleanSubject,
     },
     message: cleanMessage,

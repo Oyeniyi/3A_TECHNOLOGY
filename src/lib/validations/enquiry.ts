@@ -1,9 +1,16 @@
 /**
  * Contact Enquiry Zod Validation Schema
- * In accordance with PRD.md Section 7 (FR-05) & docs/api-specification.md
+ * Distinguishes commercial service enquiries from 3A Techvolution Academy enquiries.
  */
 
 import { z } from 'zod';
+
+export const ENQUIRY_TYPES = [
+  'technology-service',
+  'academy-programme',
+  'academic-research',
+  'general-inquiry',
+] as const;
 
 export const ContactEnquirySchema = z.object({
   fullName: z
@@ -12,13 +19,14 @@ export const ContactEnquirySchema = z.object({
     .max(100, { message: 'Full name cannot exceed 100 characters.' }),
   email: z
     .string()
-    .email({ message: 'Please provide a valid business email address.' })
+    .email({ message: 'Please provide a valid email address.' })
     .max(100, { message: 'Email address cannot exceed 100 characters.' }),
   phone: z
     .string()
     .max(25, { message: 'Phone number cannot exceed 25 characters.' })
     .optional()
     .or(z.literal('')),
+  enquiryType: z.enum(ENQUIRY_TYPES).optional().default('general-inquiry'),
   subject: z
     .string()
     .max(120, { message: 'Subject cannot exceed 120 characters.' })
@@ -34,5 +42,5 @@ export const ContactEnquirySchema = z.object({
     .optional(),
 });
 
-export type ContactEnquiryFormData = z.infer<typeof ContactEnquirySchema>;
+export type ContactEnquiryFormData = z.input<typeof ContactEnquirySchema>;
 export const contactEnquirySchema = ContactEnquirySchema;

@@ -1,21 +1,43 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ContactEnquirySchema, ContactEnquiryFormData } from '@/lib/validations/enquiry';
 import { submitContactEnquiry } from '@/actions/enquiry';
 import { FormField } from './FormField';
+import { SelectField } from './SelectField';
 import { Honeypot } from './Honeypot';
 import { Button } from '@/components/ui/Button';
 
-export function ContactForm() {
+const enquiryTypeOptions = [
+  { value: 'technology-service', label: '3A Technology Solutions — Business / Service Consultation' },
+  { value: 'academy-programme', label: '3A Techvolution Academy — AI Course / Seminar / Resource Enquiry' },
+  { value: 'academic-research', label: 'Academic Research & Project Support Consultation' },
+  { value: 'general-inquiry', label: 'General Enquiry / Partnership' },
+];
+
+function ContactFormInner() {
+  const searchParams = useSearchParams();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [feedback, setFeedback] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
+
+  const initialSubject = searchParams?.get('subject') || '';
+  const initialTypeParam = searchParams?.get('type');
+  const initialType =
+    initialTypeParam === 'academy'
+      ? 'academy-programme'
+      : initialTypeParam === 'research'
+      ? 'academic-research'
+      : initialTypeParam === 'service'
+      ? 'technology-service'
+      : 'general-inquiry';
 
   const {
     register,
     handleSubmit,
+    setValue,
     reset,
     formState: { errors },
   } = useForm<ContactEnquiryFormData>({
@@ -24,11 +46,27 @@ export function ContactForm() {
       fullName: '',
       email: '',
       phone: '',
-      subject: '',
+      enquiryType: initialType,
+      subject: initialSubject,
       message: '',
       hp_field: '',
     },
   });
+
+  useEffect(() => {
+    const subjectParam = searchParams?.get('subject');
+    if (subjectParam) {
+      setValue('subject', subjectParam);
+    }
+    const typeParam = searchParams?.get('type');
+    if (typeParam === 'academy') {
+      setValue('enquiryType', 'academy-programme');
+    } else if (typeParam === 'research') {
+      setValue('enquiryType', 'academic-research');
+    } else if (typeParam === 'service') {
+      setValue('enquiryType', 'technology-service');
+    }
+  }, [searchParams, setValue]);
 
   const onSubmit = async (data: ContactEnquiryFormData) => {
     setIsSubmitting(true);
@@ -97,20 +135,27 @@ export function ContactForm() {
           {...register('phone')}
         />
 
-        <FormField
-          label="Subject"
-          placeholder="e.g. Software Consultation"
-          error={errors.subject?.message}
-          {...register('subject')}
+        <SelectField
+          label="Enquiry Category"
+          options={enquiryTypeOptions}
+          error={errors.enquiryType?.message}
+          {...register('enquiryType')}
         />
       </div>
+
+      <FormField
+        label="Subject"
+        placeholder="e.g. Technology Consultation / AI Course Enquiry"
+        error={errors.subject?.message}
+        {...register('subject')}
+      />
 
       <FormField
         label="Message"
         textarea
         rows={5}
         required
-        placeholder="How can 3A Technology Solutions help your business?"
+        placeholder="Tell us about your project, technology question, or Academy course interest..."
         error={errors.message?.message}
         {...register('message')}
       />
@@ -126,5 +171,13 @@ export function ContactForm() {
         {isSubmitting ? 'Sending Enquiry...' : 'Send Message'}
       </Button>
     </form>
+  );
+}
+
+export function ContactForm() {
+  return (
+    <Suspense fallback={<div className="p-8 text-center text-sm text-gray-500">Loading enquiry form...</div>}>
+      <ContactFormInner />
+    </Suspense>
   );
 }

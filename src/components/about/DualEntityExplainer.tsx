@@ -19,20 +19,20 @@ export const DualEntityExplainer: React.FC = () => {
               What We Do
             </span>
             <h2 className="text-2xl md:text-3xl font-bold text-brand-navy mt-1 mb-4">
-              Two Wings, One Practical Goal
+              Two Divisions, One Practical Goal
             </h2>
             <p className="text-brand-dark-gray text-base leading-relaxed mb-4">
-              <strong>3A Technology Solutions</strong> runs two connected teams. Our commercial team builds websites, custom business software, AI automations, data analytics pipelines, and brand identity systems for businesses and institutions.
+              <strong>3A Technology Solutions</strong> delivers practical digital solutions across six core areas: Web &amp; Digital Product Development, Custom Software Engineering, Artificial Intelligence &amp; Automation, Data Science &amp; Analytics, Technology Consulting, and Academic Research &amp; Project Support.
             </p>
             <p className="text-brand-dark-gray text-base leading-relaxed mb-6">
-              Our education team runs <strong>3A Techvolution Academy</strong>, where students and career switchers learn software development, applied AI, and data science directly from the engineers building our commercial projects.
+              <strong>3A TECHVOLUTION ACADEMY</strong> is our AI-focused educational academy, helping individuals, students, graduates, professionals, business owners, and organizations master practical AI fluency, prompt engineering, vibe coding, and AI workflow automation.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button variant="primary" asChild>
-                <Link href="/services">Commercial Services</Link>
+                <Link href="/services">Explore Technology Services</Link>
               </Button>
               <Button variant="secondary" asChild>
-                <Link href="/academy">Academy Programmes</Link>
+                <Link href="/academy">Explore AI Academy</Link>
               </Button>
             </div>
           </div>
@@ -45,11 +45,11 @@ export const DualEntityExplainer: React.FC = () => {
               <ul className="space-y-3.5 text-sm text-brand-white/90">
                 <li className="flex items-start gap-2.5">
                   <span className="text-brand-yellow font-bold">✓</span>
-                  <span>Our Academy lessons come straight from real systems we build and maintain for clients.</span>
+                  <span>Our AI Academy curriculum is grounded in real software, automation, and data engineering systems we build every day.</span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <span className="text-brand-yellow font-bold">✓</span>
-                  <span>We explain technology in plain language and focus on tools that save time and grow revenue.</span>
+                  <span>We explain technology in plain language and focus on tools that save time, improve decisions, and build real capability.</span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <span className="text-brand-yellow font-bold">✓</span>

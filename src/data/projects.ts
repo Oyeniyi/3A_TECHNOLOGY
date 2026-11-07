@@ -1,6 +1,7 @@
 /**
- * Portfolio Case Studies & Prototypes Static Data
- * In accordance with PRD.md Section 7 (AC-03.3) & ARCH-01
+ * Portfolio Projects & Prototypes Static Data
+ * Accurately classifies MarketMind AI as the sole 3A Prototype and represents
+ * the remaining repository projects transparently as Student Projects.
  */
 
 import { Project } from '@/types/content';
@@ -10,73 +11,80 @@ export const projects: Project[] = [
     slug: 'marketmind-ai',
     title: 'MarketMind AI',
     category: 'ai-automation',
-    status: 'Live Production',
+    classification: '3A Prototype',
+    status: '3A Prototype',
     shortSummary:
-      'Automated market research tool that gathers industry news, tracks competitors, and summarizes key findings into short briefs.',
+      'An internal 3A prototype exploring automated market research, competitor tracking, and structured brief generation using retrieval-augmented generation (RAG).',
     theChallenge:
-      'Analysts were spending hours each week reading scattered industry reports, economic updates, and news articles just to put together a single weekly summary.',
+      'Analysts and business owners spend hours reading scattered industry updates, economic indicators, and news articles to assemble market summaries.',
     theSolution:
-      'We built a document pipeline using retrieval-augmented generation (RAG) and automated parsers that pulls from trusted sources and drafts structured market briefs in minutes.',
+      'Built as an internal 3A prototype using a multi-step LLM extraction pipeline, retrieval-augmented generation (RAG), and document parsers to draft structured market briefs for review.',
     technologiesUsed: ['TypeScript', 'Next.js', 'FastAPI', 'OpenAI API', 'Vector Embeddings', 'Tailwind CSS'],
     imagePlaceholder: '/images/projects/marketmind-ai.webp',
-    liveUrl: 'https://marketmind.3atechnology.com.ng',
+    githubUrl: 'https://github.com/Oyeniyi/3A_TECHNOLOGY',
   },
   {
     slug: 'deforestation-analysis',
     title: 'Deforestation Analysis Platform',
     category: 'data-science-analytics',
-    status: 'Research & Development',
+    classification: 'Student Project',
+    status: 'Student Project',
     shortSummary:
-      'Satellite image analysis pipeline that tracks tree cover loss and land-use changes over time.',
+      'Student research project applying satellite imagery analysis and computer vision to measure forest cover loss and land-use change over time.',
     theChallenge:
-      'Environmental researchers needed a reliable way to measure forest canopy loss across multi-year satellite images without manually marking thousands of map tiles.',
+      'Tracking forest canopy loss across multi-year satellite imagery is slow and error-prone when researchers have to inspect map tiles manually.',
     theSolution:
-      'We wrote a computer vision pipeline in Python using OpenCV and PyTorch image segmentation to compare satellite imagery across dates and highlight where tree cover had thinned.',
+      'Implemented a Python computer vision and geospatial processing workflow using OpenCV and PyTorch image segmentation to compare satellite imagery across time periods and highlight canopy changes.',
     technologiesUsed: ['Python', 'OpenCV', 'PyTorch', 'GeoTIFF Processing', 'Matplotlib', 'Streamlit'],
     imagePlaceholder: '/images/projects/deforestation-analysis.webp',
-    githubUrl: 'https://github.com/3a-technology/deforestation-analysis',
+    githubUrl: 'https://github.com/Oyeniyi/3A_TECHNOLOGY',
   },
   {
     slug: 'medicinal-plant-recognition',
     title: 'Medicinal Plant Recognition System',
-    category: 'data-science-analytics',
-    status: 'Deployed Prototype',
+    category: 'academic-research-support',
+    classification: 'Student Project',
+    status: 'Student Project',
     shortSummary:
-      'Mobile image classifier that identifies local Nigerian medicinal plants from leaf photos and lists their documented uses.',
+      'Student project using a convolutional neural network (CNN) to identify local Nigerian medicinal plants from leaf images and display documented botanical uses.',
     theChallenge:
-      'Knowledge about local Nigerian medicinal plants is rarely digitized in one place, and visually similar leaves are easy to mix up in the field.',
+      'Local botanical knowledge about indigenous Nigerian medicinal plants is rarely digitized in a structured format, and visually similar leaves are easy to misidentify.',
     theSolution:
-      'We trained a convolutional neural network (CNN) on a labeled dataset of local plant leaves and packaged it with TensorFlow Lite so it can identify species directly on a phone.',
+      'Trained an image classification model on a labeled dataset of plant leaves and packaged it with TensorFlow Lite and FastAPI to demonstrate species identification.',
     technologiesUsed: ['Python', 'TensorFlow Lite', 'FastAPI', 'React Native', 'Docker'],
     imagePlaceholder: '/images/projects/medicinal-plant-recognition.webp',
+    githubUrl: 'https://github.com/Oyeniyi/3A_TECHNOLOGY',
   },
   {
     slug: 'image-compression-tool',
-    title: 'High-Performance Image Compression Tool',
+    title: 'Browser-Based Image Compression Utility',
     category: 'web-development',
-    status: 'Live Production',
+    classification: 'Student Project',
+    status: 'Student Project',
     shortSummary:
-      'Browser-based image compressor that converts large photos into lightweight WebP and AVIF files without uploading them to a server.',
+      'Student web engineering project that compresses and converts large images into WebP and AVIF formats directly in the browser.',
     theChallenge:
-      'Content teams and developers were dealing with slow page loads and failed uploads because raw camera images were too large for web publishing.',
+      'Uploading unoptimized high-resolution photos slows down web pages and consumes unnecessary bandwidth on mobile networks.',
     theSolution:
-      'We used WebAssembly and Web Workers to run image compression right inside the user’s browser. Files shrink in seconds, and private photos never leave the device.',
+      'Built a client-side image compression tool using WebAssembly and Web Workers so users can shrink and convert images locally in their browser.',
     technologiesUsed: ['TypeScript', 'Next.js', 'WebAssembly', 'Web Workers', 'Tailwind CSS'],
     imagePlaceholder: '/images/projects/image-compression.webp',
-    liveUrl: 'https://compress.3atechnology.com.ng',
+    githubUrl: 'https://github.com/Oyeniyi/3A_TECHNOLOGY',
   },
   {
     slug: 'electronic-logbook',
-    title: 'Enterprise Electronic Logbook',
+    title: 'Digital Activity & Shift Logbook',
     category: 'custom-software',
-    status: 'Deployed Prototype',
+    classification: 'Student Project',
+    status: 'Student Project',
     shortSummary:
-      'Digital shift and activity logbook that replaces paper journals with searchable records and signed handovers.',
+      'Student software project replacing paper activity logbooks with searchable digital records, timestamps, and structured shift handovers.',
     theChallenge:
-      'Technical labs and industrial sites were still using paper logbooks that got damaged, couldn’t be searched, and made it hard to track who signed off on a shift.',
+      'Paper logbooks used in laboratories and training records are easily damaged, difficult to search, and inconvenient to review.',
     theSolution:
-      'We built an offline-ready web app with timestamped entries, role-based sign-offs, and automatic shift summary exports.',
+      'Developed an offline-capable web application using React, Node.js, and IndexedDB for recording daily entries, role-based sign-offs, and summary exports.',
     technologiesUsed: ['TypeScript', 'React', 'Node.js', 'IndexedDB', 'Tailwind CSS'],
     imagePlaceholder: '/images/projects/electronic-logbook.webp',
+    githubUrl: 'https://github.com/Oyeniyi/3A_TECHNOLOGY',
   },
 ];

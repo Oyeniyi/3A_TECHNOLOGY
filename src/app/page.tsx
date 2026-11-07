@@ -1,8 +1,6 @@
 /**
  * @file page.tsx
- * @description Homepage for 3A Technology Solutions platform.
- * Assembles all 8 PRD-mandated sections: Hero, DualPathwayGate, TrustBanner,
- * ServiceGrid, FeaturedProjects, Methodology, AcademyBanner, and ConversionBanner.
+ * @description Homepage for 3A Technology Solutions and 3A TECHVOLUTION ACADEMY.
  */
 
 import React from 'react';
@@ -17,9 +15,9 @@ import { AcademyBanner } from '@/components/home/AcademyBanner';
 import { ConversionBanner } from '@/components/home/ConversionBanner';
 
 export const metadata: Metadata = {
-  title: '3A Technology Solutions | Software, AI & Techvolution Academy',
+  title: '3A Technology Solutions & 3A Techvolution Academy | Software, AI & Practical AI Education',
   description:
-    'We build custom software, web applications, AI automations, and data tools for businesses in Nigeria, and train new developers through 3A Techvolution Academy.',
+    '3A Technology Solutions builds web platforms, custom software, AI automations, data analytics, and supports computing/mathematics research. 3A Techvolution Academy teaches practical AI fluency, prompt engineering, and vibe coding.',
 };
 
 export default function HomePage() {

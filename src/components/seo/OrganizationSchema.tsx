@@ -3,8 +3,8 @@ import { siteConfig } from '@/config/site';
 
 /**
  * Injects valid JSON-LD Organization, WebSite & EducationalOrganization Structured Data Schema
- * In accordance with PRD.md Section 7 (AC-09.4), docs/api-specification.md,
- * and GEO/SEO Schema skills (.agents/skills/seo-schema & .agents/skills/geo-schema).
+ * Reflecting all 6 commercial services of 3A Technology Solutions and the AI-focused
+ * 3A Techvolution Academy.
  */
 export function OrganizationSchema() {
   const schema = {
@@ -18,9 +18,10 @@ export function OrganizationSchema() {
         alternateName: ['3A Technology', '3A Techvolution Academy', '3A Technology Solution Concepts'],
         slogan: siteConfig.tagline,
         url: siteConfig.url,
+        sameAs: [siteConfig.githubUrl],
         logo: {
           '@type': 'ImageObject',
-          url: `${siteConfig.url}/images/brand/3a-logo.svg`,
+          url: `${siteConfig.url}/images/brand/3a-logo-mark.png`,
         },
         image: `${siteConfig.url}/images/brand/og-default.png`,
         description: siteConfig.description,
@@ -47,12 +48,13 @@ export function OrganizationSchema() {
           { '@type': 'AdministrativeArea', name: 'Lagos' },
         ],
         knowsAbout: [
-          'Web & Digital Products Engineering',
+          'Web & Digital Product Development',
           'Custom Software Engineering',
-          'Applied AI & Workflow Automation',
-          'Data Science, Business Intelligence & Computer Vision',
-          'Corporate Branding & Digital Media',
-          'Practical Technology Training & Capacity Building',
+          'Artificial Intelligence & Workflow Automation',
+          'Data Science, Machine Learning & Computer Vision',
+          'Technology Consulting & Architecture Advisory',
+          'Academic Research & Computing/Mathematics Project Support',
+          'Practical AI Education, Prompt Engineering & Vibe Coding',
         ],
         hasOfferCatalog: {
           '@type': 'OfferCatalog',
@@ -77,7 +79,7 @@ export function OrganizationSchema() {
         },
         url: `${siteConfig.url}/academy`,
         description:
-          'The training and capacity-building arm of 3A Technology Solutions delivering practical, mentor-led engineering cohorts in Web Development, Data Analytics, Applied AI, and Digital Branding.',
+          'The AI-focused educational academy of 3A Technology Solutions, helping students, graduates, professionals, business owners, and organizations master practical AI fluency, prompt engineering, vibe coding, and AI workflow automation.',
       },
       {
         '@type': 'WebSite',

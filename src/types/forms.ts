@@ -5,10 +5,17 @@
 
 import { ServiceSlug } from './content';
 
+export type EnquiryTypeKey =
+  | 'technology-service'
+  | 'academy-programme'
+  | 'academic-research'
+  | 'general-inquiry';
+
 export interface ContactEnquiryInput {
   fullName: string;
   email: string;
   phone?: string;
+  enquiryType?: EnquiryTypeKey;
   subject?: string;
   message: string;
   hp_field?: string;

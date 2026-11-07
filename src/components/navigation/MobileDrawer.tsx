@@ -67,8 +67,8 @@ export function MobileDrawer() {
             ))}
 
             <div className="pt-4 border-t border-brand-border">
-              <div className="px-3 text-xs font-semibold tracking-wider uppercase text-gray-400">
-                Commercial Services
+              <div className="px-3 text-xs font-semibold tracking-wider uppercase text-gray-500">
+                Technology Solutions
               </div>
               <div className="mt-2 space-y-1">
                 {siteConfig.nav.services.map((service) => (
@@ -83,17 +83,35 @@ export function MobileDrawer() {
                 ))}
               </div>
             </div>
+
+            <div className="pt-4 border-t border-brand-border">
+              <div className="px-3 text-xs font-semibold tracking-wider uppercase text-gray-500">
+                3A Techvolution Academy
+              </div>
+              <div className="mt-2 space-y-1">
+                {siteConfig.nav.academy.map((acad) => (
+                  <Link
+                    key={acad.href}
+                    href={acad.href}
+                    onClick={() => setOpen(false)}
+                    className="block rounded-md px-3 py-2 text-sm text-gray-600 hover:bg-brand-gray hover:text-brand-navy"
+                  >
+                    {acad.title}
+                  </Link>
+                ))}
+              </div>
+            </div>
           </nav>
 
           <div className="mt-6 space-y-3 border-t border-brand-border pt-6">
-            <Link href="/academy" onClick={() => setOpen(false)} className="block">
+            <Link href="/academy/programmes" onClick={() => setOpen(false)} className="block">
               <Button variant="outline" fullWidth>
-                Explore Academy
+                Explore AI Courses
               </Button>
             </Link>
             <Link href="/request-quote" onClick={() => setOpen(false)} className="block">
               <Button variant="accent" fullWidth>
-                Request a Quote
+                Request a Project Quote
               </Button>
             </Link>
           </div>

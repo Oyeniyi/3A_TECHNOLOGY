@@ -11,42 +11,60 @@ export function DualPathwayGate() {
           Select Your Pathway
         </h2>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-          {/* Pathway A: Commercial Clients */}
+          {/* Pathway A: 3A Technology Solutions */}
           <Card className="flex flex-col justify-between border-l-4 border-l-brand-navy p-8">
             <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-brand-navy">Pathway A: For Businesses</span>
-              <h3 className="mt-2 text-2xl font-bold text-brand-charcoal">&ldquo;I need a technology solution&rdquo;</h3>
+              <span className="text-xs font-bold uppercase tracking-wider text-brand-navy">
+                Division A: 3A Technology Solutions
+              </span>
+              <h3 className="mt-2 text-2xl font-bold text-brand-charcoal">
+                &ldquo;I need a technology or research solution&rdquo;
+              </h3>
               <p className="mt-3 text-sm text-gray-600 leading-relaxed">
-                Websites, custom internal tools, AI workflow automation, data dashboards, and brand identity systems built to solve everyday business problems.
+                Web &amp; digital products, custom software engineering, AI workflow automation, data science &amp; analytics, technology consulting, and computing/mathematics academic research support.
               </p>
             </div>
             <div className="mt-6 flex flex-wrap gap-4">
               <Link href="/services">
                 <Button variant="primary" size="sm">
-                  View Services
+                  View All 6 Services
                 </Button>
               </Link>
               <Link href="/request-quote" data-analytics-event="click_request_quote">
                 <Button variant="accent" size="sm">
-                  Request a Quote
+                  Request a Project Quote
+                </Button>
+              </Link>
+              <Link href="/contact">
+                <Button variant="outline" size="sm">
+                  Request a Consultation
                 </Button>
               </Link>
             </div>
           </Card>
 
-          {/* Pathway B: Techvolution Academy */}
+          {/* Pathway B: 3A Techvolution Academy */}
           <Card className="flex flex-col justify-between border-l-4 border-l-brand-yellow p-8">
             <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-amber-700">Pathway B: For Learners</span>
-              <h3 className="mt-2 text-2xl font-bold text-brand-charcoal">&ldquo;I want to learn technology&rdquo;</h3>
+              <span className="text-xs font-bold uppercase tracking-wider text-amber-700">
+                Division B: 3A Techvolution Academy
+              </span>
+              <h3 className="mt-2 text-2xl font-bold text-brand-charcoal">
+                &ldquo;I want to learn AI and build with AI tools&rdquo;
+              </h3>
               <p className="mt-3 text-sm text-gray-600 leading-relaxed">
-                Hands-on courses in software development, applied AI, and data science for university students, NYSC members, graduates, and working professionals.
+                Practical AI training, prompt engineering, vibe coding &amp; AI-assisted software development, live AI seminars, and downloadable free and paid learning resources.
               </p>
             </div>
-            <div className="mt-6">
-              <Link href="/academy" data-analytics-event="click_explore_academy">
+            <div className="mt-6 flex flex-wrap gap-4">
+              <Link href="/academy/programmes" data-analytics-event="click_explore_academy">
+                <Button variant="primary" size="sm">
+                  Explore AI Courses &rarr;
+                </Button>
+              </Link>
+              <Link href="/academy/resources">
                 <Button variant="outline" size="sm">
-                  Explore Academy Programmes &rarr;
+                  Explore Learning Resources
                 </Button>
               </Link>
             </div>

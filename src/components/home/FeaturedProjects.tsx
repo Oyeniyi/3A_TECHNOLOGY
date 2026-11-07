@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { getFeaturedProjects } from '@/lib/content';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
+import { siteConfig } from '@/config/site';
 
 export function FeaturedProjects() {
   const featured = getFeaturedProjects(3);
@@ -11,25 +12,38 @@ export function FeaturedProjects() {
     <section className="bg-brand-white py-20" aria-labelledby="featured-projects-heading">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col justify-between sm:flex-row sm:items-end">
-          <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-brand-navy">Proven Impact</span>
+          <div className="max-w-2xl">
+            <span className="text-xs font-bold uppercase tracking-wider text-brand-navy">
+              Selected Prototypes &amp; Student Research
+            </span>
             <h2 id="featured-projects-heading" className="mt-2 text-3xl font-extrabold text-brand-charcoal sm:text-4xl">
-              Featured Case Studies & Systems
+              Prototypes &amp; Student/Research Projects
             </h2>
+            <p className="mt-2 text-sm text-gray-600 leading-relaxed">
+              Selected 3A prototypes and student/research projects demonstrating practical application of software development, data science, machine learning, and computational problem-solving.
+            </p>
           </div>
-          <Link href="/projects" className="mt-4 text-sm font-semibold text-brand-navy hover:underline sm:mt-0">
-            Explore All Case Studies &rarr;
-          </Link>
+          <div className="mt-4 flex flex-wrap items-center gap-4 sm:mt-0">
+            <Link href="/projects" className="text-sm font-semibold text-brand-navy hover:underline">
+              Explore All Projects &rarr;
+            </Link>
+            <a
+              href={siteConfig.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-bold rounded-md border border-brand-border bg-brand-gray px-3 py-1.5 text-brand-navy hover:bg-gray-200 transition-colors"
+            >
+              View on GitHub &nearr;
+            </a>
+          </div>
         </div>
 
         <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
           {featured.map((project) => (
             <Card key={project.slug} hoverEffect className="flex flex-col justify-between">
               <div>
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-semibold text-gray-500 uppercase tracking-wide">
-                    {project.category.replace(/-/g, ' ')}
-                  </span>
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <Badge status={project.classification} />
                   <Badge status={project.status} />
                 </div>
 
@@ -48,13 +62,23 @@ export function FeaturedProjects() {
                 </div>
               </div>
 
-              <div className="mt-8 border-t border-brand-border pt-4">
+              <div className="mt-8 border-t border-brand-border pt-4 flex items-center justify-between">
                 <Link
                   href={`/projects/${project.slug}`}
                   className="text-xs font-bold text-brand-navy hover:underline"
                 >
-                  Read Case Study &rarr;
+                  View Project Details &rarr;
                 </Link>
+                {project.githubUrl && (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs font-semibold text-gray-500 hover:text-brand-navy"
+                  >
+                    GitHub &nearr;
+                  </a>
+                )}
               </div>
             </Card>
           ))}

@@ -2,10 +2,10 @@ import React from 'react';
 
 export function TrustBanner() {
   const stats = [
-    { label: 'Core Specializations', value: '5 Capabilities' },
-    { label: 'Engineering Focus', value: 'Enterprise Software' },
-    { label: 'AI & Data Science', value: 'Practical Automation' },
-    { label: 'Educational Arm', value: '3A Techvolution' },
+    { label: 'Technology Services', value: '6 Core Disciplines' },
+    { label: 'Engineering & Research', value: 'Software, AI & Data' },
+    { label: 'AI Education Arm', value: '3A Techvolution Academy' },
+    { label: 'Corporate Registration', value: 'CAC BN 9931488' },
   ];
 
   return (

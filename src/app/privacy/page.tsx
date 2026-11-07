@@ -3,9 +3,9 @@ import type { Metadata } from 'next';
 import { siteConfig } from '@/config/site';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy & Data Protection (NDPR Compliance)',
+  title: 'Privacy Policy & Data Protection (NDPA / NDPR Compliance)',
   description:
-    'How 3A Technology Solutions collects, uses, and protects your data under the Nigeria Data Protection Act (NDPA) and NDPR.',
+    'How 3A Technology Solutions collects, processes, and protects your data under the Nigeria Data Protection Act (NDPA) and NDPR.',
 };
 
 export default function PrivacyPage() {
@@ -23,48 +23,48 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-lg font-bold text-brand-navy mb-2">1. Who We Are</h2>
             <p>
-              <strong>{siteConfig.name}</strong> is registered under the Companies and Allied Matters Act 2020 with the Corporate Affairs Commission as <strong>{siteConfig.legal.registeredName}</strong> (Registration No. <strong>{siteConfig.legal.rcNumber}</strong>, TIN: <strong>{siteConfig.legal.tin}</strong>), with our principal office at {siteConfig.legal.registeredAddress}. This policy explains what personal data we collect when you use our website, why we collect it, and how we keep it safe.
+              <strong>{siteConfig.name}</strong> is registered under the Companies and Allied Matters Act 2020 with the Corporate Affairs Commission as <strong>{siteConfig.legal.registeredName}</strong> (Registration No. <strong>{siteConfig.legal.rcNumber}</strong>, TIN: <strong>{siteConfig.legal.tin}</strong>), with our principal office at {siteConfig.legal.registeredAddress}. This policy explains what personal data we collect when you use our website, why we collect it, and how we handle it.
             </p>
           </section>
 
           <section>
             <h2 className="text-lg font-bold text-brand-navy mb-2">2. Information We Collect</h2>
             <p>
-              We only collect the details you choose to send us through our contact and project quote forms:
+              We only collect the details you voluntarily submit through our contact and project quote forms:
             </p>
             <ul className="list-disc pl-5 mt-2 space-y-1">
-              <li>Your name and email address</li>
-              <li>Your company or organization name (if provided)</li>
-              <li>Your phone or WhatsApp number</li>
-              <li>Your project description, timeline, and budget range</li>
+              <li>Your full name and email address</li>
+              <li>Your company, school, or organization name (when provided)</li>
+              <li>Your phone or WhatsApp number (when provided)</li>
+              <li>Your enquiry category, service selection, project scope, timeline, and budget range</li>
             </ul>
             <p className="mt-2">
-              We do not use third-party advertising trackers or tracking cookies on this site.
+              We do not use third-party advertising trackers or behavioral tracking cookies on this site. When you click an external course registration link (such as a Google Form) or WhatsApp link, your interaction on that external platform is governed by that platform&rsquo;s privacy policy.
             </p>
           </section>
 
           <section>
-            <h2 className="text-lg font-bold text-brand-navy mb-2">3. How We Use Your Information</h2>
+            <h2 className="text-lg font-bold text-brand-navy mb-2">3. How We Process &amp; Use Your Information</h2>
             <p>
-              We use your contact details and project notes solely to reply to your enquiry, prepare project quotes, or answer questions about 3A Techvolution Academy. We never sell, rent, or share your contact list with marketers or third parties.
+              Form submissions are validated and sanitized on our server and delivered to our operations team via transactional email (Resend or SMTP). We use your details solely to reply to your consultation request, prepare project quotes, support academic research enquiries, or share 3A Techvolution Academy enrolment and resource information. We never sell or rent your contact information to third parties.
             </p>
           </section>
 
           <section>
-            <h2 className="text-lg font-bold text-brand-navy mb-2">4. Security &amp; Data Retention</h2>
+            <h2 className="text-lg font-bold text-brand-navy mb-2">4. Security &amp; Rate Limiting</h2>
             <p>
-              All form submissions are sent over encrypted HTTPS connections and cleaned to block malicious scripts. To prevent spam without storing visitor IP addresses, our rate limiter hashes IP addresses one-way in memory using SHA-256. We keep enquiry emails only for as long as needed to handle your request or work together.
+              All form submissions are validated against strict schemas and escaped before email dispatch. To protect our endpoints against automated abuse without storing raw visitor IP addresses in a database, our server computes a one-way salted SHA-256 hash of the request IP in ephemeral memory with a short sliding window. Note that in serverless deployments, this in-memory rate limiter operates per active instance alongside platform edge protections.
             </p>
           </section>
 
           <section>
             <h2 className="text-lg font-bold text-brand-navy mb-2">5. Your Rights Under Nigerian Law</h2>
             <p>
-              Under the Nigeria Data Protection Act (NDPA) and NDPR, you can ask to see, update, or delete any personal information you have sent us. Just email{' '}
+              Under the Nigeria Data Protection Act (NDPA) and NDPR, you have the right to request access to, correction of, or deletion of any personal information you have submitted to us. Contact{' '}
               <a href={`mailto:${siteConfig.contact.email}`} className="text-brand-navy underline font-medium">
                 {siteConfig.contact.email}
               </a>{' '}
-              and we will handle your request promptly.
+              and we will process your request promptly.
             </p>
           </section>
         </div>

@@ -9,23 +9,16 @@ import { headers } from 'next/headers';
 import { QuoteRequestSchema, QuoteRequestFormData } from '@/lib/validations/quote';
 import { isHoneypotTriggered } from '@/lib/security/honeypot';
 import { sanitizeHeader, sanitizeBodyText } from '@/lib/security/sanitizer';
-import { checkRateLimit } from '@/lib/security/rate-limiter';
+import { checkRateLimit, extractClientIp } from '@/lib/security/rate-limiter';
 import { dispatchLeadNotification } from '@/lib/email/dispatcher';
 import { FormResponse } from '@/types/forms';
 
 function resolveClientIp(explicitIp?: string): string {
-  if (explicitIp && explicitIp !== 'unknown-ip') {
-    return explicitIp;
-  }
   try {
     const reqHeaders = headers();
-    const forwardedFor = reqHeaders.get('x-forwarded-for');
-    if (forwardedFor) {
-      return forwardedFor.split(',')[0].trim();
-    }
-    return reqHeaders.get('x-real-ip') || 'unknown-ip';
+    return extractClientIp((name) => reqHeaders.get(name), explicitIp);
   } catch {
-    return explicitIp || 'unknown-ip';
+    return extractClientIp(() => null, explicitIp);
   }
 }
 

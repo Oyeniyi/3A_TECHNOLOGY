@@ -47,6 +47,7 @@ export interface SiteConfig {
   tagline: string;
   description: string;
   url: string;
+  githubUrl: string;
   contact: ContactConfig;
   legal: LegalConfig;
   brand: BrandConfig;
@@ -54,6 +55,7 @@ export interface SiteConfig {
   nav: {
     main: NavItem[];
     services: NavItem[];
+    academy: NavItem[];
     footer: {
       services: NavItem[];
       academy: NavItem[];

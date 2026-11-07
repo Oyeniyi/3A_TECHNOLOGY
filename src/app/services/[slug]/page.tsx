@@ -53,14 +53,25 @@ export default function ServiceDetailPage({ params }: ServiceDetailPageProps) {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-brand-navy mb-3">How We Build It</h2>
+              <h2 className="text-2xl font-bold text-brand-navy mb-3">How We Work With You</h2>
               <p className="text-base text-brand-dark-gray leading-relaxed">
                 {service.technicalApproach}
               </p>
             </section>
 
+            {service.ethicalNote && (
+              <section className="rounded-xl border-l-4 border-l-brand-navy bg-blue-50/70 p-6">
+                <h2 className="text-base font-bold text-brand-navy mb-2">
+                  Professional &amp; Ethical Mentorship Standards
+                </h2>
+                <p className="text-sm text-brand-charcoal leading-relaxed">
+                  {service.ethicalNote}
+                </p>
+              </section>
+            )}
+
             <section>
-              <h2 className="text-xl font-bold text-brand-navy mb-3">Who This Is For</h2>
+              <h2 className="text-xl font-bold text-brand-navy mb-3">Who This Service Is For</h2>
               <div className="flex flex-wrap gap-2">
                 {service.targetAudience.map((audience) => (
                   <span
@@ -73,24 +84,27 @@ export default function ServiceDetailPage({ params }: ServiceDetailPageProps) {
               </div>
             </section>
 
-            <DeliverablesList deliverables={service.deliverables} />
+            <section>
+              <h2 className="text-xl font-bold text-brand-navy mb-4">What We Deliver</h2>
+              <DeliverablesList deliverables={service.deliverables} />
+            </section>
           </div>
 
           <div>
             <div className="bg-brand-light-gray p-6 rounded-xl border border-brand-light-gray/80 sticky top-24">
-              <h3 className="text-lg font-bold text-brand-navy mb-3">Start a Project</h3>
+              <h3 className="text-lg font-bold text-brand-navy mb-3">Start a Conversation</h3>
               <p className="text-xs text-brand-dark-gray/80 mb-6 leading-relaxed">
-                Tell us what you need built and we will send back a clear scope, timeline, and estimate.
+                Tell us what you are working on and we will respond with a clear consultation plan, scope, and estimate.
               </p>
               <div className="space-y-3">
                 <Button variant="primary" className="w-full" asChild>
                   <Link href={`/request-quote?service=${service.slug}`}>
-                    Request Scoped Quote
+                    Request a Project Quote
                   </Link>
                 </Button>
                 <Button variant="outline" className="w-full" asChild>
-                  <Link href={`/contact?subject=Enquiry:+${encodeURIComponent(service.title)}`}>
-                    Ask a Question First
+                  <Link href={`/contact?subject=Consultation:+${encodeURIComponent(service.title)}`}>
+                    Request a Consultation
                   </Link>
                 </Button>
               </div>

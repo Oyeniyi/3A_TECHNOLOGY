@@ -19,9 +19,9 @@ export function Footer() {
             <p className="text-xs text-gray-400 leading-relaxed">{siteConfig.description}</p>
           </div>
 
-          {/* Column 2: Commercial Services */}
+          {/* Column 2: Technology Solutions */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-brand-yellow">Commercial Solutions</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-brand-yellow">Technology Solutions</h3>
             <ul className="mt-4 space-y-2.5 text-sm">
               {siteConfig.nav.footer.services.map((item) => (
                 <li key={item.href}>
@@ -33,9 +33,9 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: Techvolution Academy */}
+          {/* Column 3: 3A Techvolution Academy */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-brand-yellow">Techvolution Academy</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-brand-yellow">3A Techvolution Academy</h3>
             <ul className="mt-4 space-y-2.5 text-sm">
               {siteConfig.nav.footer.academy.map((item) => (
                 <li key={item.href}>
@@ -46,14 +46,12 @@ export function Footer() {
               ))}
             </ul>
             <div className="mt-6">
-              <a
-                href={siteConfig.academy.enrollmentFormUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/academy/programmes"
                 className="inline-flex text-xs font-semibold text-brand-yellow hover:underline"
               >
-                External Cohort Enrollment &rarr;
-              </a>
+                Browse AI Courses &amp; Enrol &rarr;
+              </Link>
             </div>
           </div>
 
@@ -81,6 +79,17 @@ export function Footer() {
               <li>
                 <span className="block text-xs font-semibold text-gray-400">Office Hubs:</span>
                 <span>{siteConfig.contact.address}</span>
+              </li>
+              <li>
+                <span className="block text-xs font-semibold text-gray-400">Open-Source &amp; Technical Work:</span>
+                <a
+                  href={siteConfig.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-brand-yellow hover:underline text-xs font-semibold"
+                >
+                  GitHub Repository &nearr;
+                </a>
               </li>
             </ul>
           </div>

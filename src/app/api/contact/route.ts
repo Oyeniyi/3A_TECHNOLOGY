@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { submitContactEnquiry } from '@/actions/enquiry';
+import { extractClientIp } from '@/lib/security/rate-limiter';
 
 /**
  * @file route.ts
@@ -10,10 +11,7 @@ import { submitContactEnquiry } from '@/actions/enquiry';
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const clientIp =
-      request.headers.get('x-forwarded-for')?.split(',')[0].trim() ||
-      request.headers.get('x-real-ip') ||
-      'unknown-ip';
+    const clientIp = extractClientIp((name) => request.headers.get(name));
     const result = await submitContactEnquiry(body, clientIp);
 
     if (!result.success) {
