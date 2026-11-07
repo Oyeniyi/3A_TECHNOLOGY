@@ -26,7 +26,6 @@ export function OrganizationSchema() {
         image: `${siteConfig.url}/images/brand/og-default.png`,
         description: siteConfig.description,
         email: siteConfig.contact.email,
-        telephone: siteConfig.contact.phone,
         taxID: siteConfig.legal.tin,
         identifier: {
           '@type': 'PropertyValue',
@@ -36,16 +35,50 @@ export function OrganizationSchema() {
         foundingDate: '2026-10-12',
         address: {
           '@type': 'PostalAddress',
-          streetAddress: '0, Ita Aisa',
-          addressLocality: 'Kwara',
+          name: 'Head Office — Ilorin, Kwara State',
+          streetAddress: 'Agbo Area, Olunlade',
+          addressLocality: 'Ilorin',
           addressRegion: 'Kwara State',
           addressCountry: 'NG',
         },
+        location: [
+          {
+            '@type': 'Place',
+            name: '3A Technology Solutions — Head Office (Ilorin)',
+            address: {
+              '@type': 'PostalAddress',
+              streetAddress: 'Agbo Area, Olunlade',
+              addressLocality: 'Ilorin',
+              addressRegion: 'Kwara State',
+              addressCountry: 'NG',
+            },
+          },
+          {
+            '@type': 'Place',
+            name: '3A Technology Solutions — Branch Office (Osogbo)',
+            address: {
+              '@type': 'PostalAddress',
+              streetAddress: 'Kola Balogun Area',
+              addressLocality: 'Osogbo',
+              addressRegion: 'Osun State',
+              addressCountry: 'NG',
+            },
+          },
+          {
+            '@type': 'Place',
+            name: '3A Technology Solutions — Branch Office (Akure)',
+            address: {
+              '@type': 'PostalAddress',
+              streetAddress: 'Dominion College, Behind Health Centre, Oba-Ile',
+              addressLocality: 'Akure',
+              addressRegion: 'Ondo State',
+              addressCountry: 'NG',
+            },
+          },
+        ],
         areaServed: [
           { '@type': 'Country', name: 'Nigeria' },
-          { '@type': 'AdministrativeArea', name: 'Kwara State' },
-          { '@type': 'AdministrativeArea', name: 'Abuja (FCT)' },
-          { '@type': 'AdministrativeArea', name: 'Lagos' },
+          { '@type': 'Continent', name: 'Africa' },
         ],
         knowsAbout: [
           'Web & Digital Product Development',

@@ -1,12 +1,14 @@
 /**
  * @file ProgrammeCard.tsx
- * @description Functional AI Course Card supporting course-specific registration URLs,
- * 5 course lifecycle statuses, and links to detailed course pages.
+ * @description Structured AI & Technology Course Card separating permanent course definition
+ * from cohort/intake schedule, displaying course duration only when known, showing mapped
+ * learning pathways, and enforcing status-specific CTA labels without invented URLs.
  */
 
 import React from 'react';
 import Link from 'next/link';
-import type { AcademyProgramme } from '@/types/content';
+import type { AcademyProgramme, CourseStatus } from '@/types/content';
+import { learningPathways } from '@/data/programmes';
 import { generateWhatsAppUrl } from '@/lib/whatsapp';
 import { isSafeActionUrl } from '@/lib/security/sanitizer';
 import { Card } from '@/components/ui/Card';
@@ -17,23 +19,55 @@ interface ProgrammeCardProps {
   programme: AcademyProgramme;
 }
 
+export function getCourseCtaLabel(status: CourseStatus, isCustomizedTraining?: boolean): string {
+  if (isCustomizedTraining) {
+    return 'Request Customized Training';
+  }
+  switch (status) {
+    case 'Open for Enrolment':
+      return 'Enrol Now';
+    case 'Upcoming':
+      return 'Register Interest';
+    case 'Registration Closed':
+      return 'Join Next Cohort';
+    case 'Ongoing':
+      return 'View Programme';
+    case 'Completed':
+      return 'Join Next Cohort';
+    default:
+      return 'View Programme';
+  }
+}
+
 export const ProgrammeCard: React.FC<ProgrammeCardProps> = ({ programme }) => {
   const whatsappUrl = generateWhatsAppUrl({
     type: 'academy',
     courseTitle: programme.title,
   });
 
-  const isRegistrationOpen =
-    programme.status === 'Open for Enrolment' || programme.status === 'Upcoming';
-  const hasValidEnrollUrl = isRegistrationOpen && isSafeActionUrl(programme.enrollmentUrl);
+  const externalEnrollUrl = programme.cohortInfo?.registrationUrl || programme.enrollmentUrl;
+  const hasVerifiedExternalUrl =
+    (programme.status === 'Open for Enrolment' || programme.status === 'Upcoming') &&
+    isSafeActionUrl(externalEnrollUrl);
+
+  const primaryCtaLabel = getCourseCtaLabel(programme.status, programme.isCustomizedTraining);
+  const primaryActionHref =
+    programme.status === 'Ongoing'
+      ? `/academy/programmes/${programme.slug}`
+      : programme.enquiryRoute;
+
+  const mappedPathways = learningPathways.filter((pw) =>
+    programme.learningPathways.includes(pw.slug)
+  );
 
   return (
     <Card hoverEffect className="flex flex-col justify-between h-full">
       <div>
         <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
           <Badge status={programme.status} />
-          <span className="text-xs text-brand-dark-gray/70 font-medium">
-            {programme.duration} &bull; {programme.format}
+          <span className="text-xs text-gray-600 font-medium">
+            {programme.duration ? `${programme.duration} • ` : ''}
+            {programme.format}
           </span>
         </div>
 
@@ -43,32 +77,56 @@ export const ProgrammeCard: React.FC<ProgrammeCardProps> = ({ programme }) => {
           </h3>
         </Link>
 
-        <p className="text-sm text-brand-dark-gray/80 mb-4 leading-relaxed">
+        <p className="text-sm text-brand-charcoal mb-4 leading-relaxed">
           {programme.shortDescription}
         </p>
 
-        {programme.startDate && (
-          <div className="mb-4 text-xs font-medium text-brand-navy bg-blue-50/70 px-3 py-1.5 rounded border border-blue-100">
-            Schedule: {programme.startDate}
+        {/* Mapped Learning Pathways */}
+        {mappedPathways.length > 0 && (
+          <div className="mb-4 flex flex-wrap gap-1.5">
+            {mappedPathways.map((pw) => (
+              <Link
+                key={pw.slug}
+                href={`/academy/pathways#${pw.slug}`}
+                className="rounded-full bg-brand-gray px-2.5 py-0.5 text-[11px] font-semibold text-brand-navy border border-brand-border hover:bg-blue-50"
+              >
+                Pathway: {pw.shortTitle}
+              </Link>
+            ))}
+          </div>
+        )}
+
+        {/* Separated Cohort / Intake Information */}
+        {programme.cohortInfo && (
+          <div className="mb-4 rounded-lg border border-blue-100 bg-blue-50/70 p-3 text-xs text-brand-charcoal">
+            <div className="font-bold text-brand-navy">
+              Cohort Intake: {programme.cohortInfo.cohortLabel}
+            </div>
+            {programme.cohortInfo.intakeWindow && (
+              <div className="mt-0.5 text-gray-700">{programme.cohortInfo.intakeWindow}</div>
+            )}
+            {programme.cohortInfo.scheduleNotes && (
+              <div className="mt-0.5 text-gray-600">{programme.cohortInfo.scheduleNotes}</div>
+            )}
           </div>
         )}
 
         <div className="mb-4">
-          <h4 className="text-xs font-semibold uppercase tracking-wider text-brand-dark-gray/70 mb-1.5">
+          <h4 className="text-xs font-semibold uppercase tracking-wider text-gray-600 mb-1.5">
             Who It Is For
           </h4>
-          <p className="text-xs text-brand-dark-gray/90 bg-brand-light-gray/60 p-2 rounded">
+          <p className="text-xs text-brand-charcoal bg-brand-gray/70 p-2 rounded">
             {programme.targetAudience.join(' • ')}
           </p>
         </div>
 
         <div>
-          <h4 className="text-xs font-semibold uppercase tracking-wider text-brand-dark-gray/70 mb-2">
+          <h4 className="text-xs font-semibold uppercase tracking-wider text-gray-600 mb-2">
             Key Topics Covered
           </h4>
           <ul className="space-y-1.5">
             {programme.curriculumModules.slice(0, 4).map((mod: string, idx: number) => (
-              <li key={idx} className="text-xs text-brand-dark-gray flex items-start gap-2">
+              <li key={idx} className="text-xs text-brand-charcoal flex items-start gap-2">
                 <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-brand-yellow shrink-0" />
                 <span>{mod}</span>
               </li>
@@ -77,37 +135,42 @@ export const ProgrammeCard: React.FC<ProgrammeCardProps> = ({ programme }) => {
         </div>
       </div>
 
-      <div className="pt-6 mt-6 border-t border-brand-light-gray/60 space-y-3">
+      <div className="pt-6 mt-6 border-t border-brand-border space-y-3">
         <div className="flex items-center justify-between text-xs">
-          <span className="font-semibold uppercase tracking-wider text-gray-500">Level: {programme.level}</span>
+          <span className="font-semibold uppercase tracking-wider text-gray-600">
+            Level: {programme.level}
+          </span>
           <span className="font-semibold text-brand-navy">{programme.feeDisplay}</span>
         </div>
 
         <div className="flex flex-wrap items-center gap-2">
           <Button variant="outline" size="sm" asChild>
-            <Link href={`/academy/programmes/${programme.slug}`}>
-              Course Details
-            </Link>
+            <Link href={`/academy/programmes/${programme.slug}`}>View Programme</Link>
           </Button>
 
-          {hasValidEnrollUrl ? (
+          {hasVerifiedExternalUrl ? (
             <Button variant="accent" size="sm" className="flex-1" asChild>
               <a
-                href={programme.enrollmentUrl}
+                href={externalEnrollUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 data-analytics-event="click_academy_enroll"
               >
-                Enrol Now ↗
+                {primaryCtaLabel} ↗
               </a>
             </Button>
           ) : (
-            <Button variant="secondary" size="sm" className="flex-1" asChild>
+            <Button
+              variant={programme.status === 'Open for Enrolment' ? 'accent' : 'primary'}
+              size="sm"
+              className="flex-1"
+              asChild
+            >
               <Link
-                href={`/contact?type=academy&subject=${encodeURIComponent(`Future Cohort Notification: ${programme.title}`)}`}
-                data-analytics-event="click_academy_waitlist"
+                href={primaryActionHref}
+                data-analytics-event="click_academy_enquire"
               >
-                Notify Me Next Cohort
+                {primaryCtaLabel} &rarr;
               </Link>
             </Button>
           )}

@@ -34,7 +34,7 @@ export function ServiceGrid() {
                 <p className="mt-3 text-sm text-gray-600 leading-relaxed">{service.shortSummary}</p>
 
                 <div className="mt-6 border-t border-brand-border pt-4">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-gray-400">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-gray-600">
                     Key Deliverables
                   </span>
                   <ul className="mt-2 space-y-1.5 text-xs text-brand-charcoal">

@@ -17,14 +17,20 @@ export default defineConfig({
   },
   projects: [
     {
-      name: 'Desktop Chrome',
-      use: { ...devices['Desktop Chrome'] },
+      name: 'Desktop Edge',
+      use: {
+        ...devices['Desktop Edge'],
+        channel: 'msedge',
+      },
     },
   ],
   webServer: {
     command: `npx next start -p ${PORT}`,
     url: BASE_URL,
-    reuseExistingServer: !process.env.CI,
+    reuseExistingServer: false,
     timeout: 120000,
+    env: {
+      ALLOW_MOCK_EMAIL_IN_PROD: 'true',
+    },
   },
 });

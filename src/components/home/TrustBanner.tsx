@@ -3,8 +3,8 @@ import React from 'react';
 export function TrustBanner() {
   const stats = [
     { label: 'Technology Services', value: '6 Core Disciplines' },
-    { label: 'Engineering & Research', value: 'Software, AI & Data' },
-    { label: 'AI Education Arm', value: '3A Techvolution Academy' },
+    { label: 'Physical Offices', value: 'Ilorin HQ • Osogbo • Akure' },
+    { label: 'Service Coverage', value: 'Across Nigeria & Africa' },
     { label: 'Corporate Registration', value: 'CAC BN 9931488' },
   ];
 
@@ -15,7 +15,7 @@ export function TrustBanner() {
           {stats.map((stat, i) => (
             <div key={i} className="text-center sm:text-left border-l-2 border-brand-yellow pl-4">
               <div className="text-lg font-extrabold text-brand-navy sm:text-xl">{stat.value}</div>
-              <div className="text-xs font-medium text-gray-500 uppercase tracking-wide mt-0.5">{stat.label}</div>
+              <div className="text-xs font-medium text-gray-600 uppercase tracking-wide mt-0.5">{stat.label}</div>
             </div>
           ))}
         </div>

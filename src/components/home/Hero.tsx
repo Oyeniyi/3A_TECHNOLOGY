@@ -17,7 +17,7 @@ export function Hero() {
           </h1>
 
           <p className="mt-6 text-lg text-brand-charcoal sm:text-xl leading-relaxed">
-            <strong>3A Technology Solutions</strong> helps businesses, institutions, and researchers solve practical problems with web platforms, custom software, AI automation, data science, and technical consultation—while <strong>3A Techvolution Academy</strong> equips learners and teams to master practical AI and vibe coding.
+            <strong>3A Technology Solutions</strong> designs and builds business websites, landing pages, school and institutional portals, custom software, AI-enabled operations tools, and data systems for clients across Nigeria and Africa. Alongside our software team, <strong>3A Techvolution Academy</strong> equips learners, students, and organizations with practical AI skills, vibe coding, and project mentorship.
           </p>
 
           {/* Dual-Pathway Intent Routing */}

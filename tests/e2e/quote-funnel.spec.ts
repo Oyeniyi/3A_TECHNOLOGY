@@ -31,7 +31,7 @@ test.describe('Commercial Client Quote Funnel (FR-02 / FR-06 / AC-06.2)', () => 
     await page.getByRole('button', { name: /Request Formal Project Quote/i }).click();
 
     // Assert confirmation alert banner
-    const alert = page.getByRole('alert');
+    const alert = page.locator('form [role="alert"]');
     await expect(alert).toBeVisible();
     await expect(alert).toContainText(/Thank you! Your project scoping brief has been received/i);
   });

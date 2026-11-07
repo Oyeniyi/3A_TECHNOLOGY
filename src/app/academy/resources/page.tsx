@@ -5,9 +5,9 @@ import { getAllAcademyResources } from '@/lib/content';
 import { ResourceLibraryCatalog } from '@/components/academy/ResourceLibraryCatalog';
 
 export const metadata: Metadata = {
-  title: 'AI Resource Library — Guides, Checklists & Workbooks | 3A Techvolution Academy',
+  title: 'AI Learning Resource Hub — Guides, Templates & Workbooks | 3A Techvolution Academy',
   description:
-    'Browse free and paid AI learning guides, prompt engineering checklists, vibe coding templates, and practical AI workbooks from 3A Techvolution Academy.',
+    'A growing collection of learning materials, practical guides, templates and educational resources designed to help you understand and apply artificial intelligence and technology.',
 };
 
 export default function AcademyResourcesPage() {
@@ -18,14 +18,20 @@ export default function AcademyResourcesPage() {
       <section className="bg-brand-navy py-16 text-brand-white">
         <div className="container-custom">
           <div className="max-w-3xl">
-            <Link href="/academy" className="text-xs font-semibold text-brand-yellow hover:underline">
+            <Link
+              href="/academy"
+              className="text-xs font-semibold text-brand-yellow hover:underline"
+            >
               &larr; Back to 3A Techvolution Academy
             </Link>
+            <div className="mt-4 inline-flex items-center rounded-full border border-white/20 bg-white/10 px-3.5 py-1 text-xs font-bold text-brand-yellow">
+              D. AI Learning Resource Hub
+            </div>
             <h1 className="mt-4 text-3xl md:text-5xl font-extrabold text-brand-white">
               Academy Resource Library
             </h1>
             <p className="mt-4 text-base md:text-lg text-gray-200 leading-relaxed">
-              Practical AI learning guides, prompt engineering references, vibe coding templates, and workbooks to help you apply AI clearly and responsibly.
+              A growing collection of learning materials, practical guides, templates and educational resources designed to help you understand and apply artificial intelligence and technology.
             </p>
           </div>
         </div>
@@ -39,4 +45,3 @@ export default function AcademyResourcesPage() {
     </div>
   );
 }
-

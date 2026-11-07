@@ -15,7 +15,7 @@ export default function TermsPage() {
         <h1 className="text-3xl md:text-4xl font-extrabold text-brand-navy mb-4">
           Terms of Service
         </h1>
-        <p className="text-xs text-brand-dark-gray/60 mb-8">
+        <p className="text-xs text-gray-600 mb-8">
           Last Updated: November 2026 | {siteConfig.legal.registeredName} (CAC {siteConfig.legal.rcNumber} &bull; TIN {siteConfig.legal.tin})
         </p>
 
@@ -51,7 +51,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-lg font-bold text-brand-navy mb-2">5. Governing Law</h2>
             <p>
-              These terms are governed by the laws of the Federal Republic of Nigeria, including the Companies and Allied Matters Act (CAMA) 2020. Any legal disputes will be handled in the courts of Kwara State or Abuja (FCT), Nigeria.
+              These terms are governed by the laws of the Federal Republic of Nigeria, including the Companies and Allied Matters Act (CAMA) 2020. Any legal disputes will be handled in the courts of Kwara State, Nigeria.
             </p>
           </section>
         </div>

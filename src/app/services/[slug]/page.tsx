@@ -2,10 +2,12 @@ import React from 'react';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { getAllServices, getServiceBySlug } from '@/lib/content';
+import { getAllServices, getServiceBySlug, getProjectsBySlugs } from '@/lib/content';
 import { ServiceDetailHero } from '@/components/services/ServiceDetailHero';
 import { DeliverablesList } from '@/components/services/DeliverablesList';
+import { ProjectCard } from '@/components/projects/ProjectCard';
 import { Button } from '@/components/ui/Button';
+import { siteConfig } from '@/config/site';
 
 interface ServiceDetailPageProps {
   params: {
@@ -38,11 +40,45 @@ export default function ServiceDetailPage({ params }: ServiceDetailPageProps) {
     notFound();
   }
 
+  const relatedProjects = getProjectsBySlugs(service.relatedProjectSlugs);
+
+  const serviceJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: service.title,
+    description: service.shortSummary,
+    provider: {
+      '@type': 'Organization',
+      name: siteConfig.name,
+      url: siteConfig.url,
+      email: siteConfig.contact.email,
+    },
+    areaServed: [
+      { '@type': 'Country', name: 'Nigeria' },
+      { '@type': 'Continent', name: 'Africa' },
+    ],
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: `${service.title} Deliverables`,
+      itemListElement: service.deliverables.map((item) => ({
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: item,
+        },
+      })),
+    },
+  };
+
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       <ServiceDetailHero service={service} />
 
-      <div className="container-custom py-16">
+      <div className="container-custom py-16 space-y-16">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           <div className="lg:col-span-2 space-y-8">
             <section>
@@ -111,6 +147,37 @@ export default function ServiceDetailPage({ params }: ServiceDetailPageProps) {
             </div>
           </div>
         </div>
+
+        {/* Relevant Portfolio Evidence Section */}
+        {relatedProjects.length > 0 && (
+          <section className="border-t border-brand-border pt-12">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+              <div>
+                <span className="text-xs font-bold uppercase tracking-wider text-brand-navy">
+                  Portfolio Evidence
+                </span>
+                <h2 className="mt-1 text-2xl sm:text-3xl font-extrabold text-brand-navy">
+                  Relevant Projects &amp; Case Studies
+                </h2>
+                <p className="mt-1 text-sm text-brand-dark-gray/80">
+                  Real examples demonstrating our work in {service.title.toLowerCase()}.
+                </p>
+              </div>
+              <Link
+                href="/projects"
+                className="text-xs font-bold text-brand-navy hover:underline shrink-0"
+              >
+                View Full Portfolio &rarr;
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {relatedProjects.map((project) => (
+                <ProjectCard key={project.slug} project={project} compact />
+              ))}
+            </div>
+          </section>
+        )}
       </div>
     </div>
   );

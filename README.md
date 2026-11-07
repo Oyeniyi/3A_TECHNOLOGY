@@ -49,7 +49,10 @@ All courses, seminars, resources, services, and portfolio projects are managed i
    - For **Paid** resources (`accessType: 'Paid'`), set `price` (e.g., `'₦15,000'`) and `purchaseUrl` (enquiry or external payment link). Never set a public `downloadUrl` on a paid resource.
 
 4. **Adding Portfolio Projects (`src/data/projects.ts`):**
-   - Set `classification` accurately to `'3A Prototype'` (currently `MarketMind AI` only), `'Student Project'`, `'Research Project'`, or `'Client Work'`.
+   - Assign `primaryCollection` and `collections` from `'business-client-solutions' | 'websites-digital-experiences' | 'student-research-projects'`.
+   - Set `classification` accurately (e.g., `'AI-Powered Business Operations Tool'`, `'Institutional Platform'`, `'Website & Landing Page'`, `'Custom Digital Experience'`, `'Student Project'`, `'Research Project'`).
+   - Enforce confidentiality via `visibility: 'public' | 'confidential'`: when `visibility === 'confidential'`, omit `liveUrl` and `githubUrl` so private URLs are never exposed in HTML, metadata, JSON-LD, client JS, or the sitemap.
+   - Link the wider student project collection via `siteConfig.studentProjectsGithubUrl` (`https://github.com/psalm001`).
 
 ---
 

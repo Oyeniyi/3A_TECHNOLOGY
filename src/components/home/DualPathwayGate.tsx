@@ -46,14 +46,14 @@ export function DualPathwayGate() {
           {/* Pathway B: 3A Techvolution Academy */}
           <Card className="flex flex-col justify-between border-l-4 border-l-brand-yellow p-8">
             <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-amber-700">
-                Division B: 3A Techvolution Academy
+              <span className="text-xs font-bold uppercase tracking-wider text-amber-800">
+                Division B: 3A Techvolution Academy — Learn. Build. Advance.
               </span>
               <h3 className="mt-2 text-2xl font-bold text-brand-charcoal">
-                &ldquo;I want to learn AI and build with AI tools&rdquo;
+                &ldquo;I want to learn AI, build software, or get student training support&rdquo;
               </h3>
               <p className="mt-3 text-sm text-gray-600 leading-relaxed">
-                Practical AI training, prompt engineering, vibe coding &amp; AI-assisted software development, live AI seminars, and downloadable free and paid learning resources.
+                Structured AI &amp; technology learning pathways, vibe coding, IT/SIWES industrial training support, academic project mentorship, live seminars, and our AI Learning Resource Hub.
               </p>
             </div>
             <div className="mt-6 flex flex-wrap gap-4">
@@ -62,9 +62,14 @@ export function DualPathwayGate() {
                   Explore AI Courses &rarr;
                 </Button>
               </Link>
-              <Link href="/academy/resources">
+              <Link href="/academy/siwes-support">
                 <Button variant="outline" size="sm">
-                  Explore Learning Resources
+                  IT/SIWES &amp; Project Support
+                </Button>
+              </Link>
+              <Link href="/academy/pathways">
+                <Button variant="outline" size="sm">
+                  Learning Pathways
                 </Button>
               </Link>
             </div>

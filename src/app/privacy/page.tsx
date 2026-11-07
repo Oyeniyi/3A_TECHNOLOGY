@@ -15,7 +15,7 @@ export default function PrivacyPage() {
         <h1 className="text-3xl md:text-4xl font-extrabold text-brand-navy mb-4">
           Privacy Policy
         </h1>
-        <p className="text-xs text-brand-dark-gray/60 mb-8">
+        <p className="text-xs text-gray-600 mb-8">
           Last Updated: November 2026 | Compliant with Nigeria Data Protection Act (NDPA) and NDPR | {siteConfig.legal.registeredName} ({siteConfig.legal.rcNumber})
         </p>
 

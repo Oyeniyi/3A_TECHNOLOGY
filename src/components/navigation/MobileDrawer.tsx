@@ -36,6 +36,10 @@ export function MobileDrawer() {
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm transition-opacity" />
         <Dialog.Content className="fixed inset-y-0 right-0 z-50 flex w-full max-w-xs flex-col bg-brand-white p-6 shadow-2xl transition-transform focus:outline-none">
+          <Dialog.Title className="sr-only">Navigation Menu</Dialog.Title>
+          <Dialog.Description className="sr-only">
+            Mobile navigation menu for 3A Technology Solutions and 3A Techvolution Academy
+          </Dialog.Description>
           <div className="flex items-center justify-between border-b border-brand-border pb-4">
             <BrandLogo variant="light" subtitle="" />
             <Dialog.Close asChild>

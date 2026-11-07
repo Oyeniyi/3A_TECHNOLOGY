@@ -112,7 +112,7 @@ function QuoteFormInner() {
         />
 
         <FormField
-          label="Company / Institution"
+          label="Company / Organization"
           placeholder="e.g. Okafor Logistics Ltd or University Dept (Optional)"
           error={errors.company?.message}
           {...register('company')}

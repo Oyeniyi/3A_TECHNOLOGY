@@ -1,6 +1,7 @@
 /**
  * Content Domain Type Definitions
- * In accordance with PRD.md Section 5, Strategic Upgrade Specification, & docs/data-architecture.md
+ * In accordance with PRD.md Section 5, Strategic Upgrade Specification,
+ * Portfolio Restructuring Specification, & docs/data-architecture.md
  */
 
 export type ServiceSlug =
@@ -22,37 +23,78 @@ export interface Service {
   deliverables: string[];
   ethicalNote?: string;
   featuredCaseStudySlug?: string;
+  relatedProjectSlugs: string[];
 }
 
-export type ProjectClassification =
-  | '3A Prototype'
-  | 'Student Project'
-  | 'Research Project'
-  | 'Demonstration Project';
+export type PortfolioCollection =
+  | 'business-client-solutions'
+  | 'websites-digital-experiences'
+  | 'student-research-projects';
 
-export type ProjectStatus =
-  | '3A Prototype'
+export type ProjectClassification =
+  | 'AI-Powered Business Operations Tool'
+  | 'Business Solution'
+  | 'Client Project'
+  | 'Institutional Platform'
+  | 'Website & Landing Page'
+  | 'Custom Digital Experience'
   | 'Student Project'
-  | 'Research Prototype'
-  | 'Demonstration Build';
+  | 'Research Project';
+
+export type ProjectVisibility = 'public' | 'confidential';
 
 export interface Project {
   slug: string;
   title: string;
+  primaryCollection: PortfolioCollection;
+  collections: PortfolioCollection[];
   category: ServiceSlug;
+  relatedServices: ServiceSlug[];
   classification: ProjectClassification;
-  status: ProjectStatus;
+  clientOrOrganization?: string;
+  status: string;
+  visibility: ProjectVisibility;
+  confidentialityNotice?: string;
   shortSummary: string;
   theChallenge: string;
   theSolution: string;
+  verifiedFeatures: string[];
   technologiesUsed: string[];
   imagePlaceholder: string;
   liveUrl?: string;
   githubUrl?: string;
+  featured: boolean;
+  seoTitle: string;
+  seoDescription: string;
 }
 
 export type SkillLevel = 'Beginner' | 'Intermediate' | 'Advanced' | 'All Levels';
-export type DeliveryFormat = 'Weekend Cohort' | 'In-Person' | 'Hybrid' | 'Online Live';
+export type DeliveryFormat =
+  | 'Weekend Cohort'
+  | 'In-Person'
+  | 'Hybrid'
+  | 'Online Live'
+  | 'Customized Schedule';
+
+export type LearningPathwaySlug =
+  | 'ai-for-beginners'
+  | 'ai-for-students-researchers'
+  | 'ai-for-graduates-nysc'
+  | 'ai-for-professionals-businesses'
+  | 'ai-development-vibe-coding';
+
+export interface LearningPathway {
+  slug: LearningPathwaySlug;
+  title: string;
+  shortTitle: string;
+  audienceSummary: string;
+  description: string;
+  focusAreas: string[];
+  recommendedFor: string[];
+  courseSlugs: string[];
+  ctaLabel: string;
+  ctaHref: string;
+}
 
 export type CourseStatus =
   | 'Upcoming'
@@ -61,16 +103,24 @@ export type CourseStatus =
   | 'Completed'
   | 'Registration Closed';
 
+export interface CourseCohortInfo {
+  cohortLabel: string;
+  intakeWindow?: string;
+  scheduleNotes?: string;
+  registrationUrl?: string;
+}
+
 export interface AcademyProgramme {
   slug: string;
   title: string;
   shortDescription: string;
   overview: string;
+  learningPathways: LearningPathwaySlug[];
   learningOutcomes: string[];
   curriculumModules: string[];
   level: SkillLevel;
   format: DeliveryFormat;
-  duration: string;
+  duration?: string;
   targetAudience: string[];
   prerequisites: string[];
   instructor?: {
@@ -79,10 +129,40 @@ export interface AcademyProgramme {
   };
   imagePlaceholder: string;
   feeDisplay: string;
+  cohortInfo?: CourseCohortInfo;
   enrollmentUrl?: string;
+  enquiryRoute: string;
+  isCustomizedTraining?: boolean;
   status: CourseStatus;
   startDate?: string;
+  published: boolean;
   featured: boolean;
+}
+
+export type AcademyServiceSlug = 'siwes-support' | 'project-support' | 'corporate-training';
+
+export interface AcademySupportService {
+  slug: AcademyServiceSlug;
+  title: string;
+  badgeLabel: string;
+  shortSummary: string;
+  whatItIs: string;
+  whoItIsFor: string[];
+  whatToExpect: string[];
+  areasCovered: string[];
+  disciplinesSupported?: string[];
+  processSteps: {
+    step: string;
+    title: string;
+    description: string;
+  }[];
+  ethicalNotice: string;
+  faqs: {
+    question: string;
+    answer: string;
+  }[];
+  ctaLabel: string;
+  enquiryHref: string;
 }
 
 export type EventStatus = 'Upcoming' | 'Registration Open' | 'Registration Closed' | 'Completed';
@@ -91,12 +171,15 @@ export type EventFormat = 'Online' | 'Physical' | 'Hybrid';
 export interface AcademyEvent {
   slug: string;
   title: string;
+  categoryLabel: string;
   description: string;
   dateDisplay: string;
   timeDisplay: string;
   format: EventFormat;
+  venueOrPlatform: string;
   targetAudience: string[];
   registrationUrl?: string;
+  enquiryHref: string;
   status: EventStatus;
 }
 
@@ -108,7 +191,7 @@ export type ResourceCategory =
   | 'Course Notes & Toolkits';
 
 export type ResourceFormat = 'PDF Guide' | 'E-Book' | 'Workbook' | 'Template Pack' | 'Toolkit';
-export type ResourceAvailability = 'Available' | 'Coming Soon';
+export type ResourceAvailability = 'Available' | 'Coming Soon' | 'In Development';
 
 export interface AcademyResource {
   slug: string;
@@ -123,4 +206,5 @@ export interface AcademyResource {
   downloadUrl?: string;
   purchaseUrl?: string;
   availability: ResourceAvailability;
+  statusNote?: string;
 }

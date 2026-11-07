@@ -4,14 +4,18 @@ import { quoteRequestSchema } from '@/lib/validations/quote';
 
 describe('Form Validation Schema Tests (Zod)', () => {
   describe('contactEnquirySchema', () => {
-    it('accepts valid contact payload with enquiryType', () => {
+    it('accepts valid contact payload with enquiryType and optional IT/SIWES or Academic Project context fields', () => {
       const valid = {
         fullName: 'Chinedu Okafor',
         email: 'c.okafor@example.com',
         phone: '+234 803 123 4567',
-        enquiryType: 'academy-programme',
-        subject: 'Vibe Coding Bootcamp Registration',
-        message: 'We are interested in enrolling three team members in the upcoming Vibe Coding cohort.',
+        enquiryType: 'siwes-support',
+        institution: 'Kwara State University',
+        department: 'Computer Science',
+        trainingLevel: '300 Level • 6-Month SIWES',
+        technologyArea: 'Python & Machine Learning',
+        subject: 'IT / SIWES Training Support Request',
+        message: 'I am starting my 6-month SIWES next month and would like structured weekly practical tasks.',
       };
       const result = contactEnquirySchema.safeParse(valid);
       expect(result.success).toBe(true);

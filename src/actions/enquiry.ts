@@ -1,8 +1,9 @@
 'use server';
 
 /**
- * Server Action: Submit General Contact Enquiry
- * Distinguishes Technology Solutions enquiries from 3A Techvolution Academy enquiries.
+ * Server Action: Submit Contact & Academy Service Enquiry
+ * Supports commercial consultations, Academy course enrolment/info, IT/SIWES training support,
+ * academic project support, seminar registration, and customized organizational training.
  */
 
 import { headers } from 'next/headers';
@@ -24,6 +25,12 @@ function resolveClientIp(explicitIp?: string): string {
 
 const ENQUIRY_TYPE_LABELS: Record<string, string> = {
   'technology-service': '3A Technology Solutions — Business / Service Consultation',
+  'course-enrolment': '3A Techvolution Academy — Course Enrolment',
+  'course-info': '3A Techvolution Academy — Course Information / Cohort Waitlist',
+  'siwes-support': '3A Techvolution Academy — IT / SIWES Training Support',
+  'academic-project': '3A Techvolution Academy — Academic Project Support & Consultation',
+  'seminar-workshop': '3A Techvolution Academy — Seminar & Workshop Registration',
+  'customized-training': '3A Techvolution Academy — Customized Organizational Training',
   'academy-programme': '3A Techvolution Academy — Course / Seminar / Resource Enquiry',
   'academic-research': 'Academic Research & Project Support Consultation',
   'general-inquiry': 'General Website Enquiry',
@@ -67,13 +74,28 @@ export async function submitContactEnquiry(
     };
   }
 
-  const { fullName, email, phone, enquiryType, subject, message } = parsed.data;
+  const {
+    fullName,
+    email,
+    phone,
+    enquiryType,
+    subject,
+    institution,
+    department,
+    trainingLevel,
+    technologyArea,
+    projectArea,
+    projectStage,
+    guidanceNeeded,
+    message,
+  } = parsed.data;
 
   // 4. Header Injection & String Sanitization
   const cleanName = sanitizeHeader(fullName);
   const cleanEmail = sanitizeHeader(email);
   const cleanPhone = sanitizeHeader(phone);
-  const categoryLabel = ENQUIRY_TYPE_LABELS[enquiryType || 'general-inquiry'] || 'General Website Enquiry';
+  const categoryLabel =
+    ENQUIRY_TYPE_LABELS[enquiryType || 'general-inquiry'] || 'General Website Enquiry';
   const cleanSubject = sanitizeHeader(subject || categoryLabel);
   const cleanMessage = sanitizeBodyText(message);
 
@@ -85,8 +107,15 @@ export async function submitContactEnquiry(
     senderPhone: cleanPhone,
     subject: cleanSubject,
     metadata: {
-      'Enquiry Division': categoryLabel,
+      'Enquiry Category': categoryLabel,
       Subject: cleanSubject,
+      'Institution / Organization': sanitizeHeader(institution),
+      'Course / Department': sanitizeHeader(department),
+      'Training Level / SIWES Duration': sanitizeHeader(trainingLevel),
+      'Technology Area of Interest': sanitizeHeader(technologyArea),
+      'Project Area / Discipline': sanitizeHeader(projectArea),
+      'Current Project Stage': sanitizeHeader(projectStage),
+      'Type of Guidance Required': sanitizeHeader(guidanceNeeded),
     },
     message: cleanMessage,
   });
@@ -94,12 +123,14 @@ export async function submitContactEnquiry(
   if (!dispatchResult.success) {
     return {
       success: false,
-      message: 'We were unable to deliver your message due to a temporary dispatch error. Please reach out to us directly via WhatsApp or email.',
+      message:
+        'We were unable to deliver your message due to a temporary dispatch error. Please reach out to us directly via WhatsApp or email.',
     };
   }
 
   return {
     success: true,
-    message: 'Thank you for reaching out to 3A Technology Solutions! Our team will contact you shortly.',
+    message:
+      'Thank you for reaching out to 3A Technology Solutions! Our team will contact you shortly.',
   };
 }

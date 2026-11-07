@@ -57,31 +57,35 @@ export function Footer() {
 
           {/* Column 4: Contact & Locations */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-brand-yellow">Verified Channels</h3>
-            <ul className="mt-4 space-y-2.5 text-sm text-gray-300">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-brand-yellow">Contact &amp; Office Locations</h3>
+            <ul className="mt-4 space-y-3 text-xs text-gray-300 leading-relaxed">
               <li>
-                <span className="block text-xs font-semibold text-gray-400">Official Email:</span>
-                <a href={`mailto:${siteConfig.contact.email}`} className="hover:text-brand-white">
+                <span className="block text-[11px] font-semibold uppercase tracking-wider text-gray-400">Official Business Email:</span>
+                <a
+                  href={`mailto:${siteConfig.contact.email}`}
+                  className="text-sm font-semibold text-brand-yellow hover:underline"
+                >
                   {siteConfig.contact.email}
                 </a>
               </li>
               <li>
-                <span className="block text-xs font-semibold text-gray-400">Direct WhatsApp / Phone:</span>
-                <a
-                  href={`https://wa.me/${siteConfig.contact.whatsapp.replace(/[^0-9]/g, '')}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-brand-white"
-                >
-                  {siteConfig.contact.whatsapp}
-                </a>
+                <span className="block text-[11px] font-semibold uppercase tracking-wider text-brand-yellow">Head Office (Ilorin, Kwara State):</span>
+                <span>Agbo Area, Olunlade, Ilorin, Kwara State, Nigeria.</span>
               </li>
               <li>
-                <span className="block text-xs font-semibold text-gray-400">Office Hubs:</span>
-                <span>{siteConfig.contact.address}</span>
+                <span className="block text-[11px] font-semibold uppercase tracking-wider text-gray-400">Branch Office 1 (Osogbo, Osun State):</span>
+                <span>Kola Balogun Area, Osogbo, Osun State, Nigeria.</span>
               </li>
               <li>
-                <span className="block text-xs font-semibold text-gray-400">Open-Source &amp; Technical Work:</span>
+                <span className="block text-[11px] font-semibold uppercase tracking-wider text-gray-400">Branch Office 2 (Akure, Ondo State):</span>
+                <span>Dominion College, Behind Health Centre, Oba-Ile, Akure, Ondo State, Nigeria.</span>
+              </li>
+              <li>
+                <span className="block text-[11px] font-semibold uppercase tracking-wider text-gray-400">Service Coverage:</span>
+                <span>Serving Businesses and Individuals Across Nigeria and Africa.</span>
+              </li>
+              <li>
+                <span className="block text-[11px] font-semibold uppercase tracking-wider text-gray-400">Open-Source &amp; Technical Work:</span>
                 <a
                   href={siteConfig.githubUrl}
                   target="_blank"
@@ -109,7 +113,7 @@ export function Footer() {
             </div>
           </div>
           <p className="text-[11px] text-gray-400/90">
-            Registered under CAMA 2020 as <strong className="text-gray-300 font-semibold">{siteConfig.legal.registeredName}</strong> &bull; CAC Registration: <strong className="text-gray-300 font-semibold">{siteConfig.legal.rcNumber}</strong> &bull; TIN: <strong className="text-gray-300 font-semibold">{siteConfig.legal.tin}</strong> &bull; Principal Office: {siteConfig.legal.registeredAddress}
+            Registered under CAMA 2020 as <strong className="text-gray-300 font-semibold">{siteConfig.legal.registeredName}</strong> &bull; CAC Registration: <strong className="text-gray-300 font-semibold">{siteConfig.legal.rcNumber}</strong> &bull; TIN: <strong className="text-gray-300 font-semibold">{siteConfig.legal.tin}</strong> &bull; Head Office: {siteConfig.legal.registeredAddress} &bull; {siteConfig.contact.serviceCoverage.shortStatement}
           </p>
         </div>
       </div>

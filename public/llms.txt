@@ -1,6 +1,13 @@
 # 3A Technology Solutions & 3A Techvolution Academy
 
-> 3A Technology Solutions provides practical digital solutions, custom software engineering, AI automation, data science, technology consulting, and academic research/project support. 3A TECHVOLUTION ACADEMY is our AI-focused educational academy teaching AI fluency, prompt engineering, vibe coding, and practical AI applications.
+> 3A Technology Solutions develops practical digital solutions for businesses and institutions, builds business websites and landing pages, creates custom software and AI-enabled tools, and supports academic and research projects across Nigeria and Africa. 3A TECHVOLUTION ACADEMY is our AI-focused educational academy teaching AI fluency, prompt engineering, vibe coding, and practical AI applications.
+
+## Official Contact, Office Locations & Service Coverage
+- **Official Business Email:** [3aafricanai@gmail.com](mailto:3aafricanai@gmail.com)
+- **Head Office (Official Headquarters):** Agbo Area, Olunlade, Ilorin, Kwara State, Nigeria.
+- **Branch Office 1:** Kola Balogun Area, Osogbo, Osun State, Nigeria.
+- **Branch Office 2:** Dominion College, Behind Health Centre, Oba-Ile, Akure, Ondo State, Nigeria.
+- **Service Coverage:** Serving Businesses and Individuals Across Nigeria (all states and the Federal Capital Territory) and Africa.
 
 ## 3A Technology Solutions — Commercial Services
 - [Commercial Services Overview](https://3atechnology.com.ng/services): Overview of our six core technology, consulting, and academic research support services.
@@ -11,28 +18,24 @@
 - [Technology Consulting](https://3atechnology.com.ng/services/technology-consulting): Digital transformation planning, systems architecture review, technology stack advisory, process auditing, and technical feasibility roadmaps.
 - [Academic Research & Project Support](https://3atechnology.com.ng/services/academic-research-support): Ethical research consultation, technical mentorship, Python/ML/computational modelling implementation, and technical report/defence preparation for computing and mathematics projects.
 
-## 3A TECHVOLUTION ACADEMY — AI Education
-- [Academy Overview](https://3atechnology.com.ng/academy): AI-focused educational academy helping individuals, students, graduates, professionals, and organizations become fluent, productive users of AI.
-- [AI Course Catalogue](https://3atechnology.com.ng/academy/programmes): Functional course catalogue covering AI Fluency & Prompt Engineering, Vibe Coding & AI-Assisted Software Development, AI Automation & Business Workflows, and Applied Machine Learning.
-- [AI Seminars & Workshops](https://3atechnology.com.ng/academy/events): Upcoming AI awareness seminars, fluency webinars, practical workshops, and corporate AI training events.
+## Portfolio Collections (`/projects`)
+1. **Business & Client Solutions:**
+   - **MarketMind AI — Akinmart Store (`/projects/marketmind-ai`):** Internal AI-enabled business operations tool developed for Akinmart Store to support supermarket operations.
+   - **Dominion College School Management Portal (`/projects/dominion-college-portal`):** Private institutional school management platform supporting school fee payments, student result checking, and academic administration (project link confidential).
+2. **Websites & Digital Experiences:**
+   - **Raph2 Interiors — Business Website & Landing Page (`/projects/raph2-interiors`):** Live client website (`https://raph2-interior.netlify.app/`) with interactive square-meter cost estimator, portfolio showcase, and WhatsApp enquiry flows.
+   - **Dominion College School Management Portal (`/projects/dominion-college-portal`):** Institutional web portal case study (confidential deployment).
+   - **Custom Digital Wedding Invitation & Gatepass Platform (`/projects/custom-wedding-invitation-platform`):** Bespoke digital event invitation experience with unique invitation cards and downloadable guest gatepasses (confidential deployment).
+3. **Student & Research Projects:**
+   - Selected academic and research projects (**Medicinal Plant Leaf Recognition**, **Image Compression & Analysis — RLE vs DCT**, **Deforestation & Canopy Change Analysis**) plus the wider student repository collection at `https://github.com/psalm001`.
+
+## 3A TECHVOLUTION ACADEMY — Learn. Build. Advance.
+- [Academy Overview](https://3atechnology.com.ng/academy): Practical technology education, AI skills development, and academic and industrial training support for the next generation of technology professionals.
+- [Learning Pathways](https://3atechnology.com.ng/academy/pathways): Five audience-based pathways — AI for Beginners, AI for Students & Researchers, AI for Graduates & NYSC Members, AI for Professionals & Businesses, and AI Development & Vibe Coding.
+- [AI & Technology Courses](https://3atechnology.com.ng/academy/programmes): Structured courses separating permanent curriculum definitions from cohort/intake schedules.
+- [IT / SIWES Training Support](https://3atechnology.com.ng/academy/siwes-support): Practical technology skill development, weekly guided tasks, and SIWES logbook/report mentorship for university and polytechnic students.
+- [Academic Project Support](https://3atechnology.com.ng/academy/project-support): Separate ethical consultation and technical mentorship for undergraduate and postgraduate computing, AI, data science, and mathematics projects.
+- [Customized Training](https://3atechnology.com.ng/academy/corporate-training): Tailored AI adoption and technology training for organizations, institutions, schools, and communities.
+- [AI Seminars & Workshops](https://3atechnology.com.ng/academy/events): AI awareness programmes, fluency webinars, NYSC educational sessions, student technology seminars, and practical workshops.
 - [Vibe Coding & AI-Assisted Development](https://3atechnology.com.ng/academy/vibe-coding): Learn how to build, understand, debug, and prototype real software responsibly using AI coding tools and agents.
-- [Academy Resource Library](https://3atechnology.com.ng/academy/resources): Categorized library of free downloadable PDF guides, prompt checklists, templates, and paid AI workbooks/toolkits.
-
-## Portfolio, Prototypes & Company Info
-- [Projects & Prototypes](https://3atechnology.com.ng/projects): Transparently classified portfolio featuring MarketMind AI (3A Prototype) alongside mentored student/research projects in deforestation analysis, medicinal plant recognition, WebAssembly image compression, and digital logbooks.
-- [GitHub Repository](https://github.com/Oyeniyi/3A_TECHNOLOGY): Official public repositories and technical prototypes.
-- [About 3A Technology Solutions](https://3atechnology.com.ng/about): Brand foundation ("Technology that works for people and business"), five brand pillars, and CAC registration details.
-- [Request a Project Quote](https://3atechnology.com.ng/request-quote): Project scoping form for commercial software, AI, data, consulting, or academic research support.
-- [Contact Us](https://3atechnology.com.ng/contact): Direct consultation and Academy enquiry form, email, and WhatsApp links.
-
-## Key Facts
-- Brand Name: 3A Technology Solutions
-- AI Education Division: 3A TECHVOLUTION ACADEMY
-- Tagline: Ideas • Technology • Impact
-- Brand Essence: Technology that works for people and business.
-- Registered Legal Entity: 3A TECHNOLOGY SOLUTION CONCEPTS
-- Corporate Affairs Commission (CAC) Registration: BN 9931488 (Registered under CAMA 2020 on 12th October 2026)
-- Tax Identification Number (TIN): 2622397219188
-- Principal Place of Business: 0, Ita Aisa, Kwara, Kwara State, Nigeria (with delivery hubs in Abuja and Lagos)
-- Website: https://3atechnology.com.ng
-- Official Email: contact@3atechnology.com.ng
+- [AI Learning Resource Hub](https://3atechnology.com.ng/academy/resources): Growing educational library with transparent availability statuses (Available, Coming Soon, In Development).

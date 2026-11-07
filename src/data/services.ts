@@ -2,6 +2,7 @@
  * Commercial Services Static Data
  * Strictly contains the 6 approved commercial service categories.
  * Excludes Branding & Digital Media. Separates Technology Consulting and Academic Research & Project Support.
+ * Maps each service to verified commercial or research portfolio evidence.
  */
 
 import { Service } from '@/types/content';
@@ -11,18 +12,18 @@ export const services: Service[] = [
     slug: 'web-development',
     title: 'Web & Digital Product Development',
     shortSummary:
-      'Corporate websites, school and institutional portals, landing pages, customer portals, and web applications built for speed and clarity.',
+      'Business websites, landing pages, school and institutional portals, customer portals, and custom digital experiences built for speed and clarity.',
     iconName: 'Globe',
     problemContext:
-      'Businesses, schools, and institutions often lose credibility and enquiries when their websites load slowly on mobile devices, look outdated, or make it difficult for visitors to find information and take action.',
+      'Businesses, schools, and organizations often lose credibility and enquiries when their websites load slowly on mobile phones, look outdated, or make it hard for visitors to understand what they offer and take action.',
     targetAudience: [
       'Corporate Organizations & SMEs',
       'Schools, Colleges & Universities',
-      'Startups & Digital Ventures',
-      'Public & Private Institutions',
+      'Service Businesses & Brands',
+      'Events & Custom Digital Experiences',
     ],
     technicalApproach:
-      'We build responsive web platforms using React, Next.js, and clean semantic HTML. Every site is structured for fast mobile loading, clear user flows, search visibility, and straightforward content updates.',
+      'We design and build responsive business websites, interactive landing pages, institutional portals, and custom digital experiences using React, Next.js, TypeScript, and Tailwind CSS. Every site is built for fast mobile loading, clear enquiry paths, and strong search visibility.',
     deliverables: [
       'Corporate and business websites',
       'School and institutional websites',
@@ -32,7 +33,12 @@ export const services: Service[] = [
       'Online platforms and digital portals',
       'Website redesign and optimization',
     ],
-    featuredCaseStudySlug: 'image-compression-tool',
+    featuredCaseStudySlug: 'raph2-interiors',
+    relatedProjectSlugs: [
+      'raph2-interiors',
+      'dominion-college-portal',
+      'custom-wedding-invitation-platform',
+    ],
   },
   {
     slug: 'custom-software',
@@ -44,12 +50,12 @@ export const services: Service[] = [
       'Off-the-shelf software rarely matches local administrative or operational workflows. Teams end up relying on scattered spreadsheets, paper records, and manual reconciliation that cause delays and errors.',
     targetAudience: [
       'Schools & Educational Administrators',
-      'Growing Businesses & Operations Teams',
+      'Supermarkets, Retail & Operations Teams',
       'Logistics & Service Organizations',
       'Institutional Departments',
     ],
     technicalApproach:
-      'We design and build maintainable software using TypeScript, Node.js, Python, and structured relational databases, complete with role-based access control, clear data validation, and reliable audit trails.',
+      'We design and build maintainable software using TypeScript, Node.js, Python, and structured relational databases, complete with role-based access control, payment and result workflows, and reliable audit trails.',
     deliverables: [
       'Custom business applications',
       'Administrative and management systems',
@@ -59,24 +65,29 @@ export const services: Service[] = [
       'Workflow and operational software',
       'API and backend development',
     ],
-    featuredCaseStudySlug: 'electronic-logbook',
+    featuredCaseStudySlug: 'dominion-college-portal',
+    relatedProjectSlugs: [
+      'marketmind-ai',
+      'dominion-college-portal',
+      'custom-wedding-invitation-platform',
+    ],
   },
   {
     slug: 'ai-automation',
     title: 'Artificial Intelligence & Automation',
     shortSummary:
-      'Practical AI integration into business workflows, AI assistants, document processing, workflow automation, and AI readiness consulting.',
+      'Practical AI integration into business workflows, internal AI operations tools, AI assistants, document processing, and AI readiness consulting.',
     iconName: 'Cpu',
     problemContext:
-      'Organizations spend hours each week on repetitive document handling, manual data entry, routine customer questions, and disconnected software steps that can be automated reliably.',
+      'Businesses and operations teams spend hours each week on repetitive document handling, manual operational lookups, routine questions, and disconnected software steps that can be simplified with practical AI tools.',
     targetAudience: [
-      'Businesses Adopting AI Practically',
+      'Retail, Supermarkets & Commercial Enterprises',
       'Operations & Support Teams',
       'Financial & Professional Services',
       'Organizations Streamlining Workflows',
     ],
     technicalApproach:
-      'We assess your current processes first, then integrate language models, retrieval systems, and automated pipelines where they genuinely save time—with strict data privacy and human-in-the-loop controls.',
+      'We review your current processes first, then build and integrate internal AI-enabled operations tools, retrieval assistants, and automated workflows where they genuinely save time, with clear data privacy and operational controls.',
     deliverables: [
       'AI integration into existing business processes',
       'AI-powered applications',
@@ -87,6 +98,7 @@ export const services: Service[] = [
       'AI readiness and process assessment',
     ],
     featuredCaseStudySlug: 'marketmind-ai',
+    relatedProjectSlugs: ['marketmind-ai'],
   },
   {
     slug: 'data-science-analytics',
@@ -95,7 +107,7 @@ export const services: Service[] = [
       'Data extraction, cleaning, visualization, statistical analysis, predictive machine learning, computer vision, and data-driven research support.',
     iconName: 'BarChart3',
     problemContext:
-      'Many organizations and research teams collect large volumes of raw data but lack clean pipelines, clear visual dashboards, or statistical and machine learning models to answer practical questions.',
+      'Many organizations and research teams collect large volumes of raw data or imagery but lack clean pipelines, clear visual dashboards, or statistical and machine learning models to answer practical questions.',
     targetAudience: [
       'Businesses & Operations Leaders',
       'Research Groups & Environmental Teams',
@@ -103,7 +115,7 @@ export const services: Service[] = [
       'Data-Driven Enterprises',
     ],
     technicalApproach:
-      'We use Python, SQL, Pandas, PyTorch, OpenCV, and modern reporting tools to extract and clean messy datasets, run rigorous statistical analyses, train predictive or computer vision models, and present clear findings.',
+      'We use Python, SQL, Pandas, Scikit-Learn, TensorFlow, PyTorch, OpenCV, and interactive reporting tools to clean messy datasets, run rigorous statistical evaluations, train predictive or computer vision models, and present clear findings.',
     deliverables: [
       'Data extraction and processing',
       'Data cleaning and transformation',
@@ -114,7 +126,12 @@ export const services: Service[] = [
       'Computer vision and image analysis',
       'Data-driven research support',
     ],
-    featuredCaseStudySlug: 'deforestation-analysis',
+    featuredCaseStudySlug: 'medicinal-plant-recognition',
+    relatedProjectSlugs: [
+      'medicinal-plant-recognition',
+      'image-compression-analysis',
+      'deforestation-analysis',
+    ],
   },
   {
     slug: 'technology-consulting',
@@ -123,15 +140,15 @@ export const services: Service[] = [
       'Expert technology advisory, digital transformation guidance, software and tool selection, AI adoption planning, and technical feasibility assessments.',
     iconName: 'Compass',
     problemContext:
-      'Businesses, institutions, and entrepreneurs often face costly technology decisions without unbiased technical guidance—leading to mismatched software purchases, stalled digital projects, or unclear AI strategies.',
+      'Businesses, institutions, and entrepreneurs often face costly technology decisions without independent technical guidance, which leads to mismatched software purchases, stalled digital projects, or unclear AI plans.',
     targetAudience: [
       'Business Owners & Executives',
-      'Organizations & Institutions',
+      'Schools, Colleges & Institutions',
       'Entrepreneurs & Startup Founders',
       'Professionals Planning Digital Initiatives',
     ],
     technicalApproach:
-      'We work closely with your team to understand your operational goals, audit existing systems, evaluate build-versus-buy options, assess technical feasibility, and produce a clear, practical implementation roadmap.',
+      'We work closely with your leadership and operational teams to understand your goals, audit existing processes, evaluate build-versus-buy options, assess technical feasibility, and produce a clear implementation roadmap.',
     deliverables: [
       'Technology advisory and professional consultation',
       'Digital transformation guidance',
@@ -141,6 +158,8 @@ export const services: Service[] = [
       'Technology strategy and solution planning',
       'Guidance on selecting and integrating appropriate digital tools',
     ],
+    featuredCaseStudySlug: 'marketmind-ai',
+    relatedProjectSlugs: ['marketmind-ai', 'dominion-college-portal', 'raph2-interiors'],
   },
   {
     slug: 'academic-research-support',
@@ -149,7 +168,7 @@ export const services: Service[] = [
       'Technical consultation, implementation mentorship, data analysis, computational modelling, and documentation support for computing and mathematics research.',
     iconName: 'GraduationCap',
     problemContext:
-      'University undergraduates, postgraduate researchers, and technical scholars working on computing, data science, or mathematical projects often need structured technical guidance on methodology, code implementation, data analysis, and report presentation.',
+      'University undergraduates, postgraduate researchers, and technical scholars working on computing, data science, or mathematical projects often need structured technical guidance on methodology, code implementation, experimental evaluation, and report presentation.',
     targetAudience: [
       'Undergraduate Computing & Mathematics Students',
       'Postgraduate (PGD, MSc, PhD) Researchers',
@@ -173,5 +192,10 @@ export const services: Service[] = [
     ethicalNote:
       'We provide research consultation, technical mentorship, software/model implementation support, and documentation guidance to help researchers and students understand and defend their work. We do not offer generic assignment writing or guarantee academic grades.',
     featuredCaseStudySlug: 'medicinal-plant-recognition',
+    relatedProjectSlugs: [
+      'medicinal-plant-recognition',
+      'image-compression-analysis',
+      'deforestation-analysis',
+    ],
   },
 ];

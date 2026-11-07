@@ -9,39 +9,45 @@ export function AcademyBanner() {
   const upcomingEvents = getAllAcademyEvents().slice(0, 2);
 
   return (
-    <section className="bg-brand-navy py-20 text-brand-white" aria-labelledby="academy-banner-heading">
+    <section
+      className="bg-brand-navy py-20 text-brand-white"
+      aria-labelledby="academy-banner-heading"
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-end">
           <div className="max-w-3xl">
             <span className="inline-flex items-center gap-2 rounded-full bg-brand-white/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-brand-yellow">
-              AI-Focused Educational Academy
+              3A TECHVOLUTION ACADEMY — Learn. Build. Advance.
             </span>
-            <h2 id="academy-banner-heading" className="mt-4 text-3xl font-extrabold sm:text-4xl text-brand-white">
+            <h2
+              id="academy-banner-heading"
+              className="mt-4 text-3xl font-extrabold sm:text-4xl text-brand-white"
+            >
               3A Techvolution Academy
             </h2>
             <p className="mt-3 text-base text-gray-200 leading-relaxed">
-              We help individuals, students, graduates, professionals, business owners, and organizations understand and practically use Artificial Intelligence—through structured AI courses, vibe coding bootcamps, live seminars, and downloadable learning resources.
+              Practical technology education, AI skills development, and academic and industrial training support for the next generation of technology professionals. Explore our audience-based AI learning pathways, IT/SIWES training support, academic project mentorship, seminars, and resource hub.
             </p>
           </div>
           <div className="flex flex-wrap gap-3 shrink-0">
-            <Link href="/academy/programmes">
+            <Link href="/academy">
               <Button variant="accent" size="md">
-                Explore AI Courses &rarr;
+                Explore the Academy &rarr;
               </Button>
             </Link>
-            <Link href="/academy/resources">
+            <Link href="/academy/pathways">
               <Button
                 variant="outline"
                 size="md"
                 className="border-white/30 text-white hover:bg-white/10"
               >
-                Explore Learning Resources
+                Learning Pathways
               </Button>
             </Link>
           </div>
         </div>
 
-        {/* Featured AI Courses & Seminars Preview */}
+        {/* Featured AI Courses, Student Support & Seminars Preview */}
         <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-3">
           {featuredCourses.map((course) => (
             <div
@@ -51,10 +57,14 @@ export function AcademyBanner() {
               <div>
                 <div className="flex items-center justify-between gap-2 mb-3">
                   <Badge status={course.status} />
-                  <span className="text-xs font-semibold text-brand-yellow">{course.duration}</span>
+                  {course.duration && (
+                    <span className="text-xs font-semibold text-brand-yellow">
+                      {course.duration}
+                    </span>
+                  )}
                 </div>
                 <h3 className="text-lg font-bold text-brand-white">{course.title}</h3>
-                <p className="mt-2 text-xs text-gray-300 leading-relaxed">
+                <p className="mt-2 text-xs text-gray-200 leading-relaxed">
                   {course.shortDescription}
                 </p>
               </div>
@@ -64,23 +74,35 @@ export function AcademyBanner() {
                   href={`/academy/programmes/${course.slug}`}
                   className="text-xs font-bold text-brand-white hover:text-brand-yellow underline"
                 >
-                  Course Details &rarr;
+                  View Programme &rarr;
                 </Link>
               </div>
             </div>
           ))}
 
-          {/* Upcoming Seminars, Vibe Coding & Resources Card */}
+          {/* Student Support, Seminars & Resource Hub Card */}
           <div className="flex flex-col justify-between rounded-xl border border-brand-yellow/30 bg-blue-950/60 p-6">
             <div>
               <span className="text-xs font-bold uppercase tracking-wider text-brand-yellow">
-                Seminars, Vibe Coding &amp; Guides
+                Student Support, Seminars &amp; Resources
               </span>
               <h3 className="mt-2 text-lg font-bold text-brand-white">
-                Upcoming Workshops &amp; Resource Library
+                IT/SIWES, Academic Projects &amp; Live Workshops
               </h3>
               <ul className="mt-4 space-y-3 text-xs text-gray-200">
-                {upcomingEvents.map((ev) => (
+                <li className="border-l-2 border-brand-yellow pl-3">
+                  <div className="font-bold text-brand-white">IT / SIWES Training Support</div>
+                  <div className="text-gray-300 mt-0.5">
+                    Weekly practical tasks, coding/AI mentorship &amp; logbook/report guidance
+                  </div>
+                </li>
+                <li className="border-l-2 border-brand-yellow pl-3">
+                  <div className="font-bold text-brand-white">Academic Project Support</div>
+                  <div className="text-gray-300 mt-0.5">
+                    Topic refinement, Python/ML &amp; software mentorship, defence prep
+                  </div>
+                </li>
+                {upcomingEvents.slice(0, 1).map((ev) => (
                   <li key={ev.slug} className="border-l-2 border-brand-yellow pl-3">
                     <div className="font-bold text-brand-white">{ev.title}</div>
                     <div className="text-gray-300 mt-0.5">
@@ -92,22 +114,22 @@ export function AcademyBanner() {
             </div>
             <div className="mt-6 pt-4 border-t border-white/10 flex flex-wrap gap-4">
               <Link
-                href="/academy/events"
+                href="/academy/siwes-support"
                 className="text-xs font-bold text-brand-yellow hover:underline"
               >
-                All Seminars &rarr;
+                IT/SIWES Support &rarr;
               </Link>
               <Link
-                href="/academy/vibe-coding"
+                href="/academy/project-support"
                 className="text-xs font-bold text-brand-white hover:underline"
               >
-                Vibe Coding &rarr;
+                Academic Projects &rarr;
               </Link>
               <Link
                 href="/academy/resources"
                 className="text-xs font-bold text-brand-white hover:underline"
               >
-                Free &amp; Paid Guides &rarr;
+                Resource Hub &rarr;
               </Link>
             </div>
           </div>

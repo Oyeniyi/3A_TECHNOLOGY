@@ -2,26 +2,23 @@
 
 import React from 'react';
 import { cn } from '@/lib/utils';
+import { PortfolioCollection } from '@/types/content';
 
 export interface ProjectFilterBarProps {
-  activeCategory: string;
-  onSelectCategory: (category: string) => void;
+  activeCategory: 'all' | PortfolioCollection;
+  onSelectCategory: (category: 'all' | PortfolioCollection) => void;
 }
 
-const filterOptions: { label: string; value: string }[] = [
-  { label: 'All Projects', value: 'all' },
-  { label: '3A Prototypes', value: '3A Prototype' },
-  { label: 'Student Projects', value: 'Student Project' },
-  { label: 'Web & Digital', value: 'web-development' },
-  { label: 'Custom Software', value: 'custom-software' },
-  { label: 'AI & Automation', value: 'ai-automation' },
-  { label: 'Data Science', value: 'data-science-analytics' },
-  { label: 'Academic Research', value: 'academic-research-support' },
+const filterOptions: { label: string; value: 'all' | PortfolioCollection }[] = [
+  { label: 'All Portfolio Collections', value: 'all' },
+  { label: 'Business & Client Solutions', value: 'business-client-solutions' },
+  { label: 'Websites & Digital Experiences', value: 'websites-digital-experiences' },
+  { label: 'Student & Research Projects', value: 'student-research-projects' },
 ];
 
 export function ProjectFilterBar({ activeCategory, onSelectCategory }: ProjectFilterBarProps) {
   return (
-    <div className="flex flex-wrap gap-2" role="tablist" aria-label="Filter projects by category or classification">
+    <div className="flex flex-wrap gap-2" role="tablist" aria-label="Filter projects by portfolio collection">
       {filterOptions.map((opt) => {
         const isActive = activeCategory === opt.value;
         return (

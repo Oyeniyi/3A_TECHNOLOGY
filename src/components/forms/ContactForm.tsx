@@ -4,7 +4,7 @@ import React, { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { ContactEnquirySchema, ContactEnquiryFormData } from '@/lib/validations/enquiry';
+import { ContactEnquirySchema, ContactEnquiryFormData, ENQUIRY_TYPES } from '@/lib/validations/enquiry';
 import { submitContactEnquiry } from '@/actions/enquiry';
 import { FormField } from './FormField';
 import { SelectField } from './SelectField';
@@ -12,11 +12,36 @@ import { Honeypot } from './Honeypot';
 import { Button } from '@/components/ui/Button';
 
 const enquiryTypeOptions = [
-  { value: 'technology-service', label: '3A Technology Solutions — Business / Service Consultation' },
-  { value: 'academy-programme', label: '3A Techvolution Academy — AI Course / Seminar / Resource Enquiry' },
-  { value: 'academic-research', label: 'Academic Research & Project Support Consultation' },
+  { value: 'course-enrolment', label: '3A Techvolution Academy — Course Enrolment' },
+  { value: 'course-info', label: '3A Techvolution Academy — Course Information / Next Cohort' },
+  { value: 'siwes-support', label: '3A Techvolution Academy — IT / SIWES Training Support' },
+  { value: 'academic-project', label: '3A Techvolution Academy — Academic Project Consultation' },
+  { value: 'seminar-workshop', label: '3A Techvolution Academy — Seminar & Workshop Registration' },
+  { value: 'customized-training', label: '3A Techvolution Academy — Customized Organizational Training' },
+  { value: 'technology-service', label: '3A Technology Solutions — Business / Software Consultation' },
+  { value: 'academic-research', label: '3A Technology Solutions — Academic Research & Project Support' },
+  { value: 'academy-programme', label: '3A Techvolution Academy — General Programme / Resource Enquiry' },
   { value: 'general-inquiry', label: 'General Enquiry / Partnership' },
 ];
+
+type EnquiryTypeValue = (typeof ENQUIRY_TYPES)[number];
+
+function resolveEnquiryType(typeParam: string | null): EnquiryTypeValue {
+  if (!typeParam) return 'general-inquiry';
+  if ((ENQUIRY_TYPES as readonly string[]).includes(typeParam)) {
+    return typeParam as EnquiryTypeValue;
+  }
+  const normalized = typeParam.toLowerCase();
+  if (normalized.includes('siwes')) return 'siwes-support';
+  if (normalized.includes('project')) return 'academic-project';
+  if (normalized.includes('seminar') || normalized.includes('workshop')) return 'seminar-workshop';
+  if (normalized.includes('custom') || normalized.includes('corporate')) return 'customized-training';
+  if (normalized.includes('enrol')) return 'course-enrolment';
+  if (normalized === 'academy' || normalized.includes('academy')) return 'academy-programme';
+  if (normalized === 'research') return 'academic-research';
+  if (normalized === 'service') return 'technology-service';
+  return 'general-inquiry';
+}
 
 function ContactFormInner() {
   const searchParams = useSearchParams();
@@ -24,20 +49,13 @@ function ContactFormInner() {
   const [feedback, setFeedback] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
 
   const initialSubject = searchParams?.get('subject') || '';
-  const initialTypeParam = searchParams?.get('type');
-  const initialType =
-    initialTypeParam === 'academy'
-      ? 'academy-programme'
-      : initialTypeParam === 'research'
-      ? 'academic-research'
-      : initialTypeParam === 'service'
-      ? 'technology-service'
-      : 'general-inquiry';
+  const initialType = resolveEnquiryType(searchParams?.get('type'));
 
   const {
     register,
     handleSubmit,
     setValue,
+    watch,
     reset,
     formState: { errors },
   } = useForm<ContactEnquiryFormData>({
@@ -48,10 +66,19 @@ function ContactFormInner() {
       phone: '',
       enquiryType: initialType,
       subject: initialSubject,
+      institution: '',
+      department: '',
+      trainingLevel: '',
+      technologyArea: '',
+      projectArea: '',
+      projectStage: '',
+      guidanceNeeded: '',
       message: '',
       hp_field: '',
     },
   });
+
+  const selectedEnquiryType = watch('enquiryType');
 
   useEffect(() => {
     const subjectParam = searchParams?.get('subject');
@@ -59,12 +86,8 @@ function ContactFormInner() {
       setValue('subject', subjectParam);
     }
     const typeParam = searchParams?.get('type');
-    if (typeParam === 'academy') {
-      setValue('enquiryType', 'academy-programme');
-    } else if (typeParam === 'research') {
-      setValue('enquiryType', 'academic-research');
-    } else if (typeParam === 'service') {
-      setValue('enquiryType', 'technology-service');
+    if (typeParam) {
+      setValue('enquiryType', resolveEnquiryType(typeParam));
     }
   }, [searchParams, setValue]);
 
@@ -89,6 +112,11 @@ function ContactFormInner() {
       setIsSubmitting(false);
     }
   };
+
+  const isSiwesEnquiry = selectedEnquiryType === 'siwes-support';
+  const isProjectEnquiry =
+    selectedEnquiryType === 'academic-project' || selectedEnquiryType === 'academic-research';
+  const isCustomTrainingEnquiry = selectedEnquiryType === 'customized-training';
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" noValidate>
@@ -143,9 +171,107 @@ function ContactFormInner() {
         />
       </div>
 
+      {/* Contextual Fields for IT / SIWES Support Enquiries */}
+      {isSiwesEnquiry && (
+        <div className="rounded-xl border border-brand-border bg-brand-gray/50 p-5 space-y-5">
+          <div className="border-b border-brand-border pb-2">
+            <h3 className="text-sm font-bold text-brand-navy">
+              IT / SIWES Training Context (Optional)
+            </h3>
+            <p className="text-xs text-gray-600 mt-0.5">
+              Provide your institution and training details so our mentors can recommend the right weekly learning track.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <FormField
+              label="Institution (University / Polytechnic)"
+              placeholder="e.g. Kwara State University / Unilorin"
+              error={errors.institution?.message}
+              {...register('institution')}
+            />
+            <FormField
+              label="Course or Department"
+              placeholder="e.g. Computer Science / Software Engineering"
+              error={errors.department?.message}
+              {...register('department')}
+            />
+            <FormField
+              label="Current Level or SIWES Duration"
+              placeholder="e.g. 300 Level • 6-Month SIWES"
+              error={errors.trainingLevel?.message}
+              {...register('trainingLevel')}
+            />
+            <FormField
+              label="Technology Area Requiring Support"
+              placeholder="e.g. Web Development, Python, Data Science, or AI"
+              error={errors.technologyArea?.message}
+              {...register('technologyArea')}
+            />
+          </div>
+        </div>
+      )}
+
+      {/* Contextual Fields for Academic Project Support Enquiries */}
+      {isProjectEnquiry && (
+        <div className="rounded-xl border border-brand-border bg-brand-gray/50 p-5 space-y-5">
+          <div className="border-b border-brand-border pb-2">
+            <h3 className="text-sm font-bold text-brand-navy">
+              Academic Project Context (Optional)
+            </h3>
+            <p className="text-xs text-gray-600 mt-0.5">
+              Share your discipline and current project stage so our technical mentors can prepare for your consultation.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <FormField
+              label="Institution"
+              placeholder="e.g. University or Polytechnic Name"
+              error={errors.institution?.message}
+              {...register('institution')}
+            />
+            <FormField
+              label="Department"
+              placeholder="e.g. Computer Science / Mathematics / Data Science"
+              error={errors.department?.message}
+              {...register('department')}
+            />
+            <FormField
+              label="Project Area or Discipline"
+              placeholder="e.g. Machine Learning, Computer Vision, Web System"
+              error={errors.projectArea?.message}
+              {...register('projectArea')}
+            />
+            <FormField
+              label="Current Project Stage"
+              placeholder="e.g. Topic Selection, Implementation, Data Analysis, or Report"
+              error={errors.projectStage?.message}
+              {...register('projectStage')}
+            />
+          </div>
+          <FormField
+            label="Type of Guidance Required"
+            placeholder="e.g. Topic refinement, dataset & model mentorship, software implementation walkthrough, or defence prep"
+            error={errors.guidanceNeeded?.message}
+            {...register('guidanceNeeded')}
+          />
+        </div>
+      )}
+
+      {/* Contextual Field for Customized Organizational Training */}
+      {isCustomTrainingEnquiry && (
+        <div className="rounded-xl border border-brand-border bg-brand-gray/50 p-5">
+          <FormField
+            label="Organization, School, or Community Name (Optional)"
+            placeholder="e.g. Company Name, University Department, or NYSC CDS Group"
+            error={errors.institution?.message}
+            {...register('institution')}
+          />
+        </div>
+      )}
+
       <FormField
         label="Subject"
-        placeholder="e.g. Technology Consultation / AI Course Enquiry"
+        placeholder="e.g. Course Enrolment / IT-SIWES Support / Academic Project Consultation"
         error={errors.subject?.message}
         {...register('subject')}
       />
@@ -155,7 +281,7 @@ function ContactFormInner() {
         textarea
         rows={5}
         required
-        placeholder="Tell us about your project, technology question, or Academy course interest..."
+        placeholder="Tell us about your learning goals, IT/SIWES training needs, academic project, or organizational training request..."
         error={errors.message?.message}
         {...register('message')}
       />

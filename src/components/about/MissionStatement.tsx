@@ -23,8 +23,8 @@ export const MissionStatement: React.FC = () => {
           <p className="text-lg md:text-xl text-brand-white/90 leading-relaxed font-normal mb-4">
             {siteConfig.brand.principle}
           </p>
-          <p className="text-sm md:text-base text-brand-white/75 leading-relaxed">
-            Registered in Nigeria as <strong>{siteConfig.legal.registeredName}</strong> ({siteConfig.legal.rcNumber}, TIN: {siteConfig.legal.tin}) with our principal place of business at {siteConfig.legal.registeredAddress} and distributed delivery hubs across Abuja and Lagos.
+          <p className="text-sm md:text-base text-brand-white/80 leading-relaxed">
+            Registered in Nigeria as <strong>{siteConfig.legal.registeredName}</strong> ({siteConfig.legal.rcNumber}, TIN: {siteConfig.legal.tin}). Headquartered in <strong>Ilorin, Kwara State</strong> ({siteConfig.legal.registeredAddress}), with branch offices in <strong>Osogbo, Osun State</strong> and <strong>Akure, Ondo State</strong>, we deliver technology solutions, software development, AI services, and practical AI education to clients across all states in Nigeria, the Federal Capital Territory, and across Africa.
           </p>
         </div>
       </div>

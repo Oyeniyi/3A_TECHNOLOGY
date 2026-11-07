@@ -9,7 +9,7 @@ import { escapeHtml } from '@/lib/security/sanitizer';
 
 export async function sendViaResend(payload: LeadEmailPayload): Promise<EmailDispatchResult> {
   const apiKey = process.env.RESEND_API_KEY;
-  const recipient = process.env.NOTIFICATION_INBOX || 'contact@3atechnology.com.ng';
+  const recipient = process.env.NOTIFICATION_INBOX || '3aafricanai@gmail.com';
   const isUnconfigured = !apiKey || apiKey.startsWith('re_placeholder') || apiKey.includes('placeholder');
 
   if (isUnconfigured) {

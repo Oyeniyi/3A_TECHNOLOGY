@@ -1,6 +1,6 @@
 # 3A Technology Solutions & 3A TECHVOLUTION ACADEMY — Complete Reference Guide
 
-> 3A Technology Solutions provides practical digital solutions, custom software engineering, AI automation, data science, technology consulting, and computing/mathematics academic research support. 3A TECHVOLUTION ACADEMY is our AI-focused educational academy.
+> 3A Technology Solutions develops practical digital solutions for businesses and institutions, builds websites and landing pages, creates custom software and AI-enabled tools, and supports academic and research projects. 3A TECHVOLUTION ACADEMY is our AI-focused educational academy.
 
 ---
 
@@ -10,48 +10,42 @@
 - **AI Education Division:** 3A TECHVOLUTION ACADEMY
 - **Tagline:** Ideas • Technology • Impact
 - **Brand Essence:** "Technology that works for people and business."
-- **Core Principle:** "We do not sell technology for technology’s sake. We show how technology can improve business, productivity, communication, visibility, decision-making and growth."
 - **Registered Legal Business Name:** 3A TECHNOLOGY SOLUTION CONCEPTS
-- **Corporate Affairs Commission (CAC) Registration Number:** BN 9931488 (Registered under the Companies and Allied Matters Act 2020, Federal Republic of Nigeria)
-- **Date of Registration:** 12th October 2026
+- **Corporate Affairs Commission (CAC) Registration Number:** BN 9931488
 - **Tax Identification Number (TIN):** 2622397219188
-- **Principal Place of Business:** 0, Ita Aisa, Kwara, Kwara State, Nigeria
-- **Delivery Hubs:** Kwara State (HQ), Abuja (FCT), and Lagos, Nigeria
-- **Official Email:** contact@3atechnology.com.ng
-- **Direct Phone / WhatsApp:** +2349166491048
-- **GitHub:** https://github.com/Oyeniyi/3A_TECHNOLOGY
+- **Head Office (Official Headquarters):** Agbo Area, Olunlade, Ilorin, Kwara State, Nigeria.
+- **Branch Office 1:** Kola Balogun Area, Osogbo, Osun State, Nigeria.
+- **Branch Office 2:** Dominion College, Behind Health Centre, Oba-Ile, Akure, Ondo State, Nigeria.
+- **Geographic Service Coverage:** Serving businesses, organizations, institutions, and individuals across all states in Nigeria, the Federal Capital Territory, and other African countries.
+- **Official Email:** 3aafricanai@gmail.com
+- **Student & Research Projects GitHub:** https://github.com/psalm001
 
 ---
 
 ## 2. Commercial Services (`/services`)
 
-Note: 3A Technology Solutions does not offer Branding & Digital Media as a standalone commercial service. Our six commercial services are:
-
 1. **Web & Digital Product Development (`/services/web-development`):** Corporate and business websites, school and institutional websites, landing pages, customer portals, web applications, online platforms, and website redesign/optimization.
 2. **Custom Software Engineering (`/services/custom-software`):** Custom business applications, administrative and management systems, school management portals, payment and result management systems, digital record management systems, workflow software, and API/backend development.
 3. **Artificial Intelligence & Automation (`/services/ai-automation`):** AI integration into existing business processes, AI-powered applications, AI assistants and knowledge systems, business workflow automation, document processing and extraction, AI consultation, and AI readiness assessments.
 4. **Data Science & Analytics (`/services/data-science-analytics`):** Data extraction and processing, data cleaning and transformation, data visualization, statistical analysis, machine learning implementation, predictive modelling, computer vision and image analysis, and data-driven research support.
-5. **Technology Consulting (`/services/technology-consulting`):** Technology strategy and digital transformation planning, systems architecture and software design review, technology stack selection, business process auditing, legacy system modernization roadmaps, and technical feasibility advisory.
+5. **Technology Consulting (`/services/technology-consulting`):** Technology advisory and professional consultation, digital transformation guidance, software and tool selection, AI adoption planning, and technical feasibility assessments.
 6. **Academic Research & Project Support (`/services/academic-research-support`):** Ethical research consultation, technical mentorship, data collection/analysis, Python/ML/data science implementation, mathematical and computational modelling, project documentation/report preparation, and defence preparation for computing and mathematics-related academic projects.
 
 ---
 
-## 3. 3A TECHVOLUTION ACADEMY (`/academy`)
+## 3. Portfolio Structure & Case Studies (`/projects`)
 
-3A TECHVOLUTION ACADEMY is an AI-focused educational academy helping individuals, students, graduates, professionals, business owners, and organizations understand and practically use Artificial Intelligence.
+### Collection 1: Business & Client Solutions
+- **MarketMind AI — Akinmart Store (`/projects/marketmind-ai`):** AI-Powered Business Operations Tool developed as an internal business tool for Akinmart Store to support its supermarket operations (internal deployment confidential).
+- **Dominion College School Management Portal (`/projects/dominion-college-portal`):** School Management & Digital Administration Portal supporting school fee payments, student academic result checking, and institutional administration (project link confidential).
 
-### Four Core Educational Offerings:
-- **A. AI Training (`/academy/programmes`):** Functional course catalogue with course-specific enrolment URLs and statuses (`Open for Enrolment`, `Upcoming`, `Ongoing`, `Completed`, `Registration Closed`).
-- **B. AI Seminars & Workshops (`/academy/events`):** AI awareness seminars, fluency webinars, practical workshops, and corporate AI training.
-- **C. Vibe Coding & AI-Assisted Development (`/academy/vibe-coding`):** Responsible software prototyping, code comprehension, debugging, and application building with AI coding tools and agents.
-- **D. Academy Resource Library (`/academy/resources`):** Searchable library of free downloadable PDF guides/checklists/templates and paid AI workbooks/toolkits.
+### Collection 2: Websites & Digital Experiences
+- **Raph2 Interiors — Business Website & Landing Page (`/projects/raph2-interiors`):** Public live website (`https://raph2-interior.netlify.app/`) built for Raph2 Interior Expert featuring P.O.P ceiling and interior finishing showcases, an interactive square-meter cost estimator, LocalBusiness/FAQ JSON-LD schema, and WhatsApp enquiry flows.
+- **Dominion College School Management Portal (`/projects/dominion-college-portal`):** Institutional web portal case study (private institutional deployment).
+- **Custom Digital Wedding Invitation & Gatepass Platform (`/projects/custom-wedding-invitation-platform`):** Custom Digital Invitation & Event Experience featuring bespoke digital invitation cards, guest gatepass functionality, and downloadable gatepasses (confidential client project).
 
----
-
-## 4. Portfolio & Project Classifications (`/projects`)
-
-- **MarketMind AI (`ai-automation`):** Classified as **3A Prototype** (internal 3A prototype demonstrating automated market intelligence).
-- **Deforestation Analysis Platform (`data-science-analytics`):** Classified as **Student Project** (satellite image analysis and environmental research implementation).
-- **Medicinal Plant Recognition System (`data-science-analytics`):** Classified as **Student Project** (computer vision leaf classification research project).
-- **Browser-Based Image Compression Utility (`web-development`):** Classified as **Student Project** (client-side WebAssembly image optimization project).
-- **Digital Activity & Shift Logbook (`custom-software`):** Classified as **Student Project** (operational logbook software engineering project).
+### Collection 3: Student & Research Projects
+- **Medicinal Plant Leaf Recognition (`/projects/medicinal-plant-recognition`):** Research project (`https://github.com/Psalm001/leaves-recognition`) comparing Decision Tree and CNN + Random Forest pipelines in Python and Streamlit.
+- **Image Compression & Analysis — RLE vs. DCT (`/projects/image-compression-analysis`):** Student project (`https://github.com/Psalm001/image`) evaluating Run-Length Encoding and Discrete Cosine Transform compression with MSE and PSNR metrics.
+- **Deforestation & Multi-Temporal Canopy Change Analysis (`/projects/deforestation-analysis`):** Research project applying computer vision to multi-temporal environmental imagery.
+- **Wider Student Project Collection:** `https://github.com/psalm001`

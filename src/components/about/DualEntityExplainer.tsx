@@ -58,28 +58,50 @@ export const DualEntityExplainer: React.FC = () => {
               </ul>
             </div>
 
-            <div className="rounded-xl border border-brand-border bg-brand-gray/60 p-6">
-              <h3 className="text-xs font-bold uppercase tracking-wider text-brand-navy mb-3">
-                Official Corporate Registration (CAC Nigeria)
-              </h3>
-              <dl className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-brand-dark-gray">
-                <div>
-                  <dt className="font-semibold text-gray-500">Registered Business Name</dt>
-                  <dd className="font-bold text-brand-navy mt-0.5">{siteConfig.legal.registeredName}</dd>
-                </div>
-                <div>
-                  <dt className="font-semibold text-gray-500">CAC Registration Number</dt>
-                  <dd className="font-bold text-brand-navy mt-0.5">{siteConfig.legal.rcNumber}</dd>
-                </div>
-                <div>
-                  <dt className="font-semibold text-gray-500">Tax Identification Number (TIN)</dt>
-                  <dd className="font-bold text-brand-navy mt-0.5">{siteConfig.legal.tin}</dd>
-                </div>
-                <div>
-                  <dt className="font-semibold text-gray-500">Principal Place of Business</dt>
-                  <dd className="font-semibold text-brand-dark-gray mt-0.5">{siteConfig.legal.registeredAddress}</dd>
-                </div>
-              </dl>
+            <div className="rounded-xl border border-brand-border bg-brand-gray/60 p-6 space-y-5">
+              <div>
+                <h3 className="text-xs font-bold uppercase tracking-wider text-brand-navy mb-3">
+                  Official Corporate Registration (CAC Nigeria)
+                </h3>
+                <dl className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-brand-dark-gray">
+                  <div>
+                    <dt className="font-semibold text-gray-600">Registered Business Name</dt>
+                    <dd className="font-bold text-brand-navy mt-0.5">{siteConfig.legal.registeredName}</dd>
+                  </div>
+                  <div>
+                    <dt className="font-semibold text-gray-600">CAC Registration Number</dt>
+                    <dd className="font-bold text-brand-navy mt-0.5">{siteConfig.legal.rcNumber}</dd>
+                  </div>
+                  <div>
+                    <dt className="font-semibold text-gray-600">Tax Identification Number (TIN)</dt>
+                    <dd className="font-bold text-brand-navy mt-0.5">{siteConfig.legal.tin}</dd>
+                  </div>
+                  <div>
+                    <dt className="font-semibold text-gray-600">Official Business Email</dt>
+                    <dd className="font-semibold text-brand-navy mt-0.5">
+                      <a href={`mailto:${siteConfig.contact.email}`} className="underline">
+                        {siteConfig.contact.email}
+                      </a>
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+
+              <div className="border-t border-brand-border pt-4">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-brand-navy mb-2.5">
+                  Physical Office Locations &amp; Service Coverage
+                </h3>
+                <ul className="space-y-2 text-xs text-brand-dark-gray">
+                  {siteConfig.contact.offices.map((office) => (
+                    <li key={office.id}>
+                      <strong className="text-brand-navy">{office.label}:</strong> {office.address}
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-3 text-xs font-medium text-brand-navy">
+                  {siteConfig.contact.serviceCoverage.headline} {siteConfig.contact.serviceCoverage.supportingCopy}
+                </p>
+              </div>
             </div>
           </div>
         </div>

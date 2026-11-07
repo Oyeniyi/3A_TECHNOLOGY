@@ -9,7 +9,7 @@ test.describe('Responsive Mobile Navigation Drawer (FR-01 / AC-01.2 / AC-01.3)',
   test('opens mobile drawer via hamburger toggle, exposes ARIA attributes, and closes on Escape', async ({
     page,
   }) => {
-    const toggleBtn = page.getByRole('button', { name: /Toggle Navigation Menu/i });
+    const toggleBtn = page.locator('button[aria-label="Toggle Navigation Menu"]');
     await expect(toggleBtn).toBeVisible();
     await expect(toggleBtn).toHaveAttribute('aria-expanded', 'false');
 

@@ -156,16 +156,17 @@ To eliminate data ambiguity, authoritative ownership for every piece of data is 
 All published content must conform strictly to exported TypeScript interface contracts:
 
 ```typescript
-// 1. Service Taxonomy Contract
-export type ServiceCategory = 
-  | 'web-development' 
-  | 'custom-software' 
-  | 'ai-automation' 
-  | 'data-science-analytics' 
-  | 'brand-digital-media';
+// 1. Service Taxonomy Contract (6 Commercial Services; Branding & Digital Media Excluded)
+export type ServiceSlug =
+  | 'web-development'
+  | 'custom-software'
+  | 'ai-automation'
+  | 'data-science-analytics'
+  | 'technology-consulting'
+  | 'academic-research-support';
 
 export interface Service {
-  slug: ServiceCategory;
+  slug: ServiceSlug;
   title: string;
   shortSummary: string;
   iconName: string;
@@ -173,43 +174,94 @@ export interface Service {
   targetAudience: string[];
   technicalApproach: string;
   deliverables: string[];
+  ethicalNote?: string;
   featuredCaseStudySlug?: string;
+  relatedProjectSlugs: string[];
 }
 
-// 2. Portfolio Case Study Contract
-export type ProjectStatus = 
-  | 'Client Project' 
-  | 'Live Production' 
-  | 'Deployed Prototype' 
-  | 'Research & Development';
+// 2. Portfolio Case Study Contract (3 Collections & Explicit Confidentiality)
+export type PortfolioCollection =
+  | 'business-client-solutions'
+  | 'websites-digital-experiences'
+  | 'student-research-projects';
+
+export type ProjectClassification =
+  | 'AI-Powered Business Operations Tool'
+  | 'Business Solution'
+  | 'Client Project'
+  | 'Institutional Platform'
+  | 'Website & Landing Page'
+  | 'Custom Digital Experience'
+  | 'Student Project'
+  | 'Research Project';
+
+export type ProjectVisibility = 'public' | 'confidential';
 
 export interface Project {
   slug: string;
   title: string;
-  category: ServiceCategory;
-  status: ProjectStatus;
+  primaryCollection: PortfolioCollection;
+  collections: PortfolioCollection[];
+  category: ServiceSlug;
+  relatedServices: ServiceSlug[];
+  classification: ProjectClassification;
+  clientOrOrganization?: string;
+  status: string;
+  visibility: ProjectVisibility;
+  confidentialityNotice?: string;
   shortSummary: string;
   theChallenge: string;
   theSolution: string;
+  verifiedFeatures: string[];
   technologiesUsed: string[];
   imagePlaceholder: string;
-  liveUrl?: string;
-  githubUrl?: string;
+  liveUrl?: string; // Strictly omitted when visibility === 'confidential'
+  githubUrl?: string; // Strictly omitted when visibility === 'confidential'
+  featured: boolean;
+  seoTitle: string;
+  seoDescription: string;
 }
 
-// 3. Academy Programme Contract
+// 3. Academy Programme, Learning Pathway & Support Service Contracts
+export type LearningPathwaySlug =
+  | 'ai-for-beginners'
+  | 'ai-for-students-researchers'
+  | 'ai-for-graduates-nysc'
+  | 'ai-for-professionals-businesses'
+  | 'ai-development-vibe-coding';
+
+export interface CourseCohortInfo {
+  cohortLabel: string;
+  intakeWindow?: string;
+  scheduleNotes?: string;
+  registrationUrl?: string;
+}
+
 export interface AcademyProgramme {
   slug: string;
   title: string;
-  level: 'Beginner' | 'Intermediate' | 'Advanced';
-  format: 'Weekend Cohort' | 'In-Person' | 'Hybrid';
-  duration: string;
+  shortDescription: string;
   overview: string;
+  learningPathways: LearningPathwaySlug[];
+  learningOutcomes: string[];
   curriculumModules: string[];
+  level: 'Beginner' | 'Intermediate' | 'Advanced' | 'All Levels';
+  format: 'Weekend Cohort' | 'In-Person' | 'Hybrid' | 'Online Live' | 'Customized Schedule';
+  duration?: string; // Optional; displayed only when verified and meaningful
   targetAudience: string[];
-  prerequisites?: string[];
-  feeDisplay?: string; // e.g., "Inquire for Schedule & Pricing"
+  prerequisites: string[];
+  feeDisplay: string;
+  cohortInfo?: CourseCohortInfo;
+  enrollmentUrl?: string;
+  enquiryRoute: string;
+  isCustomizedTraining?: boolean;
+  status: 'Upcoming' | 'Open for Enrolment' | 'Ongoing' | 'Completed' | 'Registration Closed';
+  startDate?: string;
+  published: boolean;
+  featured: boolean;
 }
+
+export type ResourceAvailability = 'Available' | 'Coming Soon' | 'In Development';
 ```
 
 ### 6.2 Normalization & Content Integrity Rules

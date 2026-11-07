@@ -35,11 +35,6 @@ export function Header() {
         {/* Brand Logo & Name (switches to Academy sub-brand identity on /academy routes) */}
         <Link
           href={isAcademyRoute ? '/academy' : '/'}
-          aria-label={
-            isAcademyRoute
-              ? '3A Techvolution Academy — AI Education Home'
-              : '3A Technology Solutions — Home'
-          }
           className="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-brand-navy rounded"
         >
           <BrandLogo variant="light" division={isAcademyRoute ? 'academy' : 'parent'} />

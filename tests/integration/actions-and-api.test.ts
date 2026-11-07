@@ -46,4 +46,49 @@ describe('Integration Tests: Server Actions & Enquiry/Quote Flows', () => {
     expect(response.success).toBe(true);
     expect(response.message).toContain('Thank you');
   });
+
+  it('processes an IT/SIWES training support enquiry with institutional context fields end-to-end', async () => {
+    const response = await submitContactEnquiry(
+      {
+        fullName: 'Zainab Lawal',
+        email: 'zainab.lawal@student.ui.edu.ng',
+        phone: '+2348051122334',
+        enquiryType: 'siwes-support',
+        subject: 'IT/SIWES Training Support Enquiry',
+        message: 'I am looking for structured AI and Python industrial training mentorship and logbook guidance.',
+        institution: 'University of Ibadan',
+        department: 'Computer Science',
+        trainingLevel: '300 Level / 6 Months',
+        technologyArea: 'Python, AI & Data Science',
+        hp_field: '',
+      },
+      '192.0.2.20'
+    );
+
+    expect(response.success).toBe(true);
+    expect(response.message).toContain('Thank you');
+  });
+
+  it('processes an Academic Project Support enquiry with project context fields end-to-end', async () => {
+    const response = await submitContactEnquiry(
+      {
+        fullName: 'Chinedu Eze',
+        email: 'chinedu.eze@unilag.edu.ng',
+        phone: '+2348069988776',
+        enquiryType: 'academic-project',
+        subject: 'Academic Project Technical Mentorship Enquiry',
+        message: 'Seeking technical mentorship on dataset preprocessing and CNN evaluation for my final-year project.',
+        institution: 'University of Lagos',
+        department: 'Systems Engineering',
+        projectArea: 'Machine Learning / Computer Vision',
+        projectStage: 'Implementation & Model Training',
+        guidanceNeeded: 'Code Review, Debugging & Defence Prep',
+        hp_field: '',
+      },
+      '192.0.2.25'
+    );
+
+    expect(response.success).toBe(true);
+    expect(response.message).toContain('Thank you');
+  });
 });

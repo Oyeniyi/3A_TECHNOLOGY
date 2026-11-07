@@ -25,8 +25,8 @@ export async function generateMetadata({ params }: ProjectDetailPageProps): Prom
     return { title: 'Project Not Found' };
   }
   return {
-    title: `${project.title} | Case Study | 3A Technology Solutions`,
-    description: project.shortSummary,
+    title: project.seoTitle,
+    description: project.seoDescription,
   };
 }
 
@@ -40,15 +40,24 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
   return (
     <div className="py-16 md:py-20 bg-brand-white">
       <div className="container-custom">
+        <div className="mb-8">
+          <Link
+            href="/projects"
+            className="text-xs font-semibold text-brand-navy hover:underline"
+          >
+            &larr; Back to Portfolio Overview
+          </Link>
+        </div>
+
         <CaseStudySections project={project} />
 
-        <div className="mt-16 pt-8 border-t border-brand-light-gray/80 flex items-center justify-between">
+        <div className="mt-16 pt-8 border-t border-brand-light-gray/80 flex flex-wrap items-center justify-between gap-4">
           <Button variant="outline" asChild>
-            <Link href="/projects">← Back to All Projects</Link>
+            <Link href="/projects">&larr; Back to All Portfolio Collections</Link>
           </Button>
           <Button variant="primary" asChild>
             <Link href={`/request-quote?service=${encodeURIComponent(project.category)}`}>
-              Request a Similar Project
+              Request a Similar Solution
             </Link>
           </Button>
         </div>

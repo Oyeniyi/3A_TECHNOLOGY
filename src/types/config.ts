@@ -1,34 +1,8 @@
-/**
- * Centralized Site Configuration Interfaces
- * In accordance with docs/architecture-essential.md (ARCH-06)
- */
-
 export interface NavItem {
   title: string;
   href: string;
   description?: string;
-  children?: NavItem[];
-}
-
-export interface ContactConfig {
-  email: string;
-  phone: string;
-  whatsapp: string;
-  address: string;
-}
-
-export interface AcademyConfig {
-  enrollmentFormUrl: string;
-  advisoryWhatsAppUrl: string;
-}
-
-export interface LegalConfig {
-  registeredName: string;
-  rcNumber: string;
-  tin: string;
-  incorporationDate: string;
-  natureOfBusiness: string;
-  registeredAddress: string;
+  external?: boolean;
 }
 
 export interface BrandPillar {
@@ -36,10 +10,22 @@ export interface BrandPillar {
   description: string;
 }
 
-export interface BrandConfig {
-  essence: string;
-  principle: string;
-  pillars: BrandPillar[];
+export interface OfficeLocation {
+  id: 'head-office' | 'osogbo-branch' | 'akure-branch';
+  type: 'Head Office' | 'Branch Office';
+  label: string;
+  city: string;
+  state: string;
+  country: string;
+  address: string;
+  isHeadquarters: boolean;
+}
+
+export interface ServiceCoverageInfo {
+  headline: string;
+  shortStatement: string;
+  supportingCopy: string;
+  regions: string[];
 }
 
 export interface SiteConfig {
@@ -48,10 +34,29 @@ export interface SiteConfig {
   description: string;
   url: string;
   githubUrl: string;
-  contact: ContactConfig;
-  legal: LegalConfig;
-  brand: BrandConfig;
-  academy: AcademyConfig;
+  studentProjectsGithubUrl: string;
+  legal: {
+    registeredName: string;
+    rcNumber: string;
+    tin: string;
+    registrationDate: string;
+    natureOfBusiness: string;
+    registeredAddress: string;
+  };
+  brand: {
+    essence: string;
+    principle: string;
+    pillars: BrandPillar[];
+  };
+  contact: {
+    email: string;
+    phone: string;
+    whatsapp: string;
+    whatsappNumber: string;
+    address: string;
+    offices: OfficeLocation[];
+    serviceCoverage: ServiceCoverageInfo;
+  };
   nav: {
     main: NavItem[];
     services: NavItem[];

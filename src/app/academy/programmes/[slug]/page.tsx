@@ -2,11 +2,13 @@ import React from 'react';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { getAllProgrammes, getProgrammeBySlug } from '@/lib/content';
+import { getAllProgrammes, getProgrammeBySlug, getAllLearningPathways } from '@/lib/content';
+import { getCourseCtaLabel } from '@/components/academy/ProgrammeCard';
 import { generateWhatsAppUrl } from '@/lib/whatsapp';
 import { isSafeActionUrl } from '@/lib/security/sanitizer';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
+import { siteConfig } from '@/config/site';
 
 interface CourseDetailPageProps {
   params: {
@@ -38,28 +40,63 @@ export default function CourseDetailPage({ params }: CourseDetailPageProps) {
     notFound();
   }
 
-  const isRegistrationOpen =
-    programme.status === 'Open for Enrolment' || programme.status === 'Upcoming';
-  const hasValidEnrollUrl = isRegistrationOpen && isSafeActionUrl(programme.enrollmentUrl);
+  const allPathways = getAllLearningPathways();
+  const mappedPathways = allPathways.filter((pw) =>
+    programme.learningPathways.includes(pw.slug)
+  );
+
+  const externalEnrollUrl = programme.cohortInfo?.registrationUrl || programme.enrollmentUrl;
+  const hasVerifiedExternalUrl =
+    (programme.status === 'Open for Enrolment' || programme.status === 'Upcoming') &&
+    isSafeActionUrl(externalEnrollUrl);
+
+  const primaryCtaLabel = getCourseCtaLabel(programme.status, programme.isCustomizedTraining);
 
   const whatsappUrl = generateWhatsAppUrl({
     type: 'academy',
     courseTitle: programme.title,
   });
 
+  const courseJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Course',
+    name: programme.title,
+    description: programme.shortDescription,
+    provider: {
+      '@type': 'EducationalOrganization',
+      name: '3A TECHVOLUTION ACADEMY',
+      sameAs: `${siteConfig.url}/academy`,
+    },
+    educationalLevel: programme.level,
+    teaches: programme.learningOutcomes,
+    hasCourseInstance: {
+      '@type': 'CourseInstance',
+      courseMode: programme.format,
+      ...(programme.duration ? { courseWorkload: programme.duration } : {}),
+    },
+  };
+
   return (
     <div className="bg-brand-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(courseJsonLd) }}
+      />
       {/* Course Hero */}
       <section className="bg-brand-navy py-16 text-brand-white">
         <div className="container-custom">
           <div className="max-w-3xl">
-            <Link href="/academy/programmes" className="text-xs font-semibold text-brand-yellow hover:underline">
-              &larr; Back to All AI Courses
+            <Link
+              href="/academy/programmes"
+              className="text-xs font-semibold text-brand-yellow hover:underline"
+            >
+              &larr; Back to All AI &amp; Tech Courses
             </Link>
             <div className="mt-4 flex flex-wrap items-center gap-3">
               <Badge status={programme.status} />
               <span className="text-xs font-medium text-gray-200">
-                {programme.duration} &bull; {programme.format} &bull; {programme.level}
+                {programme.duration ? `${programme.duration} • ` : ''}
+                {programme.format} &bull; {programme.level}
               </span>
             </div>
             <h1 className="mt-4 text-3xl font-extrabold sm:text-4xl lg:text-5xl text-brand-white">
@@ -78,14 +115,36 @@ export default function CourseDetailPage({ params }: CourseDetailPageProps) {
           <div className="lg:col-span-2 space-y-10">
             <section>
               <h2 className="text-2xl font-bold text-brand-navy mb-3">Programme Overview</h2>
-              <p className="text-base text-brand-dark-gray leading-relaxed">{programme.overview}</p>
+              <p className="text-base text-brand-charcoal leading-relaxed">{programme.overview}</p>
             </section>
+
+            {mappedPathways.length > 0 && (
+              <section className="rounded-xl border border-brand-border bg-brand-gray/50 p-5">
+                <h2 className="text-sm font-bold uppercase tracking-wider text-brand-navy mb-3">
+                  Included in Learning Pathways
+                </h2>
+                <div className="flex flex-wrap gap-2">
+                  {mappedPathways.map((pw) => (
+                    <Link
+                      key={pw.slug}
+                      href={`/academy/pathways#${pw.slug}`}
+                      className="rounded-full bg-brand-white px-3.5 py-1.5 text-xs font-semibold text-brand-navy border border-brand-border hover:border-brand-navy"
+                    >
+                      {pw.title} &rarr;
+                    </Link>
+                  ))}
+                </div>
+              </section>
+            )}
 
             <section>
               <h2 className="text-2xl font-bold text-brand-navy mb-4">What You Will Learn</h2>
               <ul className="space-y-3">
                 {programme.learningOutcomes.map((outcome, idx) => (
-                  <li key={idx} className="flex items-start gap-3 rounded-lg border border-brand-border bg-brand-gray/50 p-4 text-sm text-brand-charcoal">
+                  <li
+                    key={idx}
+                    className="flex items-start gap-3 rounded-lg border border-brand-border bg-brand-gray/50 p-4 text-sm text-brand-charcoal"
+                  >
                     <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-navy text-xs font-bold text-brand-yellow">
                       ✓
                     </span>
@@ -139,42 +198,60 @@ export default function CourseDetailPage({ params }: CourseDetailPageProps) {
             </div>
           </div>
 
-          {/* Enrolment Sidebar */}
+          {/* Enrolment & Cohort Information Sidebar */}
           <div>
             <div className="rounded-xl border border-brand-border bg-brand-gray p-6 sticky top-24 space-y-5">
               <div>
-                <span className="text-xs font-semibold uppercase tracking-wider text-gray-500">Course Status</span>
+                <span className="text-xs font-semibold uppercase tracking-wider text-gray-600">
+                  Enrolment Status
+                </span>
                 <div className="mt-1">
                   <Badge status={programme.status} />
                 </div>
               </div>
 
+              {programme.cohortInfo && (
+                <div className="rounded-lg border border-blue-200 bg-blue-50 p-3.5 text-xs text-brand-charcoal space-y-1">
+                  <div className="font-bold text-brand-navy">
+                    Cohort / Intake: {programme.cohortInfo.cohortLabel}
+                  </div>
+                  {programme.cohortInfo.intakeWindow && (
+                    <div>{programme.cohortInfo.intakeWindow}</div>
+                  )}
+                  {programme.cohortInfo.scheduleNotes && (
+                    <div className="text-gray-600">{programme.cohortInfo.scheduleNotes}</div>
+                  )}
+                </div>
+              )}
+
               <dl className="space-y-2.5 text-sm border-y border-brand-border py-4">
-                <div className="flex justify-between">
-                  <dt className="text-gray-500">Duration:</dt>
-                  <dd className="font-semibold text-brand-charcoal">{programme.duration}</dd>
-                </div>
-                <div className="flex justify-between">
-                  <dt className="text-gray-500">Delivery Format:</dt>
-                  <dd className="font-semibold text-brand-charcoal">{programme.format}</dd>
-                </div>
-                <div className="flex justify-between">
-                  <dt className="text-gray-500">Skill Level:</dt>
-                  <dd className="font-semibold text-brand-charcoal">{programme.level}</dd>
-                </div>
-                {programme.startDate && (
-                  <div className="flex justify-between">
-                    <dt className="text-gray-500">Start Date:</dt>
-                    <dd className="font-semibold text-brand-navy">{programme.startDate}</dd>
+                {programme.duration && (
+                  <div className="flex justify-between gap-2">
+                    <dt className="text-gray-600">Duration:</dt>
+                    <dd className="font-semibold text-brand-charcoal text-right">
+                      {programme.duration}
+                    </dd>
                   </div>
                 )}
-                <div className="flex justify-between">
-                  <dt className="text-gray-500">Tuition:</dt>
-                  <dd className="font-bold text-brand-navy">{programme.feeDisplay}</dd>
+                <div className="flex justify-between gap-2">
+                  <dt className="text-gray-600">Delivery Format:</dt>
+                  <dd className="font-semibold text-brand-charcoal text-right">
+                    {programme.format}
+                  </dd>
+                </div>
+                <div className="flex justify-between gap-2">
+                  <dt className="text-gray-600">Skill Level:</dt>
+                  <dd className="font-semibold text-brand-charcoal text-right">
+                    {programme.level}
+                  </dd>
+                </div>
+                <div className="flex justify-between gap-2">
+                  <dt className="text-gray-600">Tuition:</dt>
+                  <dd className="font-bold text-brand-navy text-right">{programme.feeDisplay}</dd>
                 </div>
                 {programme.instructor && (
                   <div className="pt-2 border-t border-brand-border/60">
-                    <dt className="text-xs text-gray-500">Facilitated By:</dt>
+                    <dt className="text-xs text-gray-600">Facilitated By:</dt>
                     <dd className="text-xs font-semibold text-brand-charcoal mt-0.5">
                       {programme.instructor.name} ({programme.instructor.role})
                     </dd>
@@ -182,32 +259,27 @@ export default function CourseDetailPage({ params }: CourseDetailPageProps) {
                 )}
               </dl>
 
-              {hasValidEnrollUrl ? (
+              {hasVerifiedExternalUrl ? (
                 <div className="space-y-3">
                   <Button variant="accent" size="lg" fullWidth asChild>
                     <a
-                      href={programme.enrollmentUrl}
+                      href={externalEnrollUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       data-analytics-event="click_academy_enroll"
                     >
-                      Enrol Now ↗
+                      {primaryCtaLabel} ↗
                     </a>
                   </Button>
-                  <p className="text-[11px] text-gray-500 text-center">
-                    Opens the dedicated registration form for this programme.
-                  </p>
                 </div>
               ) : (
                 <div className="space-y-3">
-                  <div className="rounded-md bg-brand-white p-3 text-xs text-brand-charcoal border border-brand-border">
-                    Registration for this programme is currently closed or scheduled on request. Leave your details to be notified when the next cohort opens.
-                  </div>
-                  <Button variant="primary" size="md" fullWidth asChild>
+                  <Button variant="accent" size="lg" fullWidth asChild>
                     <Link
-                      href={`/contact?type=academy&subject=${encodeURIComponent(`Future Cohort Notification: ${programme.title}`)}`}
+                      href={programme.enquiryRoute}
+                      data-analytics-event="click_academy_enquire"
                     >
-                      Notify Me for Future Cohort
+                      {primaryCtaLabel} &rarr;
                     </Link>
                   </Button>
                 </div>
@@ -225,4 +297,3 @@ export default function CourseDetailPage({ params }: CourseDetailPageProps) {
     </div>
   );
 }
-
